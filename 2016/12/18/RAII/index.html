@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>theForger</title>
+        
+        <!-- 主css -->
+        <link rel="stylesheet" href="/sass/main.css">
+        <!-- seo -->
+            <meta name="description" content="What is RAII?12把资源和对象的生命周期绑定，对象创建获取资源，对象销毁释放资源。  把底层的资源管理提升到对象生命周期管理的层次。
+Why C++ chooses RAII instead of normal GC1和GC相比，RAII达到了和手动释放资源一样的实时性，因此可以承担底层开发的重任
+unique-onwership smart pointer12345678910111">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RAII">
+<meta property="og:url" content="https://israel-liu.github.io/2016/12/18/RAII/index.html">
+<meta property="og:site_name" content="theForger">
+<meta property="og:description" content="What is RAII?12把资源和对象的生命周期绑定，对象创建获取资源，对象销毁释放资源。  把底层的资源管理提升到对象生命周期管理的层次。
+Why C++ chooses RAII instead of normal GC1和GC相比，RAII达到了和手动释放资源一样的实时性，因此可以承担底层开发的重任
+unique-onwership smart pointer12345678910111">
+<meta property="og:updated_time" content="2016-12-19T02:09:06.923Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RAII">
+<meta name="twitter:description" content="What is RAII?12把资源和对象的生命周期绑定，对象创建获取资源，对象销毁释放资源。  把底层的资源管理提升到对象生命周期管理的层次。
+Why C++ chooses RAII instead of normal GC1和GC相比，RAII达到了和手动释放资源一样的实时性，因此可以承担底层开发的重任
+unique-onwership smart pointer12345678910111">
+            <!-- facicon -->
+        
+        <link rel="icon" href="http://7xp1k3.com1.z0.glb.clouddn.com/octocat-de-los-muertos.jpg">
+                
+        <!-- 统计 -->
+        
+        
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-75314797-1', 'auto');
+          ga('send', 'pageview');
+        </script>
+        
+</head>
+
+	<body>
+		<div class="main">
+			<div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/">theForger</a>
+</div>
+<header class="nav-header">
+    <a href="/" class="logo-link">theForger</a>
+    
+            
+    <ul class="nav nav-list">
+        <li class="nav-list-item"><a href="/">主页</a></li>
+        
+            
+        
+            
+        <li class="nav-list-item"><a href="/about">关于</a></li>
+            
+        
+            
+        <li class="nav-list-item"><a href="/tags">分类</a></li>
+            
+        
+            
+        <li class="nav-list-item"><a href="/archives">归档</a></li>
+            
+        
+    </ul>
+</header>
+<div class="sidebar">
+    
+            
+    <ul class="main-menu">
+        <li class="main-menu-item"><a href="/">主页</a></li>
+        
+            
+        
+            
+        <li class="main-menu-item"><a href="/about">关于</a></li>
+            
+        
+            
+        <li class="main-menu-item"><a href="/tags">分类</a></li>
+            
+        
+            
+        <li class="main-menu-item"><a href="/archives">归档</a></li>
+            
+        
+    </ul>
+</div>
+
+<!--h1 class="title">The theForger Blog</h1-->
+<h1 class="title">You win or you die. There is no middle ground.</h1>
+
+			
+<article class="article-main" itemscope itemprop="blogPost">
+        <div class="articleCon">
+            <header class="article-header">
+                <h1 itemprop="name">
+                    <a href="/2016/12/18/RAII/" class="article-title">RAII</a>
+                </h1>
+            </header>
+            <div class="article-meta">
+                <div class="article-dateTime">
+    <a href="/2016/12/18/RAII/" class="article-date">
+        <time datetime="Dec 18th 2016" itemprop="datePublished">
+            Dec 18th 2016
+        </time>
+    </a>
+</div>
+
+            </div>
+            <div class="article-inner">
+                <div class="article-entry" itemprop="articleBody">
+                    <h3 id="What-is-RAII"><a href="#What-is-RAII" class="headerlink" title="What is RAII?"></a>What is RAII?</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">把资源和对象的生命周期绑定，对象创建获取资源，对象销毁释放资源。  </div><div class="line">把底层的资源管理提升到对象生命周期管理的层次。</div></pre></td></tr></table></figure>
+<h3 id="Why-C-chooses-RAII-instead-of-normal-GC"><a href="#Why-C-chooses-RAII-instead-of-normal-GC" class="headerlink" title="Why C++ chooses RAII instead of normal GC"></a>Why C++ chooses RAII instead of normal GC</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">和GC相比，RAII达到了和手动释放资源一样的实时性，因此可以承担底层开发的重任</div></pre></td></tr></table></figure>
+<h3 id="unique-onwership-smart-pointer"><a href="#unique-onwership-smart-pointer" class="headerlink" title="unique-onwership smart pointer"></a>unique-onwership smart pointer</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div></pre></td><td class="code"><pre><div class="line">unique-onwership smart pointer ? 只能一个对象拥有资源 ? 转让所有权 ?</div><div class="line">move-sematics ? 避免拷贝 ？</div><div class="line"></div><div class="line">#pragma once</div><div class="line">#include &lt;memory&gt;</div><div class="line"></div><div class="line">namespace hinata &#123;</div><div class="line"></div><div class="line">	template &lt;typename T, typename D&gt; // D = default_delete&lt;T&gt;</div><div class="line">	class unique_ptr : public std::_Unique_ptr_base&lt;T, D&gt;</div><div class="line">	&#123;</div><div class="line">	public:</div><div class="line">		typedef unique_ptr&lt;T, D&gt; Myt_;</div><div class="line">		// 暂时用VS提供的，日后在写两个类，或者一个加一个内部 pointer</div><div class="line">		// 也可以把 pointer 写到这里来 // 暂时简单点，防止脑袋烧爆</div><div class="line">		typedef _Unique_ptr_base&lt;T, D&gt; Mybase_;</div><div class="line">		// 下划线风格有时候好脑残，</div><div class="line">		typedef typename Mybase_::pointer pointer_;</div><div class="line">		// 暂时不用先放这里 // 轮子不好造啊</div><div class="line">		typedef T element_type_;</div><div class="line">		typedef D deleter_type_;</div><div class="line"></div><div class="line">		using Mybase_::get_deleter;</div><div class="line"></div><div class="line">		// constructors // 暂时就先提供2个</div><div class="line">		constexpr unique_ptr() noexcept</div><div class="line">			: Mybase_(pointer_())</div><div class="line">		&#123;	// constexpr(常量表达式)用于修饰类的构造函数，</div><div class="line">			// 即保证如果提供给该构造函数的参数都是constexpr，</div><div class="line">			// 那么产生的对象中的所有成员都会是constexpr，</div><div class="line">			// 该对象也就是constexpr对象了，可用于各种只能使用constexpr的场合。</div><div class="line">			// note，constexpr构造函数必须有一个空的函数体，即所有成员变量的初始化都放到初始化列表中。</div><div class="line">			static_assert(!is_pointer&lt;D&gt;::value,</div><div class="line">				"unique_ptr constructed with null deleter pointer")</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		explicit unique_ptr(pointer_ p) noexcept</div><div class="line">			: Mybase_(pointer_())</div><div class="line">		&#123;	// null pointer construct</div><div class="line">			static_assert(!is_pointer&lt;D&gt;::value,</div><div class="line">				"unique_ptr constructed with null deleter pointer")</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		unique_ptr(unique_ptr&amp;&amp; right) _NOEXCEPT</div><div class="line">			: Mybase_(right.release(),</div><div class="line">				::std::forward&lt;_Dx&gt;(right.get_deleter()))</div><div class="line">		&#123;	// construct by moving _Right</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		// destructor</div><div class="line">		~unique_ptr() noexcept</div><div class="line">		&#123;</div><div class="line">			if (get() != pointer_())</div><div class="line">				this-&gt;get_deleter()(get());</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		// assignment // assign by moving 省略</div><div class="line">		// 暂时就提供一个 赋空值的</div><div class="line">		Myt_&amp; operator=(nullptr_t)</div><div class="line">		&#123;</div><div class="line">			reset();</div><div class="line">			return (*this);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		// observers</div><div class="line">		pointer_ operator-&gt;() const noexcept</div><div class="line">		&#123;	// return pointer to class object</div><div class="line">			return pointer_();</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		pointer_ get() const noexcept</div><div class="line">		&#123;	// return pointer to object</div><div class="line">			return (this-&gt;_Myptr());</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		explicit operator bool() const noexcept</div><div class="line">		&#123;	// test for non-null pointer</div><div class="line">			return (get() != pointer());</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		// 先使用基类的，应该自己练习写一个的</div><div class="line">		//// Returns: A reference to the stored deleter.</div><div class="line">		//deleter_type&amp; get_deleter() noexcept;</div><div class="line">		//const deleter_type&amp; get_deleter() const noexcept;</div><div class="line">		</div><div class="line">		// modifiers</div><div class="line">		pointer_ release() noexcept</div><div class="line">		&#123;	// yield ownership of pointer</div><div class="line">			pointer_ ans = get();</div><div class="line">			this-&gt;_Myptr() = pointer();</div><div class="line">			return (ans);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		void reset(pointer_ ptr = pointer_()) noexcept</div><div class="line">		&#123;	// establish new pointer</div><div class="line">			pointer old = get();</div><div class="line">			this-&gt;_Myptr() = ptr;</div><div class="line">			if (old != pointer_())</div><div class="line">				this-&gt;get_deleter()(old);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		// void swap(unique_ptr&amp; u) noexcept;</div><div class="line"></div><div class="line">		// disable copy from lvalue</div><div class="line">		unique_ptr(const unique_ptr&amp;) = delete;</div><div class="line">		unique_ptr&amp; operator=(const unique_ptr&amp;) = delete;</div><div class="line"></div><div class="line">	private:</div><div class="line"></div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	// operator == , != , &gt; , &gt;= , &lt; , &lt;=  </div><div class="line">	template &lt;class T1, class D1, class T2, class D2&gt;</div><div class="line">	bool operator==(const unique_ptr&lt;T1, D1&gt;&amp; x, const unique_ptr&lt;T2, D2&gt;&amp; y)</div><div class="line">	&#123;</div><div class="line">		return false;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+                </div>
+                
+<nav id="article-nav">
+  
+  
+    <a href="/2016/12/02/markdown-help/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"> < markdown-help</div>
+    </a>
+  
+</nav>
+
+
+            </div>
+        </div>
+        
+            <div id="disqus_thread"></div>
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//yzzting.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<script id="dsq-count-scr" src="//yzzting.disqus.com/count.js" async></script>
+
+        
+        
+</article>
+
+
+
+		</div>
+		<div id="heart"></div>
+
+    <footer class="blog-footer" id="blog-footer">
+        <div id="footer-info" class="inner">
+            Made with ♥ by <a href="https://israel-liu.github.io/" target="_blank">theForger</a>
+        </div>
+    </footer>
+    <script src="/js/sidebar.js"></script>
+    <script src="/js/toTop.js"></script>
+
+	</body>
+	</html>
