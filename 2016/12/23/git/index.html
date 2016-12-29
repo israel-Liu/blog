@@ -9,23 +9,24 @@
         <!-- 主css -->
         <link rel="stylesheet" href="/sass/main.css">
         <!-- seo -->
-            <meta name="description" content="虽说git操作应该是理解后使用的，但是有时候脑袋就是不好使，还是写个笔记记录一下   
-The Three States
-git push123// 本地分支推送到远端分支// 远端分支不存在的时候使用git push --set-upstream origin &amp;lt;origin_name&amp;gt;">
+            <meta name="description" content="虽说git操作应该是理解后使用的，但是有时候脑袋就是不好使，还是写个笔记记录一下
+Your identity12$ git config --global user.name &amp;quot;John Doe&amp;quot;$ git config --global user.email johndoe@example.com
+Your editor1$ git config --global core.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git help">
 <meta property="og:url" content="https://israel-liu.github.io/2016/12/23/git/index.html">
 <meta property="og:site_name" content="theForger">
-<meta property="og:description" content="虽说git操作应该是理解后使用的，但是有时候脑袋就是不好使，还是写个笔记记录一下   
-The Three States
-git push123// 本地分支推送到远端分支// 远端分支不存在的时候使用git push --set-upstream origin &amp;lt;origin_name&amp;gt;">
+<meta property="og:description" content="虽说git操作应该是理解后使用的，但是有时候脑袋就是不好使，还是写个笔记记录一下
+Your identity12$ git config --global user.name &amp;quot;John Doe&amp;quot;$ git config --global user.email johndoe@example.com
+Your editor1$ git config --global core.">
 <meta property="og:image" content="https://github.com/israel-Liu/theForger/raw/master/images/git_three _states.png">
-<meta property="og:updated_time" content="2016-12-29T08:39:26.242Z">
+<meta property="og:image" content="https://github.com/israel-Liu/theForger/raw/master/images/record_change _repository.png">
+<meta property="og:updated_time" content="2016-12-29T09:58:53.908Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git help">
-<meta name="twitter:description" content="虽说git操作应该是理解后使用的，但是有时候脑袋就是不好使，还是写个笔记记录一下   
-The Three States
-git push123// 本地分支推送到远端分支// 远端分支不存在的时候使用git push --set-upstream origin &amp;lt;origin_name&amp;gt;">
+<meta name="twitter:description" content="虽说git操作应该是理解后使用的，但是有时候脑袋就是不好使，还是写个笔记记录一下
+Your identity12$ git config --global user.name &amp;quot;John Doe&amp;quot;$ git config --global user.email johndoe@example.com
+Your editor1$ git config --global core.">
 <meta name="twitter:image" content="https://github.com/israel-Liu/theForger/raw/master/images/git_three _states.png">
             <!-- facicon -->
         
@@ -121,9 +122,18 @@ git push123// 本地分支推送到远端分支// 远端分支不存在的时候
             </div>
             <div class="article-inner">
                 <div class="article-entry" itemprop="articleBody">
-                    <p>虽说git操作应该是理解后使用的，但是有时候脑袋就是不好使，还是写个笔记记录一下   </p>
+                    <p>虽说git操作应该是理解后使用的，但是有时候脑袋就是不好使，还是写个笔记记录一下</p>
+<h4 id="Your-identity"><a href="#Your-identity" class="headerlink" title="Your identity"></a>Your identity</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;John Doe&quot;</div><div class="line">$ git config --global user.email johndoe@example.com</div></pre></td></tr></table></figure>
+<h4 id="Your-editor"><a href="#Your-editor" class="headerlink" title="Your editor"></a>Your editor</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --global core.editor emacs</div></pre></td></tr></table></figure>
+<h4 id="Checking-your-settings"><a href="#Checking-your-settings" class="headerlink" title="Checking your settings"></a>Checking your settings</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --list</div></pre></td></tr></table></figure>
+<h4 id="Getting-a-git-repository"><a href="#Getting-a-git-repository" class="headerlink" title="Getting a git repository"></a>Getting a git repository</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// Initializing a Repository in an Existing Directory</div><div class="line">$ git init</div><div class="line">// Cloning an Existing Repository</div><div class="line">$ git clone https://github.com/user_name/repository.git</div><div class="line">$ git clone https://github.com/user_name/repository.git local_folder_name</div></pre></td></tr></table></figure>
 <h4 id="The-Three-States"><a href="#The-Three-States" class="headerlink" title="The Three States"></a>The Three States</h4><p><img src="https://github.com/israel-Liu/theForger/raw/master/images/git_three _states.png" alt=""></p>
-<h3 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 本地分支推送到远端分支</span></div><div class="line"><span class="comment">// 远端分支不存在的时候使用</span></div><div class="line">git push --<span class="built_in">set</span>-upstream origin &lt;origin_name&gt;</div></pre></td></tr></table></figure>
+<h4 id="Recording-Changes-to-the-Repository"><a href="#Recording-Changes-to-the-Repository" class="headerlink" title="Recording Changes to the Repository"></a>Recording Changes to the Repository</h4><p><img src="https://github.com/israel-Liu/theForger/raw/master/images/record_change _repository.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">// Checking the Status of Your Files</div><div class="line">$ git status</div><div class="line">// Tracking New Files // 每次修改都重新add添加更改</div><div class="line">$ git add README</div><div class="line">// Ignoring Files</div><div class="line">$ cat .gitignore</div><div class="line">// Viewing Your Staged and Unstaged Changes</div><div class="line">$ git diff</div><div class="line">$ git diff --staged</div><div class="line">$ git diff --cached</div><div class="line">// Committing Your Changes</div><div class="line">$ git commit</div><div class="line">$ git commit -m &quot;Story 182: Fix benchmarks for speed&quot;</div><div class="line">// Skipping the Staging Area</div><div class="line">$ git commit -a -m &apos;added new benchmarks&apos;</div><div class="line">// Removing Files</div><div class="line">$ rm PROJECTS.md</div><div class="line">$ git rm PROJECTS.md</div><div class="line">$ git rm --cached README</div><div class="line">// Moving Files</div><div class="line">$ git mv file_from file_to</div></pre></td></tr></table></figure></p>
+<h4 id="Viewing-the-Commit-History"><a href="#Viewing-the-Commit-History" class="headerlink" title="Viewing the Commit History"></a>Viewing the Commit History</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 很多操作，这里先写一个</div><div class="line">$ git log</div></pre></td></tr></table></figure>
+<h4 id="Undoing-Things"><a href="#Undoing-Things" class="headerlink" title="Undoing Things"></a>Undoing Things</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git commit --amend</div><div class="line">// Unstaging a Staged File</div><div class="line">$ git reset HEAD CONTRIBUTING.md</div><div class="line">// Unmodifying a Modified File</div><div class="line">$ git checkout -- CONTRIBUTING.md</div></pre></td></tr></table></figure>
+<h4 id="Working-with-Remotes"><a href="#Working-with-Remotes" class="headerlink" title="Working with Remotes"></a>Working with Remotes</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// Showing Your Remotes</div><div class="line">$ git remote -v</div><div class="line">// Fetching and Pulling from Your Remotes</div><div class="line">$ git fetch [remote-name]</div><div class="line">// Pushing to Your Remotes</div><div class="line">$ git push origin master</div><div class="line">// Inspecting a Remote</div><div class="line">$ git remote show origin</div><div class="line">// Removing and Renaming Remotes</div><div class="line">$ git remote rm paul</div><div class="line">$ git remote rename pb paul</div></pre></td></tr></table></figure>
+<h4 id="Tagging"><a href="#Tagging" class="headerlink" title="Tagging"></a>Tagging</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// Listing Your Tags</div><div class="line">$ git tag</div><div class="line">// 还有一大推，这里先忽略</div></pre></td></tr></table></figure>
+<h3 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// 本地分支推送到远端分支</div><div class="line">// 远端分支不存在的时候使用</div><div class="line">$ git push --set-upstream origin &lt;origin_name&gt;</div></pre></td></tr></table></figure>
 
                 </div>
                 
