@@ -17,10 +17,14 @@ body {
   flex-flow: column;
   min-height: 100vh; }
 
+del {
+  color: #1E90FF; }
+
 .main {
   flex: 1; }
 
 ::selection {
+  background: #1E90FF;
   color: #fff; }
 
 ::-webkit-scrollbar {
@@ -28,6 +32,7 @@ body {
   height: 4px; }
 
 ::-webkit-scrollbar-thumb {
+  background: #1E90FF;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -o-border-radius: 0;
