@@ -15,6 +15,7 @@
 <meta property="og:url" content="https://israel-liu.github.io/2017/02/16/Using-Messages-and-Message-Queues/index.html">
 <meta property="og:site_name" content="theForger">
 <meta property="og:description" content="Creating a Message LoopThe system does not automatically create a message queue for each thread. Instead, the system creates a message queue only for threads that perform   operations which require a">
+<meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-11-03T08:21:55.820Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Using Messages and Message Queues">
@@ -113,7 +114,7 @@
             </div>
             <div class="article-inner">
                 <div class="article-entry" itemprop="articleBody">
-                    <h4 id="Creating-a-Message-Loop"><a href="#Creating-a-Message-Loop" class="headerlink" title="Creating a Message Loop"></a><a href="https://msdn.microsoft.com/EN-US/library/windows/desktop/ms644928&quot;.aspx" target="_blank" rel="external">Creating a Message Loop</a></h4><p>The system does not automatically create a message queue for each thread. Instead, the system creates a message queue only for threads that perform   operations which require a message queue. If the thread creates one or more windows, a message loop must be provided; this message loop retrieves messages   from the thread’s message queue and dispatches them to the appropriate window procedures.  </p>
+                    <h4 id="Creating-a-Message-Loop"><a href="#Creating-a-Message-Loop" class="headerlink" title="Creating a Message Loop"></a><a href="https://msdn.microsoft.com/EN-US/library/windows/desktop/ms644928&quot;.aspx" target="_blank" rel="noopener">Creating a Message Loop</a></h4><p>The system does not automatically create a message queue for each thread. Instead, the system creates a message queue only for threads that perform   operations which require a message queue. If the thread creates one or more windows, a message loop must be provided; this message loop retrieves messages   from the thread’s message queue and dispatches them to the appropriate window procedures.  </p>
 <p>Because the system directs messages to individual windows in an application, a thread must create at least one window before starting its message loop.    Most applications contain a single thread that creates windows. A typical application registers the window class for its main window, creates and shows the   main window, and then starts its message loop — all in the WinMain function.  </p>
 <p>You create a message loop by using the GetMessage and DispatchMessage functions. If your application must obtain character input from the user,          include the TranslateMessage function in the loop. TranslateMessage translates virtual-key messages into character messages. The following example shows the   message loop in the WinMain function of a simple Windows-based application.</p>
 

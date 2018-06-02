@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>theForger</title>
+        
+        <!-- 主css -->
+        <link rel="stylesheet" href="/sass/main.css">
+        <!-- seo -->
+            <meta name="description" content="Electron 源码目录结构Electron 的源代码主要依据 Chromium 的拆分约定被拆成了许多部分。为了更好地理解源代码，您可能需要了解一下 Chromium 的多进程架构。 源代码的结构123456789101112131415161718192021222324252627282930Electron├──atom - Electron 的源代码|  ├── app - 系统入口代">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Electron-source-directory-structure">
+<meta property="og:url" content="https://israel-liu.github.io/2018/06/02/Electron-source-directory-structure/index.html">
+<meta property="og:site_name" content="theForger">
+<meta property="og:description" content="Electron 源码目录结构Electron 的源代码主要依据 Chromium 的拆分约定被拆成了许多部分。为了更好地理解源代码，您可能需要了解一下 Chromium 的多进程架构。 源代码的结构123456789101112131415161718192021222324252627282930Electron├──atom - Electron 的源代码|  ├── app - 系统入口代">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-06-02T02:23:17.374Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Electron-source-directory-structure">
+<meta name="twitter:description" content="Electron 源码目录结构Electron 的源代码主要依据 Chromium 的拆分约定被拆成了许多部分。为了更好地理解源代码，您可能需要了解一下 Chromium 的多进程架构。 源代码的结构123456789101112131415161718192021222324252627282930Electron├──atom - Electron 的源代码|  ├── app - 系统入口代">
+            <!-- facicon -->
+        
+        <link rel="icon" href="https://github.com/israel-Liu/theForger/raw/master/images/hinata.jpeg">
+                
+        <!-- 统计 -->
+        
+        
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-75314797-1', 'auto');
+          ga('send', 'pageview');
+        </script>
+        
+</head>
+
+	<body>
+		<div class="main">
+			<div id="mobile-bar">
+    <a class="menu-button"></a>
+    <a class="logo" href="/">theForger</a>
+</div>
+<header class="nav-header">
+    <a href="/" class="logo-link">theForger</a>
+    
+            
+    <ul class="nav nav-list">
+        <li class="nav-list-item"><a href="/">主页</a></li>
+        
+            
+        
+            
+        <li class="nav-list-item"><a href="/about">关于</a></li>
+            
+        
+            
+        <li class="nav-list-item"><a href="/tags">分类</a></li>
+            
+        
+            
+        <li class="nav-list-item"><a href="/archives">归档</a></li>
+            
+        
+    </ul>
+</header>
+<div class="sidebar">
+    
+            
+    <ul class="main-menu">
+        <li class="main-menu-item"><a href="/">主页</a></li>
+        
+            
+        
+            
+        <li class="main-menu-item"><a href="/about">关于</a></li>
+            
+        
+            
+        <li class="main-menu-item"><a href="/tags">分类</a></li>
+            
+        
+            
+        <li class="main-menu-item"><a href="/archives">归档</a></li>
+            
+        
+    </ul>
+</div>
+
+<!--h1 class="title">The theForger Blog</h1-->
+<h1 class="title">You win or you die. There is no middle ground.</h1>
+
+			
+<article class="article-main" itemscope itemprop="blogPost">
+        <div class="articleCon">
+            <header class="article-header">
+                <h1 itemprop="name">
+                    <a href="/2018/06/02/Electron-source-directory-structure/" class="article-title">Electron-source-directory-structure</a>
+                </h1>
+            </header>
+            <div class="article-meta">
+                <div class="article-dateTime">
+    <a href="/2018/06/02/Electron-source-directory-structure/" class="article-date">
+        <time datetime="Jun 2nd 2018" itemprop="datePublished">
+            Jun 2nd 2018
+        </time>
+    </a>
+</div>
+
+            </div>
+            <div class="article-inner">
+                <div class="article-entry" itemprop="articleBody">
+                    <h2 id="Electron-源码目录结构"><a href="#Electron-源码目录结构" class="headerlink" title="Electron 源码目录结构"></a>Electron 源码目录结构</h2><p>Electron 的源代码主要依据 Chromium 的拆分约定被拆成了许多部分。<br>为了更好地理解源代码，您可能需要了解一下 Chromium 的多进程架构。</p>
+<h4 id="源代码的结构"><a href="#源代码的结构" class="headerlink" title="源代码的结构"></a>源代码的结构</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Electron</span><br><span class="line">├──atom - Electron 的源代码</span><br><span class="line">|  ├── app - 系统入口代码</span><br><span class="line">|  ├── browser - 包含了主窗口、UI 和其他所有与主进程有关的东西，它会告诉渲染进程如何管理页面</span><br><span class="line">|  |   ├── lib - 主进程初始化代码中 JavaScript 部分的代码</span><br><span class="line">|  |   ├── ui - 不同平台上 UI 部分的实现</span><br><span class="line">|  |   |   ├── cocoa - Cocoa 部分的源代码</span><br><span class="line">|  |   |   ├── gtk - GTK+ 部分的源代码</span><br><span class="line">|  |   |   └── win - Windows GUI 部分的源代码</span><br><span class="line">|  |   ├── default_app - 在没有指定 app 的情况下 Electron 启动时默认显示的页面</span><br><span class="line">|  |   ├── api - 主进程 API 的实现</span><br><span class="line">|  |   |   └── lib - API 实现中 Javascript 部分的代码</span><br><span class="line">|  |   ├── net - 网络相关的代码</span><br><span class="line">|  |   ├── mac - 与 Mac 有关的 Objective-C 代码</span><br><span class="line">|  |   └── resources - 图标，平台相关的文件等</span><br><span class="line">|  ├── renderer - 运行在渲染进程中的代码</span><br><span class="line">|  |   ├── lib - 渲染进程初始化代码中 JavaScript 部分的代码</span><br><span class="line">|  |   └── api - 渲染进程 API 的实现</span><br><span class="line">|  |       └── lib - API 实现中 Javascript 部分的代码</span><br><span class="line">|  └── common - 同时被主进程和渲染进程用到的代码，包括了一些用来将 node 的事件循环</span><br><span class="line">|      |        整合到 Chromium 的事件循环中时用到的工具函数和代码</span><br><span class="line">|      ├── lib - 同时被主进程和渲染进程使用到的 Javascript 初始化代码</span><br><span class="line">|      └── api - 同时被主进程和渲染进程使用到的 API 的实现以及 Electron 内置模块的基础设施</span><br><span class="line">|          └── lib - API 实现中 Javascript 部分的代码</span><br><span class="line">├── chromium_src - 从 Chromium 项目中拷贝来的代码</span><br><span class="line">├── docs - 英语版本的文档</span><br><span class="line">├── docs-translations - 各种语言版本的文档翻译</span><br><span class="line">├── spec - 自动化测试</span><br><span class="line">├── atom.gyp - Electron 的构建规则</span><br><span class="line">└── common.gypi - 为诸如 `node` 和 `breakpad` 等其他组件准备的编译设置和构建规则</span><br></pre></td></tr></table></figure>
+<h4 id="其他目录的结构"><a href="#其他目录的结构" class="headerlink" title="其他目录的结构"></a>其他目录的结构</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">script - 用于诸如构建、打包、测试等开发用途的脚本</span><br><span class="line">tools - 在 gyp 文件中用到的工具脚本，但与 script 目录不同， 该目录中的脚本不应该被用户直接调用</span><br><span class="line">vendor - 第三方依赖项的源代码，为了防止人们将它与 Chromium 源码中的同名目录相混淆， 在这里我们不使用 third_party 作为目录名</span><br><span class="line">node_modules - 在构建中用到的第三方 node 模块</span><br><span class="line">out - ninja 的临时输出目录</span><br><span class="line">dist - 由脚本 script/create-dist.py 创建的临时发布目录</span><br><span class="line">external_binaries - 下载的不支持通过 gyp 构建的预编译第三方框架</span><br></pre></td></tr></table></figure>
+
+                </div>
+                
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/26/hexo-theme/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"> < hexo-theme</div>
+    </a>
+  
+</nav>
+
+
+            </div>
+        </div>
+        
+            <div id="disqus_thread"></div>
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+
+        s.src = '//theForger.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<script id="dsq-count-scr" src="//theForger.disqus.com/count.js" async></script>
+
+        
+        
+</article>
+
+
+
+		</div>
+		<div id="heart"></div>
+
+    <footer class="blog-footer" id="blog-footer">
+        <div id="footer-info" class="inner">
+            Made with ♥ by <a href="https://israel-liu.github.io/" target="_blank">theForger</a>
+        </div>
+    </footer>
+    <script src="/js/sidebar.js"></script>
+    <script src="/js/toTop.js"></script>
+
+	</body>
+	</html>
