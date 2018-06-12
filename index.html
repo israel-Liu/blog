@@ -76,7 +76,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/12/Building-Chromium-for-Windows/" data-id="cjibcow9o0001nkusobze5k44" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/12/Building-Chromium-for-Windows/" data-id="cjibdk4ro000078uskki90u2f" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -87,6 +87,7 @@
 <h3 id="Visual-Studio"><a href="#Visual-Studio" class="headerlink" title="Visual Studio"></a>Visual Studio</h3><p>You must install the “Desktop development with C++” component and the “MFC and ATL support” sub-component.<br>You must have the version 10.0.17134 Windows 10 SDK installed.这里如果不安装后面编译会找不到某些库。</p>
 <h3 id="depot-tools"><a href="#depot-tools" class="headerlink" title="depot_tools"></a>depot_tools</h3><p>下载解压，不可拷贝因为需要隐藏的(.git)文件夹，添加路径到环境变量，满足(at least in front of any directory that might already have a copy of Python or Git)<br>因为我们使用depot_tools里面的工具进行下载代码和编译所以( tells depot_tools to use your locally installed version of Visual Studio need add a DEPOT_TOOLS_WIN_TOOLCHAIN system variable in the same way, and set it to 0.)</p>
 <h3 id="Get-the-code"><a href="#Get-the-code" class="headerlink" title="Get the code"></a>Get the code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 因为我是有几个git账号，工作和自己的，所以我没有设置全局的，而是先下载代码，在自己仓库单独配置(在有.git文件夹下去掉--global执行下面命令)</span></span><br><span class="line">$ git config --global user.name <span class="string">"My Name"</span></span><br><span class="line">$ git config --global user.email <span class="string">"my-name@chromium.org"</span></span><br><span class="line">$ git config --global core.autocrlf <span class="literal">false</span></span><br><span class="line">$ git config --global core.filemode <span class="literal">false</span></span><br><span class="line">$ git config --global branch.autosetuprebase always</span><br><span class="line"></span><br><span class="line"><span class="comment">// 找一个你想下载代码的地方执行创建文件夹用于下载代码</span></span><br><span class="line">$ mkdir chromium &amp;&amp; cd chromium</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里是使用的 depot_tools 里面的脚本(也可以下载其它代码，不详细描述)</span></span><br><span class="line">$ fetch chromium <span class="comment">// 下载代码成功很重要，不然你会遇见很多坑，我是弄了很多次，有些网络问题遇见了可以具体配置host(通过网站之家找到延时低的ip)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 下载完成后会看到一个src文件夹和.gclient文件(我还生成了一个.gclient_entries)因为这个要很久，如果你看到控制台没有动，你可以敲下回车</span></span><br><span class="line">$ cd src <span class="comment">// The remaining instructions assume you have switched to the src directory</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// To create a build directory</span></span><br><span class="line">$ gn gen out/Default</span><br><span class="line"></span><br><span class="line"><span class="comment">// Using the Visual Studio IDE</span></span><br><span class="line">$ gn gen --ide=vs out\Default</span><br><span class="line"></span><br><span class="line"><span class="comment">// Build Chromium 这个要很久</span></span><br><span class="line">$ ninja -C out\Default chrome</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.chromium.org/developers/learning-your-way-around-the-code" target="_blank" rel="noopener">从哪里入手学习</a></p>
 
       
     </div><!-- .entry-content -->
@@ -123,7 +124,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/02/Electron-source-directory-structure/" data-id="cjibcowcm0009nkus65i33g04" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/02/Electron-source-directory-structure/" data-id="cjibdk4so000778usqrn2h8mk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -168,7 +169,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/26/hexo-theme/" data-id="cjibcowdm000nnkusrdmzlas7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/26/hexo-theme/" data-id="cjibdk4t8000j78usk2vp87qc" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -210,7 +211,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/14/C-Run-Time-Library-Reference/" data-id="cjibcowch0004nkusv3pw46g6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/14/C-Run-Time-Library-Reference/" data-id="cjibdk4sm000478us46jlcxzp" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -252,7 +253,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/10/reading-note-fourth/" data-id="cjibcowdn000onkusdai8utr0" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/10/reading-note-fourth/" data-id="cjibdk4tb000n78usuep4um7r" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -294,7 +295,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/03/28/reading-note-thirdly/" data-id="cjibcowdr000tnkus3lyrwfaa" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/03/28/reading-note-thirdly/" data-id="cjibdk4tb000o78usley99f43" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -338,7 +339,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/Building-C-C-Programs/" data-id="cjibcowc20003nkusdzitqw9e" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/Building-C-C-Programs/" data-id="cjibdk4sb000278uswae7m9ly" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -383,7 +384,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/Advanced-C-and-C-Compiling/" data-id="cjibcowc10002nkusmmymj42k" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/Advanced-C-and-C-Compiling/" data-id="cjibdk4sl000378usgprvk11p" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -432,7 +433,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/Windows-API/" data-id="cjibcowdi000gnkusqp1eojol" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/Windows-API/" data-id="cjibdk4t3000c78us75bzvfck" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -477,7 +478,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/Windows-Programer/" data-id="cjibcowdj000hnkus04okhe98" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/Windows-Programer/" data-id="cjibdk4t6000g78us3xmv46o6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
