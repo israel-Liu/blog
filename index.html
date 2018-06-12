@@ -61,6 +61,53 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-Building-Chromium-for-Windows" class="post-Building-Chromium-for-Windows post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2018/06/12/Building-Chromium-for-Windows/">Building_Chromium_for_Windows</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/12/Building-Chromium-for-Windows/" data-id="cjibcow9o0001nkusobze5k44" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p><a href="https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#Setting-up-Windows" target="_blank" rel="noopener">官方文档</a><br>请仔细阅读官方文档，如果遇见错误在回来看，以下只写出我编译的时候失败过的地方。</p>
+<h3 id="System-requirements"><a href="#System-requirements" class="headerlink" title="System requirements"></a>System requirements</h3><p>At least 100GB of free disk space on an NTFS-formatted hard drive. FAT32 will not work, as some of the Git packfiles are larger than 4GB.</p>
+<h3 id="Visual-Studio"><a href="#Visual-Studio" class="headerlink" title="Visual Studio"></a>Visual Studio</h3><p>You must install the “Desktop development with C++” component and the “MFC and ATL support” sub-component.<br>You must have the version 10.0.17134 Windows 10 SDK installed.这里如果不安装后面编译会找不到某些库。</p>
+<h3 id="depot-tools"><a href="#depot-tools" class="headerlink" title="depot_tools"></a>depot_tools</h3><p>下载解压，不可拷贝因为需要隐藏的(.git)文件夹，添加路径到环境变量，满足(at least in front of any directory that might already have a copy of Python or Git)<br>因为我们使用depot_tools里面的工具进行下载代码和编译所以( tells depot_tools to use your locally installed version of Visual Studio need add a DEPOT_TOOLS_WIN_TOOLCHAIN system variable in the same way, and set it to 0.)</p>
+<h3 id="Get-the-code"><a href="#Get-the-code" class="headerlink" title="Get the code"></a>Get the code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 因为我是有几个git账号，工作和自己的，所以我没有设置全局的，而是先下载代码，在自己仓库单独配置(在有.git文件夹下去掉--global执行下面命令)</span></span><br><span class="line">$ git config --global user.name <span class="string">"My Name"</span></span><br><span class="line">$ git config --global user.email <span class="string">"my-name@chromium.org"</span></span><br><span class="line">$ git config --global core.autocrlf <span class="literal">false</span></span><br><span class="line">$ git config --global core.filemode <span class="literal">false</span></span><br><span class="line">$ git config --global branch.autosetuprebase always</span><br><span class="line"></span><br><span class="line"><span class="comment">// 找一个你想下载代码的地方执行创建文件夹用于下载代码</span></span><br><span class="line">$ mkdir chromium &amp;&amp; cd chromium</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里是使用的 depot_tools 里面的脚本(也可以下载其它代码，不详细描述)</span></span><br><span class="line">$ fetch chromium <span class="comment">// 下载代码成功很重要，不然你会遇见很多坑，我是弄了很多次，有些网络问题遇见了可以具体配置host(通过网站之家找到延时低的ip)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 下载完成后会看到一个src文件夹和.gclient文件(我还生成了一个.gclient_entries)因为这个要很久，如果你看到控制台没有动，你可以敲下回车</span></span><br><span class="line">$ cd src <span class="comment">// The remaining instructions assume you have switched to the src directory</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// To create a build directory</span></span><br><span class="line">$ gn gen out/Default</span><br><span class="line"></span><br><span class="line"><span class="comment">// Using the Visual Studio IDE</span></span><br><span class="line">$ gn gen --ide=vs out\Default</span><br><span class="line"></span><br><span class="line"><span class="comment">// Build Chromium 这个要很久</span></span><br><span class="line">$ ninja -C out\Default chrome</span><br></pre></td></tr></table></figure>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/06/12/Building-Chromium-for-Windows/">
+    <time datetime="2018-06-12T06:25:38.000Z" class="entry-date">
+        2018-06-12
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-Electron-source-directory-structure" class="post-Electron-source-directory-structure post type-post status-publish format-standard hentry">
     <!---->
 
@@ -76,7 +123,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/02/Electron-source-directory-structure/" data-id="cjhx1z4s900070ousz2wj1ih5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/02/Electron-source-directory-structure/" data-id="cjibcowcm0009nkus65i33g04" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -121,7 +168,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/26/hexo-theme/" data-id="cjhx1z4sv000o0ous5j3qfxn7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/26/hexo-theme/" data-id="cjibcowdm000nnkusrdmzlas7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -163,7 +210,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/14/C-Run-Time-Library-Reference/" data-id="cjhx1z4s700040ous3r3w4mfb" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/14/C-Run-Time-Library-Reference/" data-id="cjibcowch0004nkusv3pw46g6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -205,7 +252,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/10/reading-note-fourth/" data-id="cjhx1z4sw000p0ous3xgq86jx" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/10/reading-note-fourth/" data-id="cjibcowdn000onkusdai8utr0" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -247,7 +294,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/03/28/reading-note-thirdly/" data-id="cjhx1z4sy000s0ousad2po41u" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/03/28/reading-note-thirdly/" data-id="cjibcowdr000tnkus3lyrwfaa" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -291,7 +338,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/Building-C-C-Programs/" data-id="cjhx1z4s600030ousdhy3royz" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/Building-C-C-Programs/" data-id="cjibcowc20003nkusdzitqw9e" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -336,7 +383,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/Advanced-C-and-C-Compiling/" data-id="cjhx1z4s500020ouslhpf07xm" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/Advanced-C-and-C-Compiling/" data-id="cjibcowc10002nkusmmymj42k" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -385,7 +432,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/Windows-API/" data-id="cjhx1z4sg000e0ousipawpanz" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/Windows-API/" data-id="cjibcowdi000gnkusqp1eojol" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -430,7 +477,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/Windows-Programer/" data-id="cjhx1z4ss000k0ousrvqmf1fi" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/Windows-Programer/" data-id="cjibcowdj000hnkus04okhe98" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -460,60 +507,10 @@
 
 
   
-    <article id="post-Standard-for-Programming-Language-C" class="post-Standard-for-Programming-Language-C post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/11/16/Standard-for-Programming-Language-C/">Standard for Programming Language C++</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/Standard-for-Programming-Language-C/" data-id="cjhx1z4su000m0ous72ufjr7q" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <ol>
-<li><a href="https://israel-liu.github.io/2016/12/01/reading-note-one/#more">reading_note_one</a></li>
-<li><a href="http://en.cppreference.com/w/cpp/language/declarations" target="_blank" rel="noopener">Declarations</a></li>
-<li><a href="http://en.cppreference.com/w/cpp/language/storage_duration" target="_blank" rel="noopener">Storage class specifiers</a></li>
-<li><a href="http://en.cppreference.com/w/cpp/language/namespace" target="_blank" rel="noopener">Unnamed namespaces in a translation unit have the same identifier this identifier differs from all other identifiers in the translation unit. In addition, all names declared in unnamed namespace or a namespace within an unnamed namespace, even ones explicitly declared extern, have internal linkage.</a></li>
-<li><a href="http://en.cppreference.com/w/cpp/io" target="_blank" rel="noopener">Input/output library</a> std::basic_streambuf store data std::basic_ios operator.(write log class)</li>
-<li><a href="http://en.cppreference.com/w/cpp/string" target="_blank" rel="noopener">Strings library</a> Null-terminated strings is string array, std::char_traits provide charT operator.</li>
-</ol>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/11/16/Standard-for-Programming-Language-C/">
-    <time datetime="2017-11-16T07:27:29.000Z" class="entry-date">
-        2017-11-16
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
   
     <nav id="pagination">
       <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
       </nav>
     </nav>
   
@@ -539,6 +536,10 @@
       <ul>
         
           <li>
+            <a href="/2018/06/12/Building-Chromium-for-Windows/">Building_Chromium_for_Windows</a>
+          </li>
+        
+          <li>
             <a href="/2018/06/02/Electron-source-directory-structure/">Electron-source-directory-structure</a>
           </li>
         
@@ -552,10 +553,6 @@
         
           <li>
             <a href="/2018/04/10/reading-note-fourth/">C++ Primer, Fifth Edition reading-note-fourth</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/28/reading-note-thirdly/">C++ Primer, Fifth Edition reading-note-thirdly</a>
           </li>
         
       </ul>

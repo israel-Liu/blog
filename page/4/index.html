@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+
+  
+  
+  
+  
+  
+  
+  <title>theForger</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="theForger">
+<meta property="og:url" content="https://israel-liu.github.io/page/4/index.html">
+<meta property="og:site_name" content="theForger">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="theForger">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="theForger" rel="home">theForger</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main">
+  
+    <article id="post-reading-note-one" class="post-reading-note-one post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2016/12/01/reading-note-one/">C++ Primer, Fifth Edition reading_note_one</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2016/12/01/reading-note-one/" data-id="cjibcowdp000qnkusl4r3mdg4" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>总之先写点什么吧，对markdown的编辑格式还不是很熟悉<br>排版就先这样好了，日后再修改，或许发个markdown编辑格式的博文也不错，<br>分类什么的也比较乱，以后还是尽量写英文吧，从最短的地方补起来</p>
+<h2 id="下面正文开始"><a href="#下面正文开始" class="headerlink" title="下面正文开始"></a>下面正文开始</h2><h3 id="Top-Level-const"><a href="#Top-Level-const" class="headerlink" title="Top-Level const"></a>Top-Level const</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;We user the term Top-Level const to indicate that the pointer itself<br>is a const. When a pointer can point to a const object, we refer to that<br>const as a low-level const.<br>&nbsp;&nbsp;&nbsp;&nbsp;The distinction between top-level and low-level matters when we copy<br>an object. When we copy an object, top-level consts are ignored.<br>&nbsp;&nbsp;&nbsp;&nbsp;简单的说指针和引用的基本类型部分（low-level const）当执行对象拷贝操作时，<br>常量可以拷贝给常量，非常量可以拷贝给常量（可以转换）反之不行。</p>
+<h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span>* <span class="keyword">const</span> p1 = &amp;i;       <span class="comment">// we can't change the value of p1; const is top-level</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> ci = <span class="number">42</span>;        <span class="comment">// we can't change ci; const is top-level</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>* p2 = &amp;ci;      <span class="comment">// we can change p2; const is low-level</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>* <span class="keyword">const</span> p3 = p2; <span class="comment">// right-most const is top-level, left-most is not</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>&amp; r = ci;        <span class="comment">// const in reference types is always low-level</span></span><br></pre></td></tr></table></figure>
+<h3 id="Standard-Container-Iterator-Operations"><a href="#Standard-Container-Iterator-Operations" class="headerlink" title="Standard Container Iterator Operations"></a>Standard Container Iterator Operations</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;因为操作符重载和语言基本的(-&gt;)箭头操作，搞定我晕晕的，提一下<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iter-&gt;mem;  <span class="comment">// Dereferences iter and fetches the member named mem from</span></span><br><span class="line">            <span class="comment">// the underlying element. Equivalent to (*iter).mem</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="文章结束之前提一下-begin-end"><a href="#文章结束之前提一下-begin-end" class="headerlink" title="文章结束之前提一下 begin(),  end()."></a>文章结束之前提一下 begin(),  end().</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;begin returns a pointer to the first, and end returns a pointer one past the last<br>element in the given array: These functions are defined in the iterator header<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> ia[] = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>&#125;;   <span class="comment">// ia is an array of ten ints</span></span><br><span class="line"><span class="keyword">int</span> *beg = begin(ia);               <span class="comment">// pointer to the first element in ia</span></span><br><span class="line"><span class="keyword">int</span> *last = end(ia);                <span class="comment">// pointer one past the last element in ia</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="End-第一篇到这里了，Note-还有个vector无符号下标，内置数组有符号下标"><a href="#End-第一篇到这里了，Note-还有个vector无符号下标，内置数组有符号下标" class="headerlink" title="End 第一篇到这里了，Note 还有个vector无符号下标，内置数组有符号下标"></a>End 第一篇到这里了，Note 还有个vector无符号下标，内置数组有符号下标</h2>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/12/01/reading-note-one/">
+    <time datetime="2016-12-01T02:38:24.000Z" class="entry-date">
+        2016-12-01
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+  
+    <nav id="pagination">
+      <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+      </nav>
+    </nav>
+  
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/12/Building-Chromium-for-Windows/">Building_Chromium_for_Windows</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/02/Electron-source-directory-structure/">Electron-source-directory-structure</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/26/hexo-theme/">hexo-theme</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/14/C-Run-Time-Library-Reference/">C-Run-Time Library Reference</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/10/reading-note-fourth/">C++ Primer, Fifth Edition reading-note-fourth</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2018 John Doe
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
