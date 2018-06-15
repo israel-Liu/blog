@@ -61,6 +61,140 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-repository-tools" class="post-repository-tools post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2018/06/15/repository-tools/">repository_tools</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/15/repository-tools/" data-id="cjifexr31000txoussui7kauz" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p><a href="https://github.com/israel-Liu/repository_tools" target="_blank" rel="noopener">repository_tools</a></p>
+<p>Like Google depot_tools 用来管理代码的工具 Make code management easy</p>
+<h4 id="初版开发背景"><a href="#初版开发背景" class="headerlink" title="初版开发背景:"></a>初版开发背景:</h4><p>因为我们工程是多个branch，每次都要单个目录去更新，自己感觉麻烦就写了个简单脚本  </p>
+<h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法:"></a>使用方法:</h4><p>首先要保证git 和 python设置到环境变量中，也就是要在命令行中可以用，因为要用脚本去执行<br>把工程下载后放到需要更新的目录一级上(同级别)然后执行里面的pull脚本，正确的话就没有什么提示的，错误有提示。</p>
+<h4 id="核心Code"><a href="#核心Code" class="headerlink" title="核心Code"></a>核心Code</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(args = None)</span>:</span></span><br><span class="line">  <span class="keyword">for</span> folder <span class="keyword">in</span> os.listdir(SCRIPT_PATH):</span><br><span class="line">    folder = os.path.join(SCRIPT_PATH, folder)</span><br><span class="line">    <span class="keyword">for</span> git_folder <span class="keyword">in</span> os.listdir(folder):</span><br><span class="line">      <span class="keyword">if</span> git_folder == <span class="string">'.git'</span>:</span><br><span class="line">        os.chdir(folder)</span><br><span class="line">        git.run(<span class="string">'fetch'</span>, <span class="string">'-p'</span>)</span><br><span class="line">        cur_branch = git.current_branch()</span><br><span class="line">        git.run(<span class="string">'rebase'</span>, <span class="string">'origin/master'</span>, cur_branch)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<h4 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h4><p>后面如果有需要可以继续添加更多脚本</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/06/15/repository-tools/">
+    <time datetime="2018-06-15T03:18:38.000Z" class="entry-date">
+        2018-06-15
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-Inter-process-Communication" class="post-Inter-process-Communication post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2018/06/13/Inter-process-Communication/">Inter-process_Communication</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/13/Inter-process-Communication/" data-id="cjifexr2g0008xoussyqwuubj" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p><a href="https://www.chromium.org/developers/design-documents/inter-process-communication" target="_blank" rel="noopener">Inter-process Communication (IPC)</a></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/06/13/Inter-process-Communication/">
+    <time datetime="2018-06-13T11:10:07.000Z" class="entry-date">
+        2018-06-13
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-Chromium-Source-Code-Directory-Structure" class="post-Chromium-Source-Code-Directory-Structure post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2018/06/12/Chromium-Source-Code-Directory-Structure/">Chromium_Source_Code_Directory_Structure</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/12/Chromium-Source-Code-Directory-Structure/" data-id="cjifexr1p0005xousblmsqpgk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p><a href="https://www.chromium.org/developers/how-tos/getting-around-the-chrome-source-code" target="_blank" rel="noopener">Chromium Source Code Directory Structure</a></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/06/12/Chromium-Source-Code-Directory-Structure/">
+    <time datetime="2018-06-12T12:08:39.000Z" class="entry-date">
+        2018-06-12
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-Building-Chromium-for-Windows" class="post-Building-Chromium-for-Windows post type-post status-publish format-standard hentry">
     <!---->
 
@@ -76,7 +210,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/12/Building-Chromium-for-Windows/" data-id="cjibdk4ro000078uskki90u2f" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/12/Building-Chromium-for-Windows/" data-id="cjifexr1r0006xouslpzyluiv" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -124,7 +258,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/02/Electron-source-directory-structure/" data-id="cjibdk4so000778usqrn2h8mk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/02/Electron-source-directory-structure/" data-id="cjifexr2f0007xousv0chbwif" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -169,7 +303,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/26/hexo-theme/" data-id="cjibdk4t8000j78usk2vp87qc" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/26/hexo-theme/" data-id="cjifexr2x000mxousvuxyet9d" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -211,7 +345,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/14/C-Run-Time-Library-Reference/" data-id="cjibdk4sm000478us46jlcxzp" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/14/C-Run-Time-Library-Reference/" data-id="cjifexr1p0004xousry3ms644" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -253,7 +387,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/10/reading-note-fourth/" data-id="cjibdk4tb000n78usuep4um7r" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/10/reading-note-fourth/" data-id="cjifexr2z000pxousakuis6ol" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -295,7 +429,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/03/28/reading-note-thirdly/" data-id="cjibdk4tb000o78usley99f43" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/03/28/reading-note-thirdly/" data-id="cjifexr33000vxousktzwbwlv" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -339,7 +473,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/Building-C-C-Programs/" data-id="cjibdk4sb000278uswae7m9ly" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/Building-C-C-Programs/" data-id="cjifexr1o0003xous20hqlixw" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -355,145 +489,6 @@
     <footer class="entry-meta">
     <a href="/2017/11/16/Building-C-C-Programs/">
     <time datetime="2017-11-16T07:58:22.000Z" class="entry-date">
-        2017-11-16
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-Advanced-C-and-C-Compiling" class="post-Advanced-C-and-C-Compiling post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/11/16/Advanced-C-and-C-Compiling/">Advanced C and C++ Compiling</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/Advanced-C-and-C-Compiling/" data-id="cjibdk4sl000378usgprvk11p" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <ol>
-<li>Creating the source code</li>
-<li>Compiling <a href="https://docs.microsoft.com/en-us/cpp/preprocessor/phases-of-translation" target="_blank" rel="noopener">Precompiled</a></li>
-<li>Linking</li>
-<li>Loading</li>
-<li>Executing</li>
-</ol>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/11/16/Advanced-C-and-C-Compiling/">
-    <time datetime="2017-11-16T07:54:11.000Z" class="entry-date">
-        2017-11-16
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-Windows-API" class="post-Windows-API post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/11/16/Windows-API/">Windows API</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/Windows-API/" data-id="cjibdk4t3000c78us75bzvfck" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <ol>
-<li><a href="https://msdn.microsoft.com/en-us/library/ms534485.aspx" target="_blank" rel="noopener">Pen class</a></li>
-</ol>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/11/16/Windows-API/">
-    <time datetime="2017-11-16T07:32:02.000Z" class="entry-date">
-        2017-11-16
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-Windows-Programer" class="post-Windows-Programer post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/11/16/Windows-Programer/">Windows Programer</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/Windows-Programer/" data-id="cjibdk4t6000g78us3xmv46o6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <ol>
-<li><a href="">Link to Program Windows</a></li>
-</ol>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/11/16/Windows-Programer/">
-    <time datetime="2017-11-16T07:28:49.000Z" class="entry-date">
         2017-11-16
     </time>
 </a>
@@ -537,23 +532,23 @@
       <ul>
         
           <li>
+            <a href="/2018/06/15/repository-tools/">repository_tools</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/13/Inter-process-Communication/">Inter-process_Communication</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/12/Chromium-Source-Code-Directory-Structure/">Chromium_Source_Code_Directory_Structure</a>
+          </li>
+        
+          <li>
             <a href="/2018/06/12/Building-Chromium-for-Windows/">Building_Chromium_for_Windows</a>
           </li>
         
           <li>
             <a href="/2018/06/02/Electron-source-directory-structure/">Electron-source-directory-structure</a>
-          </li>
-        
-          <li>
-            <a href="/2018/04/26/hexo-theme/">hexo-theme</a>
-          </li>
-        
-          <li>
-            <a href="/2018/04/14/C-Run-Time-Library-Reference/">C-Run-Time Library Reference</a>
-          </li>
-        
-          <li>
-            <a href="/2018/04/10/reading-note-fourth/">C++ Primer, Fifth Edition reading-note-fourth</a>
           </li>
         
       </ul>
