@@ -24,7 +24,7 @@ High-level overviewChromium 主要由browser，renderer，Webkit三部分构成�
 <meta property="og:description" content="Chromium Source Code Directory Structure High-level overviewChromium 主要由browser，renderer，Webkit三部分构成。浏览器是主进程represents所有的UI和。渲染器通常是per-tab sub-process由浏览器驱动。嵌入Webkit负责渲染和布局。 Quick introduction to the">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://github.com/israel-Liu/theForger/raw/master/images/dependencies_diagram.png">
-<meta property="og:updated_time" content="2018-06-20T13:35:45.776Z">
+<meta property="og:updated_time" content="2018-06-21T01:35:57.666Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chromium_Source_Code_Directory_Structure">
 <meta name="twitter:description" content="Chromium Source Code Directory Structure High-level overviewChromium 主要由browser，renderer，Webkit三部分构成。浏览器是主进程represents所有的UI和。渲染器通常是per-tab sub-process由浏览器驱动。嵌入Webkit负责渲染和布局。 Quick introduction to the">
@@ -83,7 +83,7 @@ High-level overviewChromium 主要由browser，renderer，Webkit三部分构成�
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/12/Chromium-Source-Code-Directory-Structure/" data-id="cjin5vnei0006ssusw8kkq5ns" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/12/Chromium-Source-Code-Directory-Structure/" data-id="cjin5y6io0007ysusta2uvejo" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -145,7 +145,7 @@ High-level overviewChromium 主要由browser，renderer，Webkit三部分构成�
 <li>testing: 单元测试开源工程 GTest</li>
 <li>third_party: 外部依赖库。一些 Chrome-specific 存放在 chrome/third_party。</li>
 <li>tools:</li>
-<li>ui: ui/gfx: 图形库。 ui/views: 简单 UI 开发框架提供渲染，布局和时间处理。一些 browser-specific 放在 chrome/browser/ui/views。</li>
+<li>ui: ui/gfx: 图形库。 ui/views: 简单 UI 开发框架提供渲染，布局和事件处理。一些 browser-specific 放在 chrome/browser/ui/views。</li>
 <li>url: 标准化 URL 解析库？(Google’s open source URL parsing and canonicalization library.)</li>
 <li>v8: Javascript V8 引擎。</li>
 <li><p>webrunner:</p>
@@ -170,11 +170,10 @@ High-level overviewChromium 主要由browser，renderer，Webkit三部分构成�
 <li>test:</li>
 <li>utility: Code for running random operations in a sandboxed process.  The browser process uses it when it wants to run an operation on untrusted data.</li>
 <li>worker: Code for running HTML5 Web Workers.(只在文档列出)</li>
-<li><p>zygote:</p>
-<h4 id="Quick-reference-for-the-directory-tree-under-“chrome-“"><a href="#Quick-reference-for-the-directory-tree-under-“chrome-“" class="headerlink" title="Quick reference for the directory tree under “chrome/“"></a>Quick reference for the directory tree under “chrome/“</h4><p>暂时不学习这块，先不列出。需要的时候补上。</p>
-<h4 id="A-personal-learning-plan"><a href="#A-personal-learning-plan" class="headerlink" title="A personal learning plan"></a>A personal learning plan</h4><h4 id="Code-paths-for-common-operations"><a href="#Code-paths-for-common-operations" class="headerlink" title="Code paths for common operations"></a>Code paths for common operations</h4><h4 id="后续先进行轮子学习。"><a href="#后续先进行轮子学习。" class="headerlink" title="后续先进行轮子学习。"></a>后续先进行轮子学习。</h4></li>
+<li>zygote:</li>
 </ul>
-
+<h4 id="Quick-reference-for-the-directory-tree-under-“chrome-“"><a href="#Quick-reference-for-the-directory-tree-under-“chrome-“" class="headerlink" title="Quick reference for the directory tree under “chrome/“"></a>Quick reference for the directory tree under “chrome/“</h4><p>暂时不学习这块，先不列出。需要的时候补上。</p>
+<h4 id="A-personal-learning-plan"><a href="#A-personal-learning-plan" class="headerlink" title="A personal learning plan"></a>A personal learning plan</h4><h4 id="Code-paths-for-common-operations"><a href="#Code-paths-for-common-operations" class="headerlink" title="Code paths for common operations"></a>Code paths for common operations</h4><h4 id="后续先进行轮子学习。"><a href="#后续先进行轮子学习。" class="headerlink" title="后续先进行轮子学习。"></a>后续先进行轮子学习。</h4>
       
     </div><!-- .entry-content -->
 
