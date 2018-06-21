@@ -1,12 +1,196 @@
-doctype html
-html(lang= theme["han_type"]).han-init
-  head
-    include _head.pug
-    include _mixins.pug
-  body
-    header
-      include _header.pug
-      div.space
-    main
-      include _content.pug
-    include _scripts.pug
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="1.Introduce DLL2.Create DLL3.Export DLL4.Use DLL5.linkinghttps://docs.microsoft.com/en-us/cpp/windows/overview-of-windows-programming-in-cpphttps://do" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>DLLs in Visual C++ | theForger</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.Introduce DLL2.Create DLL3.Export DLL4.Use DLL5.linkinghttps://docs.microsoft.com/en-us/cpp/windows/overview-of-windows-programming-in-cpphttps://docs.microsoft.com/en-us/cpp/windows/walkthrough-cre">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DLLs in Visual C++">
+<meta property="og:url" content="https://israel-liu.github.io/2017/11/16/DLLs-in-Visual-C/index.html">
+<meta property="og:site_name" content="theForger">
+<meta property="og:description" content="1.Introduce DLL2.Create DLL3.Export DLL4.Use DLL5.linkinghttps://docs.microsoft.com/en-us/cpp/windows/overview-of-windows-programming-in-cpphttps://docs.microsoft.com/en-us/cpp/windows/walkthrough-cre">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2017-11-22T10:43:08.179Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DLLs in Visual C++">
+<meta name="twitter:description" content="1.Introduce DLL2.Create DLL3.Export DLL4.Use DLL5.linkinghttps://docs.microsoft.com/en-us/cpp/windows/overview-of-windows-programming-in-cpphttps://docs.microsoft.com/en-us/cpp/windows/walkthrough-cre">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="theForger" rel="home">theForger</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-DLLs-in-Visual-C" class="post-DLLs-in-Visual-C post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      DLLs in Visual C++
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/DLLs-in-Visual-C/" data-id="cjioho9wp000azsuspulgapi6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>1.Introduce DLL<br>2.Create DLL<br>3.Export DLL<br>4.Use DLL<br>5.linking<br><a href="https://docs.microsoft.com/en-us/cpp/windows/overview-of-windows-programming-in-cpp" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/cpp/windows/overview-of-windows-programming-in-cpp</a><br><a href="https://docs.microsoft.com/en-us/cpp/windows/walkthrough-creating-and-using-a-static-library-cpp" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/cpp/windows/walkthrough-creating-and-using-a-static-library-cpp</a><br><a href="https://docs.microsoft.com/en-us/cpp/build/building-on-the-command-line" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/cpp/build/building-on-the-command-line</a><br><a href="https://docs.microsoft.com/en-us/cpp/build/walkthrough-creating-and-using-a-dynamic-link-library-cpp" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/cpp/build/walkthrough-creating-and-using-a-dynamic-link-library-cpp</a><br><a href="https://docs.microsoft.com/en-us/cpp/build/exporting-cpp-functions-for-use-in-c-language-executables" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/cpp/build/exporting-cpp-functions-for-use-in-c-language-executables</a><br><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms682589(v=vs.85).aspx" target="_blank" rel="noopener">https://msdn.microsoft.com/en-us/library/windows/desktop/ms682589(v=vs.85).aspx</a><br><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms682507(v=vs.85).aspx" target="_blank" rel="noopener">https://msdn.microsoft.com/en-us/library/windows/desktop/ms682507(v=vs.85).aspx</a><br><a href="https://msdn.microsoft.com/en-us/library/a90k134d.aspx" target="_blank" rel="noopener">https://msdn.microsoft.com/en-us/library/a90k134d.aspx</a><br><a href="https://msdn.microsoft.com/en-us/library/d14wsce5.aspx" target="_blank" rel="noopener">https://msdn.microsoft.com/en-us/library/d14wsce5.aspx</a><br><a href="https://msdn.microsoft.com/en-us/library/3y1sfaz2.aspx" target="_blank" rel="noopener">https://msdn.microsoft.com/en-us/library/3y1sfaz2.aspx</a><br><a href="https://msdn.microsoft.com/en-us/library/0b9xe492.aspx" target="_blank" rel="noopener">https://msdn.microsoft.com/en-us/library/0b9xe492.aspx</a><br><a href="https://docs.microsoft.com/en-us/cpp/build/linking-an-executable-to-a-dll#determining-which-linking-method-to-use" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/cpp/build/linking-an-executable-to-a-dll#determining-which-linking-method-to-use</a><br><a href="http://www.lurklurk.org/linkers/linkers.html" target="_blank" rel="noopener">http://www.lurklurk.org/linkers/linkers.html</a></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/11/16/DLLs-in-Visual-C/">
+    <time datetime="2017-11-16T06:29:14.000Z" class="entry-date">
+        2017-11-16
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2017/11/16/Overview-of-Windows-Programming-in-C/" rel="prev"><span class="meta-nav">←</span> Overview of Windows Programming in C++</a></span>
+    
+    
+        <span class="nav-next"><a href="/2017/11/03/Class-Relationship/" rel="next">Class Relationship <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/21/chromium-base-callback/">chromium_base_callback</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/15/repository-tools/">repository_tools</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/13/Inter-process-Communication/">Inter-process_Communication</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/12/Chromium-Source-Code-Directory-Structure/">Chromium_Source_Code_Directory_Structure</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/12/Building-Chromium-for-Windows/">Building_Chromium_for_Windows</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2018 John Doe
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

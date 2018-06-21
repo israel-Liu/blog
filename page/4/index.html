@@ -1,12 +1,402 @@
-doctype html
-html(lang= theme["han_type"]).han-init
-  head
-    include _head.pug
-    include _mixins.pug
-  body
-    header
-      include _header.pug
-      div.space
-    main
-      include _content.pug
-    include _scripts.pug
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+
+  
+  
+  
+  
+  
+  
+  <title>theForger</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="theForger">
+<meta property="og:url" content="https://israel-liu.github.io/page/4/index.html">
+<meta property="og:site_name" content="theForger">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="theForger">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="theForger" rel="home">theForger</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main">
+  
+    <article id="post-git" class="post-git post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2016/12/23/git/">git help</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2016/12/23/git/" data-id="cjioho9x2000pzsusfo21ds81" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>虽说git操作应该是理解后使用的，但是有时候脑袋就是不好使，还是写个笔记记录一下</p>
+<h4 id="Your-identity"><a href="#Your-identity" class="headerlink" title="Your identity"></a>Your identity</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"John Doe"</span></span><br><span class="line">$ git config --global user.email johndoe@example.com</span><br></pre></td></tr></table></figure>
+<h4 id="Your-editor"><a href="#Your-editor" class="headerlink" title="Your editor"></a>Your editor</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global core.editor emacs</span><br></pre></td></tr></table></figure>
+<h4 id="Checking-your-settings"><a href="#Checking-your-settings" class="headerlink" title="Checking your settings"></a>Checking your settings</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --<span class="built_in">list</span></span><br></pre></td></tr></table></figure>
+<h4 id="Getting-a-git-repository"><a href="#Getting-a-git-repository" class="headerlink" title="Getting a git repository"></a>Getting a git repository</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Initializing a Repository in an Existing Directory</span></span><br><span class="line">$ git init</span><br><span class="line"><span class="comment">// Cloning an Existing Repository</span></span><br><span class="line">$ git clone https:<span class="comment">//github.com/user_name/repository.git</span></span><br><span class="line">$ git clone https:<span class="comment">//github.com/user_name/repository.git local_folder_name</span></span><br></pre></td></tr></table></figure>
+<h4 id="The-Three-States"><a href="#The-Three-States" class="headerlink" title="The Three States"></a>The Three States</h4><p><img src="https://github.com/israel-Liu/theForger/raw/master/images/git_three _states.png" alt=""></p>
+<h4 id="Recording-Changes-to-the-Repository"><a href="#Recording-Changes-to-the-Repository" class="headerlink" title="Recording Changes to the Repository"></a>Recording Changes to the Repository</h4><p><img src="https://github.com/israel-Liu/theForger/raw/master/images/record_change _repository.png" alt=""><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Checking the Status of Your Files</span></span><br><span class="line">$ git status</span><br><span class="line"><span class="comment">// Tracking New Files // 每次修改都重新add添加更改</span></span><br><span class="line">$ git add README</span><br><span class="line"><span class="comment">// Ignoring Files</span></span><br><span class="line">$ cat .gitignore</span><br><span class="line"><span class="comment">// Viewing Your Staged and Unstaged Changes</span></span><br><span class="line">$ git diff</span><br><span class="line">$ git diff --staged</span><br><span class="line">$ git diff --cached</span><br><span class="line"><span class="comment">// Committing Your Changes</span></span><br><span class="line">$ git commit</span><br><span class="line">$ git commit -m <span class="string">"Story 182: Fix benchmarks for speed"</span></span><br><span class="line"><span class="comment">// Skipping the Staging Area</span></span><br><span class="line">$ git commit -a -m 'added new benchmarks'</span><br><span class="line"><span class="comment">// Removing Files</span></span><br><span class="line">$ rm PROJECTS.md</span><br><span class="line">$ git rm PROJECTS.md</span><br><span class="line">$ git rm --cached README</span><br><span class="line"><span class="comment">// Moving Files</span></span><br><span class="line">$ git mv file_from file_to</span><br></pre></td></tr></table></figure></p>
+<h4 id="Viewing-the-Commit-History"><a href="#Viewing-the-Commit-History" class="headerlink" title="Viewing the Commit History"></a>Viewing the Commit History</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 很多操作，这里先写一个</span></span><br><span class="line">$ git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+<h4 id="Undoing-Things"><a href="#Undoing-Things" class="headerlink" title="Undoing Things"></a>Undoing Things</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ git commit --amend</span><br><span class="line"><span class="comment">// Unstaging a Staged File</span></span><br><span class="line">$ git reset HEAD CONTRIBUTING.md</span><br><span class="line"><span class="comment">// Unmodifying a Modified File</span></span><br><span class="line">$ git checkout -- CONTRIBUTING.md</span><br><span class="line"><span class="comment">// Revert merged</span></span><br><span class="line">$ git merge --<span class="built_in">abort</span></span><br><span class="line"><span class="comment">// Revert any operation</span></span><br><span class="line">$ git reflog</span><br><span class="line"><span class="comment">// 3 is HEAD number</span></span><br><span class="line">$ git reset --hard HEAD~<span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h4 id="Working-with-Remotes"><a href="#Working-with-Remotes" class="headerlink" title="Working with Remotes"></a>Working with Remotes</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Showing Your Remotes</span></span><br><span class="line">$ git remote -v</span><br><span class="line"><span class="comment">// Fetching and Pulling from Your Remotes</span></span><br><span class="line">$ git fetch [remote-name]</span><br><span class="line"><span class="comment">// Pushing to Your Remotes</span></span><br><span class="line">$ git push origin master</span><br><span class="line"><span class="comment">// Inspecting a Remote</span></span><br><span class="line">$ git remote show origin</span><br><span class="line"><span class="comment">// Removing and Renaming Remotes</span></span><br><span class="line">$ git remote rm paul</span><br><span class="line">$ git remote rename pb paul</span><br></pre></td></tr></table></figure>
+<h4 id="Tagging"><a href="#Tagging" class="headerlink" title="Tagging"></a>Tagging</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Listing Your Tags</span></span><br><span class="line">$ git tag</span><br><span class="line"><span class="comment">// 还有一大推，这里先忽略</span></span><br></pre></td></tr></table></figure>
+<h4 id="A-branch-and-its-commit-history"><a href="#A-branch-and-its-commit-history" class="headerlink" title="A branch and its commit history"></a>A branch and its commit history</h4><p><img src="https://github.com/israel-Liu/theForger/raw/master/images/git_branching.png" alt=""></p>
+<h4 id="Branches-in-a-Nutshell"><a href="#Branches-in-a-Nutshell" class="headerlink" title="Branches in a Nutshell"></a>Branches in a Nutshell</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Creating a New Branch</span></span><br><span class="line">$ git branch testing    <span class="comment">// 创建一个新指针，指向当前提交点（HEAD指针记录当前branch）</span></span><br><span class="line"><span class="comment">// 查看当前HEAD</span></span><br><span class="line">$ git <span class="built_in">log</span> --oneline --decorate</span><br><span class="line"><span class="comment">// Switching Branches  // 切换分支会改变工作目录文件</span></span><br><span class="line">$ git checkout testing <span class="comment">// 移动HEAD指针指向testing分支</span></span><br><span class="line"><span class="comment">// 获取全部log，可以看到指针指向</span></span><br><span class="line">$ git <span class="built_in">log</span> --oneline --decorate --graph --all</span><br></pre></td></tr></table></figure>
+<h4 id="Basic-Branching-and-Merging"><a href="#Basic-Branching-and-Merging" class="headerlink" title="Basic Branching and Merging"></a>Basic Branching and Merging</h4><p><img src="https://github.com/israel-Liu/theForger/raw/master/images/merge_branch.png" alt="Hotfix branch based on master"><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Basic Branching</span></span><br><span class="line"><span class="comment">// 合并新分支的提交（上图hotfix）在原分支（上图master）上执行merge</span></span><br><span class="line">$ git checkout master     <span class="comment">// 切换分支（HEAD指向master工作目录改变）</span></span><br><span class="line">$ git merge hotfix        <span class="comment">// 合并新提交</span></span><br><span class="line">$ git branch -d hotfix    <span class="comment">// Deleted branch hotfix (3a0874c).</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="https://github.com/israel-Liu/theForger/raw/master/images/merge_two.png" alt="Work continues on iss53"><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Basic Merging</span></span><br><span class="line"><span class="comment">// 合并两个没有前后关系的分支(上图master和iss53都是在一个点继续提交的)</span></span><br><span class="line">$ git checkout master    <span class="comment">// Switched to branch 'master'</span></span><br><span class="line">$ git merge iss53        <span class="comment">// Merge made by the 'recursive' strategy.</span></span><br><span class="line"><span class="comment">// 这种情况会产生一个新的提交(master会指向这个提交，提交由前面C3，4，5合并生产)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Basic Merge Conflicts // 上面情况可能会产生冲突，下面介绍解决冲突</span></span><br><span class="line"><span class="comment">// 解决冲突前，git没法产生新的提交点</span></span><br><span class="line">$ git mergetool          <span class="comment">// 这里不继续介绍了，建议用图形工具</span></span><br><span class="line"><span class="comment">// use "git commit" to conclude merge</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="Branch-Management"><a href="#Branch-Management" class="headerlink" title="Branch Management"></a>Branch Management</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git branch             <span class="comment">// 查看当前所有分支(主要自己本地(remote)建的)</span></span><br><span class="line">$ git branch -v          <span class="comment">// -v带最后一次提交信息</span></span><br><span class="line"><span class="comment">// To see which branches are already merged into the branch you’re on</span></span><br><span class="line">$ git branch --merged    <span class="comment">//(--no-merged)</span></span><br></pre></td></tr></table></figure>
+<h4 id="Branching-Workflows"><a href="#Branching-Workflows" class="headerlink" title="Branching Workflows"></a>Branching Workflows</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Long-Running Branches</span></span><br><span class="line"><span class="comment">// Topic Branches</span></span><br></pre></td></tr></table></figure>
+<h4 id="Remote-Branches"><a href="#Remote-Branches" class="headerlink" title="Remote Branches"></a>Remote Branches</h4><p><img src="https://github.com/israel-Liu/theForger/raw/master/images/remote_branch.png" alt="Server and local repositories after cloning"><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 同步origin所在服务器，我还没有的数据</span></span><br><span class="line">$ git fetch                 <span class="comment">// git fetch origin</span></span><br><span class="line"><span class="comment">// 创建远端服务器新分支，和别人共享使用</span></span><br><span class="line">$ git push origin serverfix <span class="comment">// git push &lt;remote&gt; &lt;branch&gt;</span></span><br><span class="line"><span class="comment">// 合并远端别人的提交</span></span><br><span class="line">$ git merge origin/serverfix</span><br><span class="line"><span class="comment">// 使用别人分享的远端分子</span></span><br><span class="line">$ git checkout -b serverfix origin/serverfix</span><br></pre></td></tr></table></figure></p>
+<h4 id="Tracking-Branches"><a href="#Tracking-Branches" class="headerlink" title="Tracking Branches"></a>Tracking Branches</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// the branch it tracks is called an “upstream branch”</span></span><br><span class="line">$ git checkout --track origin/serverfix</span><br></pre></td></tr></table></figure>
+<h4 id="Pulling"><a href="#Pulling" class="headerlink" title="Pulling"></a>Pulling</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Deleting Remote Branches</span></span><br><span class="line">$ git push origin --<span class="keyword">delete</span> serverfix</span><br><span class="line"><span class="comment">// 本地分支推送到远端分支</span></span><br><span class="line"><span class="comment">// 远端分支不存在的时候使用</span></span><br><span class="line"><span class="comment">// the branch it tracks is called an “upstream branch”</span></span><br><span class="line">$ git push --<span class="built_in">set</span>-upstream origin &lt;origin_name&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="Rebasing"><a href="#Rebasing" class="headerlink" title="Rebasing"></a>Rebasing</h4><p><img src="https://github.com/israel-Liu/theForger/raw/master/images/rebase.png" alt=""><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// The Basic Rebase</span></span><br><span class="line">$ git checkout experiment   <span class="comment">// 移动C4到C3的后面</span></span><br><span class="line">$ git rebase master         <span class="comment">// 把experiment合并到master的线，不产生新节点</span></span><br><span class="line"><span class="comment">// 把master向前移动获取experiment上的提交</span></span><br><span class="line">$ git checkout master</span><br><span class="line">$ git merge experiment</span><br></pre></td></tr></table></figure></p>
+<h4 id="More-Interesting-Rebases"><a href="#More-Interesting-Rebases" class="headerlink" title="More Interesting Rebases"></a>More Interesting Rebases</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 比较复杂这里先不说了</span></span><br></pre></td></tr></table></figure>
+<h4 id="Set-Use-SSH"><a href="#Set-Use-SSH" class="headerlink" title="Set Use SSH"></a>Set Use SSH</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Command line instructions</span></span><br><span class="line">Git global setup</span><br><span class="line">git config --global user.name <span class="string">"Israel.liu"</span></span><br><span class="line">git config --global user.email <span class="string">"israel.liu@zoom.us"</span></span><br><span class="line"><span class="comment">// Create a new repository</span></span><br><span class="line">git clone https:<span class="comment">//Israel.liu@git.zoom.us/Israel.liu/zoom_tools.git</span></span><br><span class="line">cd zoom_tools</span><br><span class="line">touch README.md</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m <span class="string">"add README"</span></span><br><span class="line">git push -u origin master</span><br><span class="line"><span class="comment">// Existing folder</span></span><br><span class="line">cd existing_folder</span><br><span class="line">git init</span><br><span class="line">git remote add origin https:<span class="comment">//Israel.liu@git.zoom.us/Israel.liu/zoom_tools.git</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"Initial commit"</span></span><br><span class="line">git push -u origin master</span><br><span class="line"><span class="comment">// Existing Git repository</span></span><br><span class="line">cd existing_repo</span><br><span class="line">git remote add origin https:<span class="comment">//Israel.liu@git.zoom.us/Israel.liu/zoom_tools.git</span></span><br><span class="line">git push -u origin --all</span><br><span class="line">git push -u origin --tags</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ssh</span></span><br><span class="line">[Generating Your SSH Public Key](https:<span class="comment">//git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key)</span></span><br><span class="line"><span class="comment">// Set use ssh branch</span></span><br><span class="line">git remote <span class="built_in">set</span>-url origin git@git.zoom.us:main/client.git</span><br></pre></td></tr></table></figure>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/12/23/git/">
+    <time datetime="2016-12-23T09:38:37.000Z" class="entry-date">
+        2016-12-23
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-RAII" class="post-RAII post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2016/12/18/RAII/">RAII</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2016/12/18/RAII/" data-id="cjioho9wu000ezsusqu72rdvz" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h3 id="What-is-RAII"><a href="#What-is-RAII" class="headerlink" title="What is RAII?"></a>What is RAII?</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">把资源和对象的生命周期绑定，对象创建获取资源，对象销毁释放资源。  </span><br><span class="line">把底层的资源管理提升到对象生命周期管理的层次。</span><br></pre></td></tr></table></figure>
+<h3 id="Why-C-chooses-RAII-instead-of-normal-GC"><a href="#Why-C-chooses-RAII-instead-of-normal-GC" class="headerlink" title="Why C++ chooses RAII instead of normal GC"></a>Why C++ chooses RAII instead of normal GC</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">和GC相比，RAII达到了和手动释放资源一样的实时性，因此可以承担底层开发的重任</span><br></pre></td></tr></table></figure>
+<h3 id="unique-onwership-smart-pointer"><a href="#unique-onwership-smart-pointer" class="headerlink" title="unique-onwership smart pointer"></a>unique-onwership smart pointer</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line">unique-onwership smart pointer ? 只能一个对象拥有资源 ? 转让所有权 ?</span><br><span class="line">move-sematics ? 避免拷贝 ？  </span><br><span class="line"></span><br><span class="line">使用时智能指针是个栈对象，里面包了一个指针，对象在出作用域的时候会析构，然后析构里面对我们包裹的指针进行释放</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> hinata &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> D&gt; <span class="comment">// D = default_delete&lt;T&gt;</span></span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">unique_ptr</span> :</span> <span class="keyword">public</span> <span class="built_in">std</span>::_Unique_ptr_base&lt;T, D&gt;</span><br><span class="line">	&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="keyword">typedef</span> <span class="built_in">unique_ptr</span>&lt;T, D&gt; Myt_;</span><br><span class="line">		<span class="comment">// 暂时用VS提供的，日后在写两个类，或者一个加一个内部 pointer</span></span><br><span class="line">		<span class="comment">// 也可以把 pointer 写到这里来 // 暂时简单点，防止脑袋烧爆</span></span><br><span class="line">		<span class="keyword">typedef</span> _Unique_ptr_base&lt;T, D&gt; Mybase_;</span><br><span class="line">		<span class="comment">// 下划线风格有时候好脑残，</span></span><br><span class="line">		<span class="keyword">typedef</span> <span class="keyword">typename</span> Mybase_::pointer pointer_;</span><br><span class="line">		<span class="comment">// 暂时不用先放这里 // 轮子不好造啊</span></span><br><span class="line">		<span class="keyword">typedef</span> T element_type_;</span><br><span class="line">		<span class="keyword">typedef</span> D deleter_type_;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">using</span> Mybase_::get_deleter;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// constructors // 暂时就先提供2个</span></span><br><span class="line">		<span class="function"><span class="keyword">constexpr</span> <span class="title">unique_ptr</span><span class="params">()</span> <span class="keyword">noexcept</span></span></span><br><span class="line">			: Mybase_(pointer_())</span><br><span class="line">		&#123;	<span class="comment">// constexpr(常量表达式)用于修饰类的构造函数，</span></span><br><span class="line">			<span class="comment">// 即保证如果提供给该构造函数的参数都是constexpr，</span></span><br><span class="line">			<span class="comment">// 那么产生的对象中的所有成员都会是constexpr，</span></span><br><span class="line">			<span class="comment">// 该对象也就是constexpr对象了，可用于各种只能使用constexpr的场合。</span></span><br><span class="line">			<span class="comment">// note，constexpr构造函数必须有一个空的函数体，即所有成员变量的初始化都放到初始化列表中。</span></span><br><span class="line">			<span class="keyword">static_assert</span>(!is_pointer&lt;D&gt;::value,</span><br><span class="line">				<span class="string">"unique_ptr constructed with null deleter pointer"</span>)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">explicit</span> <span class="title">unique_ptr</span><span class="params">(pointer_ p)</span> <span class="keyword">noexcept</span></span></span><br><span class="line">			: Mybase_(pointer_())</span><br><span class="line">		&#123;	<span class="comment">// null pointer construct</span></span><br><span class="line">			<span class="keyword">static_assert</span>(!is_pointer&lt;D&gt;::value,</span><br><span class="line">				<span class="string">"unique_ptr constructed with null deleter pointer"</span>)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">unique_ptr</span>(<span class="built_in">unique_ptr</span>&amp;&amp; right) _NOEXCEPT</span><br><span class="line">			: Mybase_(right.release(),</span><br><span class="line">				::<span class="built_in">std</span>::forward&lt;_Dx&gt;(right.get_deleter()))</span><br><span class="line">		&#123;	<span class="comment">// construct by moving _Right</span></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// destructor</span></span><br><span class="line">		~<span class="built_in">unique_ptr</span>() <span class="keyword">noexcept</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (get() != pointer_())</span><br><span class="line">				<span class="keyword">this</span>-&gt;get_deleter()(get());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// assignment // assign by moving 省略</span></span><br><span class="line">		<span class="comment">// 暂时就提供一个 赋空值的</span></span><br><span class="line">		Myt_&amp; <span class="keyword">operator</span>=(<span class="keyword">nullptr_t</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			reset();</span><br><span class="line">			<span class="keyword">return</span> (*<span class="keyword">this</span>);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// observers</span></span><br><span class="line">		pointer_ <span class="keyword">operator</span>-&gt;() <span class="keyword">const</span> <span class="keyword">noexcept</span></span><br><span class="line">		&#123;	<span class="comment">// return pointer to class object</span></span><br><span class="line">			<span class="keyword">return</span> pointer_();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="function">pointer_ <span class="title">get</span><span class="params">()</span> <span class="keyword">const</span> <span class="keyword">noexcept</span></span></span><br><span class="line"><span class="function">		</span>&#123;	<span class="comment">// return pointer to object</span></span><br><span class="line">			<span class="keyword">return</span> (<span class="keyword">this</span>-&gt;_Myptr());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">explicit</span> <span class="keyword">operator</span> <span class="title">bool</span><span class="params">()</span> <span class="keyword">const</span> <span class="keyword">noexcept</span></span></span><br><span class="line"><span class="function">		</span>&#123;	<span class="comment">// test for non-null pointer</span></span><br><span class="line">			<span class="keyword">return</span> (get() != pointer());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 先使用基类的，应该自己练习写一个的</span></span><br><span class="line">		<span class="comment">//// Returns: A reference to the stored deleter.</span></span><br><span class="line">		<span class="comment">//deleter_type&amp; get_deleter() noexcept;</span></span><br><span class="line">		<span class="comment">//const deleter_type&amp; get_deleter() const noexcept;</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">// modifiers</span></span><br><span class="line">		<span class="function">pointer_ <span class="title">release</span><span class="params">()</span> <span class="keyword">noexcept</span></span></span><br><span class="line"><span class="function">		</span>&#123;	<span class="comment">// yield ownership of pointer</span></span><br><span class="line">			pointer_ ans = get();</span><br><span class="line">			<span class="keyword">this</span>-&gt;_Myptr() = pointer();</span><br><span class="line">			<span class="keyword">return</span> (ans);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		void reset(pointer_ ptr = pointer_()) noexcept</span><br><span class="line">		&#123;	<span class="comment">// establish new pointer</span></span><br><span class="line">			pointer old = get();</span><br><span class="line">			<span class="keyword">this</span>-&gt;_Myptr() = ptr;</span><br><span class="line">			<span class="keyword">if</span> (old != pointer_())</span><br><span class="line">				<span class="keyword">this</span>-&gt;get_deleter()(old);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// void swap(unique_ptr&amp; u) noexcept;</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">// disable copy from lvalue</span></span><br><span class="line">		<span class="built_in">unique_ptr</span>(<span class="keyword">const</span> <span class="built_in">unique_ptr</span>&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">		<span class="built_in">unique_ptr</span>&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> <span class="built_in">unique_ptr</span>&amp;) = <span class="keyword">delete</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line"></span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// operator == , != , &gt; , &gt;= , &lt; , &lt;=  </span></span><br><span class="line">	<span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T1</span>, <span class="title">class</span> <span class="title">D1</span>, <span class="title">class</span> <span class="title">T2</span>, <span class="title">class</span> <span class="title">D2</span>&gt;</span></span><br><span class="line"><span class="class">	<span class="title">bool</span> <span class="title">operator</span>==(<span class="title">const</span> <span class="title">unique_ptr</span>&lt;T1, D1&gt;&amp; <span class="title">x</span>, <span class="title">const</span> <span class="title">unique_ptr</span>&lt;T2, D2&gt;&amp; <span class="title">y</span>)</span></span><br><span class="line"><span class="class">	&#123;</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/12/18/RAII/">
+    <time datetime="2016-12-18T01:58:03.000Z" class="entry-date">
+        2016-12-18
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-markdown-help" class="post-markdown-help post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2016/12/02/markdown-help/">markdown-help</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2016/12/02/markdown-help/" data-id="cjioho9x4000tzsusu16aibx4" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">在文字写书写不同数量的#可以完成不同的标题，如下：</span><br><span class="line"></span><br><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br><span class="line">###### 六级标题</span><br><span class="line"></span><br><span class="line">等号及减号也可以进行标题的书写，不过只能书写二级标题，并且需要写在文字的下面，减号及等号的数量不会影响标题的基数，如下：</span><br><span class="line"></span><br><span class="line">二级标题</span><br><span class="line">=========</span><br><span class="line"></span><br><span class="line">二级标题</span><br><span class="line">---------</span><br></pre></td></tr></table></figure>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">无序列表的使用，在符号“-”后加空格使用。如下：</span><br><span class="line"></span><br><span class="line">- 无序列表1</span><br><span class="line">- 无序列表2</span><br><span class="line">- 无序列表3</span><br><span class="line"></span><br><span class="line">如果要控制列表的层级，则需要在符号“-”前使用空格。如下：</span><br><span class="line"></span><br><span class="line">- 无序列表1</span><br><span class="line">- 无序列表2</span><br><span class="line">  - 无序列表2.1</span><br><span class="line">     - 列表内容</span><br><span class="line">     - 列表内容</span><br><span class="line"></span><br><span class="line">有序列表的使用，在数字及符号“.”后加空格几个，如下：</span><br><span class="line"></span><br><span class="line">1. 有序列表1</span><br><span class="line">2. 有序列表2</span><br><span class="line">3. 有序列表3</span><br><span class="line">有序列表如果要区分层级，也可以在数字前加空格。</span><br></pre></td></tr></table></figure>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">引用的格式是使用符号“&gt;”后面书写文字，及可以使用引用。如下：</span><br><span class="line"></span><br><span class="line">&gt;这个是引用</span><br><span class="line">&gt; 是不是和电子邮件中的</span><br><span class="line">&gt; 引用格式很像</span><br></pre></td></tr></table></figure>
+<h2 id="粗体与斜体"><a href="#粗体与斜体" class="headerlink" title="粗体与斜体"></a>粗体与斜体</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">粗体的使用是在需要加粗的文字前后各加两个“*”，而斜体的使用则是在需要斜体的文字前后各加一个“*”，如果要使用粗体和斜体，那么就是在需要操作的文字前后各加三个“*”。如下：</span><br><span class="line"></span><br><span class="line">**这个是粗体**</span><br><span class="line">*这个是斜体*</span><br><span class="line">***这个是粗体加斜体***</span><br></pre></td></tr></table></figure>
+<h2 id="链接和图片"><a href="#链接和图片" class="headerlink" title="链接和图片"></a>链接和图片</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">在文中直接加链接，中括号中是需要添加链接的文字，圆括号中是需要添加的链接，如下：</span><br><span class="line"></span><br><span class="line">[link text](http://example.com/ &quot;optional title&quot;)</span><br><span class="line"></span><br><span class="line">在引用中加链接，第一个中括号添加需要添加的文字，第二个中括号中是引用链接的id，之后在引用中，使用id加链接：如下：</span><br><span class="line"></span><br><span class="line">[link text][id]</span><br><span class="line">[id]: http://example.com/ &quot;optional title here&quot;</span><br><span class="line"></span><br><span class="line">在文中直接引用链接，直接使用尖括号，把链接加入到尖括号中就可以实现，如下：</span><br><span class="line"></span><br><span class="line">&lt;http://example.com/&gt; or &lt;address@example.com&gt;</span><br><span class="line">插入互联网上图片，格式如下：</span><br><span class="line"></span><br><span class="line">![这里写图片描述](http://img3.douban.com/mpic/s1108264.jpg)</span><br><span class="line">![这里写图片描述][jane-eyre-douban]</span><br><span class="line">[jane-eyre-douban]: http://img3.douban.com/mpic/s1108264.jpg</span><br></pre></td></tr></table></figure>
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">用TAB键起始的段落，会被认为是代码块，如下：</span><br><span class="line"></span><br><span class="line">    &lt;php&gt;</span><br><span class="line">        echo “hello world&quot;;</span><br><span class="line">    &lt;/php&gt;</span><br><span class="line"></span><br><span class="line">如果在一个行内需要引用代码，只要用反引号`引起来就好，如下：</span><br><span class="line"></span><br><span class="line">Use the `printf()` function.</span><br></pre></td></tr></table></figure>
+<h2 id="分割线与删除线"><a href="#分割线与删除线" class="headerlink" title="分割线与删除线"></a>分割线与删除线</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，同时需要在分隔线的上面空一行。如下：</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">****</span><br><span class="line">___</span><br><span class="line"></span><br><span class="line">删除线的使用，在需要删除的文字前后各使用两个符合“~”，如下</span><br><span class="line"></span><br><span class="line">~~Mistaken text.~~</span><br></pre></td></tr></table></figure>
+<h2 id="代码块与语法高亮"><a href="#代码块与语法高亮" class="headerlink" title="代码块与语法高亮"></a>代码块与语法高亮</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">在需要高亮的代码块的前一行及后一行使用三个反引号“`”，同时第一行反引号后面表面代码块所使用的语言，如下：</span><br><span class="line"></span><br><span class="line">```ruby</span><br><span class="line">require &apos;redcarpet&apos;</span><br><span class="line">markdown = Redcarpet.new(&quot;Hello World!&quot;)</span><br><span class="line">puts markdown.to_html</span><br><span class="line">在需要高亮的代码块的前一行及后一行使用三个反引号“`”，同时第一行反引号后面表面代码块所使用的语言，如下：</span><br><span class="line"></span><br><span class="line">```ruby</span><br><span class="line">require &apos;redcarpet&apos;</span><br><span class="line">markdown = Redcarpet.new(&quot;Hello World!&quot;)</span><br><span class="line">puts markdown.to_html</span><br><span class="line">这里是三个反引号“`”，因为结尾反引号用来分块了显示不出来，这里文字描述</span><br></pre></td></tr></table></figure>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">可以使用冒号来定义表格的对齐方式，如下：</span><br><span class="line"></span><br><span class="line">| Tables | Are | Cool |</span><br><span class="line">| ------------- |:-------------:| -----:|</span><br><span class="line">| col 3 is | right-aligned | $1600 |</span><br><span class="line">| col 2 is | centered | $12 |</span><br><span class="line">| zebra stripes | are neat | $1 |</span><br></pre></td></tr></table></figure>
+<h2 id="latex-数学公式"><a href="#latex-数学公式" class="headerlink" title="latex 数学公式"></a>latex 数学公式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">使用MathJax渲染*LaTex* 数学公式，详见[math.stackexchange.com]</span><br><span class="line"></span><br><span class="line">行内公式，数学公式为：</span><br><span class="line"></span><br><span class="line">$\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$</span><br><span class="line">块级公式：</span><br><span class="line"></span><br><span class="line">$$ x = \dfrac&#123;-b \pm \sqrt&#123;b^2 - 4ac&#125;&#125;&#123;2a&#125; $$</span><br></pre></td></tr></table></figure>
+<h4 id="更多LaTex语法请参考-这里。"><a href="#更多LaTex语法请参考-这里。" class="headerlink" title="更多LaTex语法请参考 这里。"></a>更多LaTex语法请参考 <a href="http://meta.math.stackexchange.com/questions/5020/&quot;mathjax-basic-tutorial-and-quick-reference&quot;" target="_blank" rel="noopener">这里</a>。</h4><h2 id="UML-图"><a href="#UML-图" class="headerlink" title="UML 图"></a>UML 图</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">可以渲染序列图：</span><br><span class="line"></span><br><span class="line">(这里是三个反引号“`”)sequence</span><br><span class="line">张三-&gt;李四: 嘿，小四儿, 写博客了没?</span><br><span class="line">Note right of 李四: 李四愣了一下，说：</span><br><span class="line">李四--&gt;张三: 忙得吐血，哪有时间写。</span><br><span class="line">(这里是三个反引号“`”)</span><br><span class="line"></span><br><span class="line">或者流程图：</span><br><span class="line"></span><br><span class="line">(这里是三个反引号“`”)flow</span><br><span class="line">st=&gt;start: 开始</span><br><span class="line">e=&gt;end: 结束</span><br><span class="line">op=&gt;operation: 我的操作</span><br><span class="line">cond=&gt;condition: 确认？</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br><span class="line">(这里是三个反引号“`”)</span><br></pre></td></tr></table></figure>
+<h4 id="关于-序列图-语法，参考-这儿。"><a href="#关于-序列图-语法，参考-这儿。" class="headerlink" title="关于 序列图 语法，参考 这儿。"></a>关于 <strong>序列图</strong> 语法，参考 <a href="https://bramp.github.io/js-sequence-diagrams/" target="_blank" rel="noopener">这儿</a>。</h4><h4 id="关于-流程图-语法，参考-这儿。"><a href="#关于-流程图-语法，参考-这儿。" class="headerlink" title="关于 流程图 语法，参考 这儿。"></a>关于 <strong>流程图</strong> 语法，参考 <a href="http://flowchart.js.org/" target="_blank" rel="noopener">这儿</a>。</h4><h3 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">添加空格</span><br><span class="line">半方大的空白&amp;ensp;或&amp;#8194;</span><br><span class="line">全方大的空白&amp;emsp;或&amp;#8195;</span><br><span class="line">不断行的空白格&amp;nbsp;或&amp;#160;</span><br><span class="line"></span><br><span class="line">实现换行</span><br><span class="line">两个空格以上加回车</span><br></pre></td></tr></table></figure>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/12/02/markdown-help/">
+    <time datetime="2016-12-02T03:05:32.000Z" class="entry-date">
+        2016-12-02
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-reading-note-two" class="post-reading-note-two post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2016/12/02/reading-note-two/">C++ Primer, Fifth Edition reading-note-two</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2016/12/02/reading-note-two/" data-id="cjioho9x8000xzsus50d9lmj3" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>先写个概要内容</p>
+<p>##正文开始</p>
+<h3 id="范围for循环，前-后-，auto"><a href="#范围for循环，前-后-，auto" class="headerlink" title="范围for循环，前++后++，auto"></a>范围for循环，前++后++，auto</h3><p>The auto specifier was only allowed for objects declared at block scope or in function parameter lists. It indicated automatic storage duration, which is the default for these kinds of declarations. </p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/12/02/reading-note-two/">
+    <time datetime="2016-12-02T03:01:50.000Z" class="entry-date">
+        2016-12-02
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-reading-note-one" class="post-reading-note-one post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2016/12/01/reading-note-one/">C++ Primer, Fifth Edition reading_note_one</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2016/12/01/reading-note-one/" data-id="cjioho9x7000wzsus4egrta65" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>总之先写点什么吧，对markdown的编辑格式还不是很熟悉<br>排版就先这样好了，日后再修改，或许发个markdown编辑格式的博文也不错，<br>分类什么的也比较乱，以后还是尽量写英文吧，从最短的地方补起来</p>
+<h2 id="下面正文开始"><a href="#下面正文开始" class="headerlink" title="下面正文开始"></a>下面正文开始</h2><h3 id="Top-Level-const"><a href="#Top-Level-const" class="headerlink" title="Top-Level const"></a>Top-Level const</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;We user the term Top-Level const to indicate that the pointer itself<br>is a const. When a pointer can point to a const object, we refer to that<br>const as a low-level const.<br>&nbsp;&nbsp;&nbsp;&nbsp;The distinction between top-level and low-level matters when we copy<br>an object. When we copy an object, top-level consts are ignored.<br>&nbsp;&nbsp;&nbsp;&nbsp;简单的说指针和引用的基本类型部分（low-level const）当执行对象拷贝操作时，<br>常量可以拷贝给常量，非常量可以拷贝给常量（可以转换）反之不行。</p>
+<h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span>* <span class="keyword">const</span> p1 = &amp;i;       <span class="comment">// we can't change the value of p1; const is top-level</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> ci = <span class="number">42</span>;        <span class="comment">// we can't change ci; const is top-level</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>* p2 = &amp;ci;      <span class="comment">// we can change p2; const is low-level</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>* <span class="keyword">const</span> p3 = p2; <span class="comment">// right-most const is top-level, left-most is not</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>&amp; r = ci;        <span class="comment">// const in reference types is always low-level</span></span><br></pre></td></tr></table></figure>
+<h3 id="Standard-Container-Iterator-Operations"><a href="#Standard-Container-Iterator-Operations" class="headerlink" title="Standard Container Iterator Operations"></a>Standard Container Iterator Operations</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;因为操作符重载和语言基本的(-&gt;)箭头操作，搞定我晕晕的，提一下<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iter-&gt;mem;  <span class="comment">// Dereferences iter and fetches the member named mem from</span></span><br><span class="line">            <span class="comment">// the underlying element. Equivalent to (*iter).mem</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="文章结束之前提一下-begin-end"><a href="#文章结束之前提一下-begin-end" class="headerlink" title="文章结束之前提一下 begin(),  end()."></a>文章结束之前提一下 begin(),  end().</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;begin returns a pointer to the first, and end returns a pointer one past the last<br>element in the given array: These functions are defined in the iterator header<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> ia[] = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>&#125;;   <span class="comment">// ia is an array of ten ints</span></span><br><span class="line"><span class="keyword">int</span> *beg = begin(ia);               <span class="comment">// pointer to the first element in ia</span></span><br><span class="line"><span class="keyword">int</span> *last = end(ia);                <span class="comment">// pointer one past the last element in ia</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="End-第一篇到这里了，Note-还有个vector无符号下标，内置数组有符号下标"><a href="#End-第一篇到这里了，Note-还有个vector无符号下标，内置数组有符号下标" class="headerlink" title="End 第一篇到这里了，Note 还有个vector无符号下标，内置数组有符号下标"></a>End 第一篇到这里了，Note 还有个vector无符号下标，内置数组有符号下标</h2>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/12/01/reading-note-one/">
+    <time datetime="2016-12-01T02:38:24.000Z" class="entry-date">
+        2016-12-01
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+  
+    <nav id="pagination">
+      <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+      </nav>
+    </nav>
+  
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/21/chromium-base-callback/">chromium_base_callback</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/15/repository-tools/">repository_tools</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/13/Inter-process-Communication/">Inter-process_Communication</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/12/Chromium-Source-Code-Directory-Structure/">Chromium_Source_Code_Directory_Structure</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/12/Building-Chromium-for-Windows/">Building_Chromium_for_Windows</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2018 John Doe
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

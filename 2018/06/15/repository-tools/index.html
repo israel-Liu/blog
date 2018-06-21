@@ -1,12 +1,204 @@
-doctype html
-html(lang= theme["han_type"]).han-init
-  head
-    include _head.pug
-    include _mixins.pug
-  body
-    header
-      include _header.pug
-      div.space
-    main
-      include _content.pug
-    include _scripts.pug
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="repository_tools
+Like Google depot_tools 用来管理代码的工具 Make code management easy
+初版开发背景:因为我们工程是多个branch，每次都要单个目录去更新，自己感觉麻烦就写了个简单脚本  
+使用方法:首先要保证git 和 pytho" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>repository_tools | theForger</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="repository_tools Like Google depot_tools 用来管理代码的工具 Make code management easy 初版开发背景:因为我们工程是多个branch，每次都要单个目录去更新，自己感觉麻烦就写了个简单脚本   使用方法:首先要保证git 和 python设置到环境变量中，也就是要在命令行中可以用，因为要用脚本去执行把工程下载后放到需要更新的目录一级上">
+<meta property="og:type" content="article">
+<meta property="og:title" content="repository_tools">
+<meta property="og:url" content="https://israel-liu.github.io/2018/06/15/repository-tools/index.html">
+<meta property="og:site_name" content="theForger">
+<meta property="og:description" content="repository_tools Like Google depot_tools 用来管理代码的工具 Make code management easy 初版开发背景:因为我们工程是多个branch，每次都要单个目录去更新，自己感觉麻烦就写了个简单脚本   使用方法:首先要保证git 和 python设置到环境变量中，也就是要在命令行中可以用，因为要用脚本去执行把工程下载后放到需要更新的目录一级上">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-06-15T03:24:20.594Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="repository_tools">
+<meta name="twitter:description" content="repository_tools Like Google depot_tools 用来管理代码的工具 Make code management easy 初版开发背景:因为我们工程是多个branch，每次都要单个目录去更新，自己感觉麻烦就写了个简单脚本   使用方法:首先要保证git 和 python设置到环境变量中，也就是要在命令行中可以用，因为要用脚本去执行把工程下载后放到需要更新的目录一级上">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="theForger" rel="home">theForger</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-repository-tools" class="post-repository-tools post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      repository_tools
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/15/repository-tools/" data-id="cjioho9xa0010zsusoeigyugu" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p><a href="https://github.com/israel-Liu/repository_tools" target="_blank" rel="noopener">repository_tools</a></p>
+<p>Like Google depot_tools 用来管理代码的工具 Make code management easy</p>
+<h4 id="初版开发背景"><a href="#初版开发背景" class="headerlink" title="初版开发背景:"></a>初版开发背景:</h4><p>因为我们工程是多个branch，每次都要单个目录去更新，自己感觉麻烦就写了个简单脚本  </p>
+<h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法:"></a>使用方法:</h4><p>首先要保证git 和 python设置到环境变量中，也就是要在命令行中可以用，因为要用脚本去执行<br>把工程下载后放到需要更新的目录一级上(同级别)然后执行里面的pull脚本，正确的话就没有什么提示的，错误有提示。</p>
+<h4 id="核心Code"><a href="#核心Code" class="headerlink" title="核心Code"></a>核心Code</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(args = None)</span>:</span></span><br><span class="line">  <span class="keyword">for</span> folder <span class="keyword">in</span> os.listdir(SCRIPT_PATH):</span><br><span class="line">    folder = os.path.join(SCRIPT_PATH, folder)</span><br><span class="line">    <span class="keyword">for</span> git_folder <span class="keyword">in</span> os.listdir(folder):</span><br><span class="line">      <span class="keyword">if</span> git_folder == <span class="string">'.git'</span>:</span><br><span class="line">        os.chdir(folder)</span><br><span class="line">        git.run(<span class="string">'fetch'</span>, <span class="string">'-p'</span>)</span><br><span class="line">        cur_branch = git.current_branch()</span><br><span class="line">        git.run(<span class="string">'rebase'</span>, <span class="string">'origin/master'</span>, cur_branch)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<h4 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h4><p>后面如果有需要可以继续添加更多脚本</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/06/15/repository-tools/">
+    <time datetime="2018-06-15T03:18:38.000Z" class="entry-date">
+        2018-06-15
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2018/06/21/chromium-base-callback/" rel="prev"><span class="meta-nav">←</span> chromium_base_callback</a></span>
+    
+    
+        <span class="nav-next"><a href="/2018/06/13/Inter-process-Communication/" rel="next">Inter-process_Communication <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/21/chromium-base-callback/">chromium_base_callback</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/15/repository-tools/">repository_tools</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/13/Inter-process-Communication/">Inter-process_Communication</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/12/Chromium-Source-Code-Directory-Structure/">Chromium_Source_Code_Directory_Structure</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/12/Building-Chromium-for-Windows/">Building_Chromium_for_Windows</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2018 John Doe
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

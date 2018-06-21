@@ -1,12 +1,199 @@
-doctype html
-html(lang= theme["han_type"]).han-init
-  head
-    include _head.pug
-    include _mixins.pug
-  body
-    header
-      include _header.pug
-      div.space
-    main
-      include _content.pug
-    include _scripts.pug
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="What is RAII?12把资源和对象的生命周期绑定，对象创建获取资源，对象销毁释放资源。  把底层的资源管理提升到对象生命周期管理的层次。
+Why C++ chooses RAII instead of normal GC1和GC相比，RAII达到了和手动释放资源一样的实时性，因此可以承担底层" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>RAII | theForger</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="What is RAII?12把资源和对象的生命周期绑定，对象创建获取资源，对象销毁释放资源。  把底层的资源管理提升到对象生命周期管理的层次。 Why C++ chooses RAII instead of normal GC1和GC相比，RAII达到了和手动释放资源一样的实时性，因此可以承担底层开发的重任 unique-onwership smart pointer12345678910111">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RAII">
+<meta property="og:url" content="https://israel-liu.github.io/2016/12/18/RAII/index.html">
+<meta property="og:site_name" content="theForger">
+<meta property="og:description" content="What is RAII?12把资源和对象的生命周期绑定，对象创建获取资源，对象销毁释放资源。  把底层的资源管理提升到对象生命周期管理的层次。 Why C++ chooses RAII instead of normal GC1和GC相比，RAII达到了和手动释放资源一样的实时性，因此可以承担底层开发的重任 unique-onwership smart pointer12345678910111">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2017-11-03T08:21:55.790Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RAII">
+<meta name="twitter:description" content="What is RAII?12把资源和对象的生命周期绑定，对象创建获取资源，对象销毁释放资源。  把底层的资源管理提升到对象生命周期管理的层次。 Why C++ chooses RAII instead of normal GC1和GC相比，RAII达到了和手动释放资源一样的实时性，因此可以承担底层开发的重任 unique-onwership smart pointer12345678910111">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="theForger" rel="home">theForger</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-RAII" class="post-RAII post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      RAII
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2016/12/18/RAII/" data-id="cjioho9wu000ezsusqu72rdvz" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h3 id="What-is-RAII"><a href="#What-is-RAII" class="headerlink" title="What is RAII?"></a>What is RAII?</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">把资源和对象的生命周期绑定，对象创建获取资源，对象销毁释放资源。  </span><br><span class="line">把底层的资源管理提升到对象生命周期管理的层次。</span><br></pre></td></tr></table></figure>
+<h3 id="Why-C-chooses-RAII-instead-of-normal-GC"><a href="#Why-C-chooses-RAII-instead-of-normal-GC" class="headerlink" title="Why C++ chooses RAII instead of normal GC"></a>Why C++ chooses RAII instead of normal GC</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">和GC相比，RAII达到了和手动释放资源一样的实时性，因此可以承担底层开发的重任</span><br></pre></td></tr></table></figure>
+<h3 id="unique-onwership-smart-pointer"><a href="#unique-onwership-smart-pointer" class="headerlink" title="unique-onwership smart pointer"></a>unique-onwership smart pointer</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line">unique-onwership smart pointer ? 只能一个对象拥有资源 ? 转让所有权 ?</span><br><span class="line">move-sematics ? 避免拷贝 ？  </span><br><span class="line"></span><br><span class="line">使用时智能指针是个栈对象，里面包了一个指针，对象在出作用域的时候会析构，然后析构里面对我们包裹的指针进行释放</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> hinata &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> D&gt; <span class="comment">// D = default_delete&lt;T&gt;</span></span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">unique_ptr</span> :</span> <span class="keyword">public</span> <span class="built_in">std</span>::_Unique_ptr_base&lt;T, D&gt;</span><br><span class="line">	&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="keyword">typedef</span> <span class="built_in">unique_ptr</span>&lt;T, D&gt; Myt_;</span><br><span class="line">		<span class="comment">// 暂时用VS提供的，日后在写两个类，或者一个加一个内部 pointer</span></span><br><span class="line">		<span class="comment">// 也可以把 pointer 写到这里来 // 暂时简单点，防止脑袋烧爆</span></span><br><span class="line">		<span class="keyword">typedef</span> _Unique_ptr_base&lt;T, D&gt; Mybase_;</span><br><span class="line">		<span class="comment">// 下划线风格有时候好脑残，</span></span><br><span class="line">		<span class="keyword">typedef</span> <span class="keyword">typename</span> Mybase_::pointer pointer_;</span><br><span class="line">		<span class="comment">// 暂时不用先放这里 // 轮子不好造啊</span></span><br><span class="line">		<span class="keyword">typedef</span> T element_type_;</span><br><span class="line">		<span class="keyword">typedef</span> D deleter_type_;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">using</span> Mybase_::get_deleter;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// constructors // 暂时就先提供2个</span></span><br><span class="line">		<span class="function"><span class="keyword">constexpr</span> <span class="title">unique_ptr</span><span class="params">()</span> <span class="keyword">noexcept</span></span></span><br><span class="line">			: Mybase_(pointer_())</span><br><span class="line">		&#123;	<span class="comment">// constexpr(常量表达式)用于修饰类的构造函数，</span></span><br><span class="line">			<span class="comment">// 即保证如果提供给该构造函数的参数都是constexpr，</span></span><br><span class="line">			<span class="comment">// 那么产生的对象中的所有成员都会是constexpr，</span></span><br><span class="line">			<span class="comment">// 该对象也就是constexpr对象了，可用于各种只能使用constexpr的场合。</span></span><br><span class="line">			<span class="comment">// note，constexpr构造函数必须有一个空的函数体，即所有成员变量的初始化都放到初始化列表中。</span></span><br><span class="line">			<span class="keyword">static_assert</span>(!is_pointer&lt;D&gt;::value,</span><br><span class="line">				<span class="string">"unique_ptr constructed with null deleter pointer"</span>)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">explicit</span> <span class="title">unique_ptr</span><span class="params">(pointer_ p)</span> <span class="keyword">noexcept</span></span></span><br><span class="line">			: Mybase_(pointer_())</span><br><span class="line">		&#123;	<span class="comment">// null pointer construct</span></span><br><span class="line">			<span class="keyword">static_assert</span>(!is_pointer&lt;D&gt;::value,</span><br><span class="line">				<span class="string">"unique_ptr constructed with null deleter pointer"</span>)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">unique_ptr</span>(<span class="built_in">unique_ptr</span>&amp;&amp; right) _NOEXCEPT</span><br><span class="line">			: Mybase_(right.release(),</span><br><span class="line">				::<span class="built_in">std</span>::forward&lt;_Dx&gt;(right.get_deleter()))</span><br><span class="line">		&#123;	<span class="comment">// construct by moving _Right</span></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// destructor</span></span><br><span class="line">		~<span class="built_in">unique_ptr</span>() <span class="keyword">noexcept</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (get() != pointer_())</span><br><span class="line">				<span class="keyword">this</span>-&gt;get_deleter()(get());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// assignment // assign by moving 省略</span></span><br><span class="line">		<span class="comment">// 暂时就提供一个 赋空值的</span></span><br><span class="line">		Myt_&amp; <span class="keyword">operator</span>=(<span class="keyword">nullptr_t</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			reset();</span><br><span class="line">			<span class="keyword">return</span> (*<span class="keyword">this</span>);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// observers</span></span><br><span class="line">		pointer_ <span class="keyword">operator</span>-&gt;() <span class="keyword">const</span> <span class="keyword">noexcept</span></span><br><span class="line">		&#123;	<span class="comment">// return pointer to class object</span></span><br><span class="line">			<span class="keyword">return</span> pointer_();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="function">pointer_ <span class="title">get</span><span class="params">()</span> <span class="keyword">const</span> <span class="keyword">noexcept</span></span></span><br><span class="line"><span class="function">		</span>&#123;	<span class="comment">// return pointer to object</span></span><br><span class="line">			<span class="keyword">return</span> (<span class="keyword">this</span>-&gt;_Myptr());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">explicit</span> <span class="keyword">operator</span> <span class="title">bool</span><span class="params">()</span> <span class="keyword">const</span> <span class="keyword">noexcept</span></span></span><br><span class="line"><span class="function">		</span>&#123;	<span class="comment">// test for non-null pointer</span></span><br><span class="line">			<span class="keyword">return</span> (get() != pointer());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 先使用基类的，应该自己练习写一个的</span></span><br><span class="line">		<span class="comment">//// Returns: A reference to the stored deleter.</span></span><br><span class="line">		<span class="comment">//deleter_type&amp; get_deleter() noexcept;</span></span><br><span class="line">		<span class="comment">//const deleter_type&amp; get_deleter() const noexcept;</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">// modifiers</span></span><br><span class="line">		<span class="function">pointer_ <span class="title">release</span><span class="params">()</span> <span class="keyword">noexcept</span></span></span><br><span class="line"><span class="function">		</span>&#123;	<span class="comment">// yield ownership of pointer</span></span><br><span class="line">			pointer_ ans = get();</span><br><span class="line">			<span class="keyword">this</span>-&gt;_Myptr() = pointer();</span><br><span class="line">			<span class="keyword">return</span> (ans);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		void reset(pointer_ ptr = pointer_()) noexcept</span><br><span class="line">		&#123;	<span class="comment">// establish new pointer</span></span><br><span class="line">			pointer old = get();</span><br><span class="line">			<span class="keyword">this</span>-&gt;_Myptr() = ptr;</span><br><span class="line">			<span class="keyword">if</span> (old != pointer_())</span><br><span class="line">				<span class="keyword">this</span>-&gt;get_deleter()(old);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// void swap(unique_ptr&amp; u) noexcept;</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">// disable copy from lvalue</span></span><br><span class="line">		<span class="built_in">unique_ptr</span>(<span class="keyword">const</span> <span class="built_in">unique_ptr</span>&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">		<span class="built_in">unique_ptr</span>&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> <span class="built_in">unique_ptr</span>&amp;) = <span class="keyword">delete</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line"></span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// operator == , != , &gt; , &gt;= , &lt; , &lt;=  </span></span><br><span class="line">	<span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T1</span>, <span class="title">class</span> <span class="title">D1</span>, <span class="title">class</span> <span class="title">T2</span>, <span class="title">class</span> <span class="title">D2</span>&gt;</span></span><br><span class="line"><span class="class">	<span class="title">bool</span> <span class="title">operator</span>==(<span class="title">const</span> <span class="title">unique_ptr</span>&lt;T1, D1&gt;&amp; <span class="title">x</span>, <span class="title">const</span> <span class="title">unique_ptr</span>&lt;T2, D2&gt;&amp; <span class="title">y</span>)</span></span><br><span class="line"><span class="class">	&#123;</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/12/18/RAII/">
+    <time datetime="2016-12-18T01:58:03.000Z" class="entry-date">
+        2016-12-18
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2016/12/23/git/" rel="prev"><span class="meta-nav">←</span> git help</a></span>
+    
+    
+        <span class="nav-next"><a href="/2016/12/02/markdown-help/" rel="next">markdown-help <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/21/chromium-base-callback/">chromium_base_callback</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/15/repository-tools/">repository_tools</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/13/Inter-process-Communication/">Inter-process_Communication</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/12/Chromium-Source-Code-Directory-Structure/">Chromium_Source_Code_Directory_Structure</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/12/Building-Chromium-for-Windows/">Building_Chromium_for_Windows</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2018 John Doe
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
