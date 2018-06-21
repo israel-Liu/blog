@@ -61,6 +61,71 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-chromium-base-callback" class="post-chromium-base-callback post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2018/06/21/chromium-base-callback/">chromium_base_callback</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/21/chromium-base-callback/" data-id="cjioguhe7000iious189nrmto" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="Callback-lt-gt-and-Bind"><a href="#Callback-lt-gt-and-Bind" class="headerlink" title="Callback&lt;&gt; and Bind()"></a>Callback&lt;&gt; and Bind()</h1><p><a href="https://chromium.googlesource.com/chromium/src/+/master/docs/callback.md" target="_blank" rel="noopener">官方文档</a></p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>模板类 <code>base::Callback&lt;&gt;</code> 是一个一般化的函数对象。<br>和 base/bind.h 中的函数 <code>base::Bind()</code> 一起提供一种线程安全的方式来执行应用程序的功能。</p>
+<p>Partial application (or “currying”) is the process of binding a subset of a<br>function’s arguments to produce another function that takes fewer arguments.<br>This can be used to pass around a unit of delayed execution, much like lexical<br>closures are used in other languages. For example, it is used in Chromium code<br>to schedule tasks on different MessageLoops.</p>
+<p>A callback with no unbound input parameters (<code>base::Callback&lt;void()&gt;</code>) is<br>called a <code>base::Closure</code>. Note that this is NOT the same as what other<br>languages refer to as a closure – it does not retain a reference to its<br>enclosing environment.</p>
+<h2 id="Implementation-notes"><a href="#Implementation-notes" class="headerlink" title="Implementation notes"></a>Implementation notes</h2><h3 id="Where-Is-This-Design-From"><a href="#Where-Is-This-Design-From" class="headerlink" title="Where Is This Design From:"></a>Where Is This Design From:</h3><p>The design of <code>base::Callback</code> and <code>base::Bind</code> is heavily influenced by C++’s<br><code>tr1::function</code> / <code>tr1::bind</code>, and by the “Google Callback” system used inside<br>Google.</p>
+<h3 id="Customizing-the-behavior"><a href="#Customizing-the-behavior" class="headerlink" title="Customizing the behavior"></a>Customizing the behavior</h3><p>暂时跳过</p>
+<h3 id="How-The-Implementation-Works"><a href="#How-The-Implementation-Works" class="headerlink" title="How The Implementation Works:"></a>How The Implementation Works:</h3><p>There are three main components to the system:<br>  1) The <code>base::Callback&lt;&gt;</code> classes.<br>  2) The <code>base::Bind()</code> functions.<br>  3) The arguments wrappers (e.g., <code>base::Unretained()</code> and <code>base::ConstRef()</code>).</p>
+<p>The Callback classes represent a generic function pointer. Internally, it<br>stores a refcounted piece of state that represents the target function and all<br>its bound parameters. The <code>base::Callback</code> constructor takes a<br><code>base::BindStateBase*</code>, which is upcasted from a <code>base::BindState&lt;&gt;</code>. In the<br>context of the constructor, the static type of this <code>base::BindState&lt;&gt;</code> pointer<br>uniquely identifies the function it is representing, all its bound parameters,<br>and a <code>Run()</code> method that is capable of invoking the target.</p>
+<p><code>base::Bind()</code> creates the <code>base::BindState&lt;&gt;</code> that has the full static type,<br>and erases the target function type as well as the types of the bound<br>parameters. It does this by storing a pointer to the specific <code>Run()</code> function,<br>and upcasting the state of <code>base::BindState&lt;&gt;*</code> to a <code>base::BindStateBase*</code>.<br>This is safe as long as this <code>BindStateBase</code> pointer is only used with the<br>stored <code>Run()</code> pointer.</p>
+<p>To <code>base::BindState&lt;&gt;</code> objects are created inside the <code>base::Bind()</code> functions.<br>These functions, along with a set of internal templates, are responsible for</p>
+<ul>
+<li>Unwrapping the function signature into return type, and parameters</li>
+<li>Determining the number of parameters that are bound</li>
+<li>Creating the BindState storing the bound parameters</li>
+<li>Performing compile-time asserts to avoid error-prone behavior</li>
+<li>Returning an <code>Callback&lt;&gt;</code> with an arity matching the number of unbound<br>parameters and that knows the correct refcounting semantics for the<br>target object if we are binding a method.</li>
+</ul>
+<p>The <code>base::Bind</code> functions do the above using<br><a href="https://en.wikipedia.org/wiki/Type_inference" target="_blank" rel="noopener">type-inference</a><br> and <a href="https://en.wikipedia.org/wiki/Variadic_template" target="_blank" rel="noopener">variadic templates</a>.</p>
+<p>By default <code>base::Bind()</code> will store copies of all bound parameters, and<br>attempt to refcount a target object if the function being bound is a class<br>method. These copies are created even if the function takes parameters as const<br>references. (Binding to non-const references is forbidden, see bind.h.)</p>
+<p>To change this behavior, we introduce a set of argument wrappers (e.g.,<br><code>base::Unretained()</code>, and <code>base::ConstRef()</code>).  These are simple container<br>templates that are passed by value, and wrap a pointer to argument.  See the<br>file-level comment in base/bind_helpers.h for more info.</p>
+<p>These types are passed to the <code>Unwrap()</code> functions to modify the behavior of<br><code>base::Bind()</code>.  The <code>Unwrap()</code> functions change behavior by doing partial<br>specialization based on whether or not a parameter is a wrapper type.</p>
+<p><code>base::ConstRef()</code> is similar to <code>tr1::cref</code>.  <code>base::Unretained()</code> is specific<br>to Chromium.</p>
+<h3 id="Missing-Functionality"><a href="#Missing-Functionality" class="headerlink" title="Missing Functionality"></a>Missing Functionality</h3><p>今天实在是太困了，后续重新翻译。果然不能太放纵了。</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/06/21/chromium-base-callback/">
+    <time datetime="2018-06-21T11:01:33.000Z" class="entry-date">
+        2018-06-21
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-repository-tools" class="post-repository-tools post type-post status-publish format-standard hentry">
     <!---->
 
@@ -76,7 +141,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/15/repository-tools/" data-id="cjin5y6j7000xysuszjjd89u5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/15/repository-tools/" data-id="cjioguhey0010iousr4qs205h" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -124,7 +189,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/13/Inter-process-Communication/" data-id="cjin5y6it000cysussuiilp3p" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/13/Inter-process-Communication/" data-id="cjioguhdo0007iousrigj5m1c" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -167,7 +232,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/12/Chromium-Source-Code-Directory-Structure/" data-id="cjin5y6io0007ysusta2uvejo" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/12/Chromium-Source-Code-Directory-Structure/" data-id="cjioguhdp0009iousqw4b5stk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -293,7 +358,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/12/Building-Chromium-for-Windows/" data-id="cjin5y6in0006ysusnwpnb8hd" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/12/Building-Chromium-for-Windows/" data-id="cjioguhbq0004iousfg27rfw3" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -341,7 +406,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/02/Electron-source-directory-structure/" data-id="cjin5y6is000bysus867go8mf" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/02/Electron-source-directory-structure/" data-id="cjioguhea000nious5b36ge0x" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -386,7 +451,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/26/hexo-theme/" data-id="cjin5y6j3000qysusvfp90myd" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/26/hexo-theme/" data-id="cjioguhe9000miousrnu9smjn" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -428,7 +493,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/14/C-Run-Time-Library-Reference/" data-id="cjin5y6il0004ysus1wjy7wx6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/14/C-Run-Time-Library-Reference/" data-id="cjioguhbp0002iouspsbfj56k" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -470,7 +535,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/10/reading-note-fourth/" data-id="cjin5y6j5000uysusy1eu02a7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/10/reading-note-fourth/" data-id="cjioguhek000riousw9i8pyqc" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -512,7 +577,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/03/28/reading-note-thirdly/" data-id="cjin5y6j6000wysus7m3cxacb" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/03/28/reading-note-thirdly/" data-id="cjioguhem000uious778l75rb" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -528,51 +593,6 @@
     <a href="/2018/03/28/reading-note-thirdly/">
     <time datetime="2018-03-28T12:00:43.000Z" class="entry-date">
         2018-03-28
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-Building-C-C-Programs" class="post-Building-C-C-Programs post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/11/16/Building-C-C-Programs/">Building C/C++ Programs</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2017/11/16/Building-C-C-Programs/" data-id="cjin5y6im0005ysus3y0xoh5k" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <ol>
-<li>Build C/C++ code on the command line</li>
-</ol>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/11/16/Building-C-C-Programs/">
-    <time datetime="2017-11-16T07:58:22.000Z" class="entry-date">
-        2017-11-16
     </time>
 </a>
     
@@ -615,6 +635,10 @@
       <ul>
         
           <li>
+            <a href="/2018/06/21/chromium-base-callback/">chromium_base_callback</a>
+          </li>
+        
+          <li>
             <a href="/2018/06/15/repository-tools/">repository_tools</a>
           </li>
         
@@ -628,10 +652,6 @@
         
           <li>
             <a href="/2018/06/12/Building-Chromium-for-Windows/">Building_Chromium_for_Windows</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/02/Electron-source-directory-structure/">Electron-source-directory-structure</a>
           </li>
         
       </ul>

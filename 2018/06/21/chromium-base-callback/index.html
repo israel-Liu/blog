@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="Callback&amp;lt;&amp;gt; and Bind()官方文档
+Introduction模板类 base::Callback&amp;lt;&amp;gt; 是一个一般化的函数对象。和 base/bind.h 中的函数 base::Bind() 一起提供一种线程安全的方式来执行应用程序的功能。
+Partial ap" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>chromium_base_callback | theForger</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Callback&amp;lt;&amp;gt; and Bind()官方文档 Introduction模板类 base::Callback&amp;lt;&amp;gt; 是一个一般化的函数对象。和 base/bind.h 中的函数 base::Bind() 一起提供一种线程安全的方式来执行应用程序的功能。 Partial application (or “currying”) is the process of bindin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="chromium_base_callback">
+<meta property="og:url" content="https://israel-liu.github.io/2018/06/21/chromium-base-callback/index.html">
+<meta property="og:site_name" content="theForger">
+<meta property="og:description" content="Callback&amp;lt;&amp;gt; and Bind()官方文档 Introduction模板类 base::Callback&amp;lt;&amp;gt; 是一个一般化的函数对象。和 base/bind.h 中的函数 base::Bind() 一起提供一种线程安全的方式来执行应用程序的功能。 Partial application (or “currying”) is the process of bindin">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-06-21T11:31:10.635Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="chromium_base_callback">
+<meta name="twitter:description" content="Callback&amp;lt;&amp;gt; and Bind()官方文档 Introduction模板类 base::Callback&amp;lt;&amp;gt; 是一个一般化的函数对象。和 base/bind.h 中的函数 base::Bind() 一起提供一种线程安全的方式来执行应用程序的功能。 Partial application (or “currying”) is the process of bindin">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="theForger" rel="home">theForger</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-chromium-base-callback" class="post-chromium-base-callback post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      chromium_base_callback
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/21/chromium-base-callback/" data-id="cjioguhe7000iious189nrmto" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="Callback-lt-gt-and-Bind"><a href="#Callback-lt-gt-and-Bind" class="headerlink" title="Callback&lt;&gt; and Bind()"></a>Callback&lt;&gt; and Bind()</h1><p><a href="https://chromium.googlesource.com/chromium/src/+/master/docs/callback.md" target="_blank" rel="noopener">官方文档</a></p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>模板类 <code>base::Callback&lt;&gt;</code> 是一个一般化的函数对象。<br>和 base/bind.h 中的函数 <code>base::Bind()</code> 一起提供一种线程安全的方式来执行应用程序的功能。</p>
+<p>Partial application (or “currying”) is the process of binding a subset of a<br>function’s arguments to produce another function that takes fewer arguments.<br>This can be used to pass around a unit of delayed execution, much like lexical<br>closures are used in other languages. For example, it is used in Chromium code<br>to schedule tasks on different MessageLoops.</p>
+<p>A callback with no unbound input parameters (<code>base::Callback&lt;void()&gt;</code>) is<br>called a <code>base::Closure</code>. Note that this is NOT the same as what other<br>languages refer to as a closure – it does not retain a reference to its<br>enclosing environment.</p>
+<h2 id="Implementation-notes"><a href="#Implementation-notes" class="headerlink" title="Implementation notes"></a>Implementation notes</h2><h3 id="Where-Is-This-Design-From"><a href="#Where-Is-This-Design-From" class="headerlink" title="Where Is This Design From:"></a>Where Is This Design From:</h3><p>The design of <code>base::Callback</code> and <code>base::Bind</code> is heavily influenced by C++’s<br><code>tr1::function</code> / <code>tr1::bind</code>, and by the “Google Callback” system used inside<br>Google.</p>
+<h3 id="Customizing-the-behavior"><a href="#Customizing-the-behavior" class="headerlink" title="Customizing the behavior"></a>Customizing the behavior</h3><p>暂时跳过</p>
+<h3 id="How-The-Implementation-Works"><a href="#How-The-Implementation-Works" class="headerlink" title="How The Implementation Works:"></a>How The Implementation Works:</h3><p>There are three main components to the system:<br>  1) The <code>base::Callback&lt;&gt;</code> classes.<br>  2) The <code>base::Bind()</code> functions.<br>  3) The arguments wrappers (e.g., <code>base::Unretained()</code> and <code>base::ConstRef()</code>).</p>
+<p>The Callback classes represent a generic function pointer. Internally, it<br>stores a refcounted piece of state that represents the target function and all<br>its bound parameters. The <code>base::Callback</code> constructor takes a<br><code>base::BindStateBase*</code>, which is upcasted from a <code>base::BindState&lt;&gt;</code>. In the<br>context of the constructor, the static type of this <code>base::BindState&lt;&gt;</code> pointer<br>uniquely identifies the function it is representing, all its bound parameters,<br>and a <code>Run()</code> method that is capable of invoking the target.</p>
+<p><code>base::Bind()</code> creates the <code>base::BindState&lt;&gt;</code> that has the full static type,<br>and erases the target function type as well as the types of the bound<br>parameters. It does this by storing a pointer to the specific <code>Run()</code> function,<br>and upcasting the state of <code>base::BindState&lt;&gt;*</code> to a <code>base::BindStateBase*</code>.<br>This is safe as long as this <code>BindStateBase</code> pointer is only used with the<br>stored <code>Run()</code> pointer.</p>
+<p>To <code>base::BindState&lt;&gt;</code> objects are created inside the <code>base::Bind()</code> functions.<br>These functions, along with a set of internal templates, are responsible for</p>
+<ul>
+<li>Unwrapping the function signature into return type, and parameters</li>
+<li>Determining the number of parameters that are bound</li>
+<li>Creating the BindState storing the bound parameters</li>
+<li>Performing compile-time asserts to avoid error-prone behavior</li>
+<li>Returning an <code>Callback&lt;&gt;</code> with an arity matching the number of unbound<br>parameters and that knows the correct refcounting semantics for the<br>target object if we are binding a method.</li>
+</ul>
+<p>The <code>base::Bind</code> functions do the above using<br><a href="https://en.wikipedia.org/wiki/Type_inference" target="_blank" rel="noopener">type-inference</a><br> and <a href="https://en.wikipedia.org/wiki/Variadic_template" target="_blank" rel="noopener">variadic templates</a>.</p>
+<p>By default <code>base::Bind()</code> will store copies of all bound parameters, and<br>attempt to refcount a target object if the function being bound is a class<br>method. These copies are created even if the function takes parameters as const<br>references. (Binding to non-const references is forbidden, see bind.h.)</p>
+<p>To change this behavior, we introduce a set of argument wrappers (e.g.,<br><code>base::Unretained()</code>, and <code>base::ConstRef()</code>).  These are simple container<br>templates that are passed by value, and wrap a pointer to argument.  See the<br>file-level comment in base/bind_helpers.h for more info.</p>
+<p>These types are passed to the <code>Unwrap()</code> functions to modify the behavior of<br><code>base::Bind()</code>.  The <code>Unwrap()</code> functions change behavior by doing partial<br>specialization based on whether or not a parameter is a wrapper type.</p>
+<p><code>base::ConstRef()</code> is similar to <code>tr1::cref</code>.  <code>base::Unretained()</code> is specific<br>to Chromium.</p>
+<h3 id="Missing-Functionality"><a href="#Missing-Functionality" class="headerlink" title="Missing Functionality"></a>Missing Functionality</h3><p>今天实在是太困了，后续重新翻译。果然不能太放纵了。</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/06/21/chromium-base-callback/">
+    <time datetime="2018-06-21T11:01:33.000Z" class="entry-date">
+        2018-06-21
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2018/06/15/repository-tools/" rel="next">repository_tools <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/21/chromium-base-callback/">chromium_base_callback</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/15/repository-tools/">repository_tools</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/13/Inter-process-Communication/">Inter-process_Communication</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/12/Chromium-Source-Code-Directory-Structure/">Chromium_Source_Code_Directory_Structure</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/12/Building-Chromium-for-Windows/">Building_Chromium_for_Windows</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2018 John Doe
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
