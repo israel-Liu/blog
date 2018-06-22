@@ -1,690 +1,877 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="null">
 <head>
-  <meta charset="utf-8">
-  
-  
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="theForger">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://israel-liu.github.io">
+    <!--SEO-->
 
-  
-  
-  
-  
-  
-  
-  <title>theForger</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="theForger">
-<meta property="og:url" content="https://israel-liu.github.io/index.html">
-<meta property="og:site_name" content="theForger">
-<meta property="og:locale" content="default">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="theForger">
-  
-  
-    <link rel="icon" href="/css/images/favicon.ico">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
 
-  
-  <!-- baidu webmaster push -->
-  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>theForger</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="theForger" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
 </head>
-<body class="home blog custom-background custom-font-enabled single-author">
-  <div id="page" class="hfeed site">
-      <header id="masthead" class="site-header" role="banner">
-    <hgroup>
-      <h1 class="site-title">
-        <a href="/" title="theForger" rel="home">theForger</a>
-      </h1>
-      
-        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
-        <h2 class="site-description"><script>hitokoto();</script></h2>
-      
-    </hgroup>
 
-    <nav id="site-navigation" class="main-navigation" role="navigation">
-            <button class="menu-toggle">菜单</button>
-            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
-            <div class="menu-main-container">
-                <ul id="menu-main" class="nav-menu">
-                
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
-                
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
-                
-                </ul>
-            </div>
-    </nav>
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='John Doe'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
 </header>
-      <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main">
-  
-    <article id="post-chromium-base-callback" class="post-chromium-base-callback post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2018/06/21/chromium-base-callback/">chromium_base_callback</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/21/chromium-base-callback/" data-id="cjioho9x1000ozsus5kls0vta" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <h1 id="Callback-lt-gt-and-Bind"><a href="#Callback-lt-gt-and-Bind" class="headerlink" title="Callback&lt;&gt; and Bind()"></a>Callback&lt;&gt; and Bind()</h1><p><a href="https://chromium.googlesource.com/chromium/src/+/master/docs/callback.md" target="_blank" rel="noopener">官方文档</a></p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>模板类 <code>base::Callback&lt;&gt;</code> 是一个一般化的函数对象。<br>和 base/bind.h 中的函数 <code>base::Bind()</code> 一起提供一种线程安全的方式来执行应用程序的功能。</p>
-<p>Partial application (or “currying”) is the process of binding a subset of a<br>function’s arguments to produce another function that takes fewer arguments.<br>This can be used to pass around a unit of delayed execution, much like lexical<br>closures are used in other languages. For example, it is used in Chromium code<br>to schedule tasks on different MessageLoops.</p>
-<p>A callback with no unbound input parameters (<code>base::Callback&lt;void()&gt;</code>) is<br>called a <code>base::Closure</code>. Note that this is NOT the same as what other<br>languages refer to as a closure – it does not retain a reference to its<br>enclosing environment.</p>
-<h2 id="Implementation-notes"><a href="#Implementation-notes" class="headerlink" title="Implementation notes"></a>Implementation notes</h2><h3 id="Where-Is-This-Design-From"><a href="#Where-Is-This-Design-From" class="headerlink" title="Where Is This Design From:"></a>Where Is This Design From:</h3><p>The design of <code>base::Callback</code> and <code>base::Bind</code> is heavily influenced by C++’s<br><code>tr1::function</code> / <code>tr1::bind</code>, and by the “Google Callback” system used inside<br>Google.</p>
-<h3 id="Customizing-the-behavior"><a href="#Customizing-the-behavior" class="headerlink" title="Customizing the behavior"></a>Customizing the behavior</h3><p>暂时跳过</p>
-<h3 id="How-The-Implementation-Works"><a href="#How-The-Implementation-Works" class="headerlink" title="How The Implementation Works:"></a>How The Implementation Works:</h3><p>There are three main components to the system:<br>  1) The <code>base::Callback&lt;&gt;</code> classes.<br>  2) The <code>base::Bind()</code> functions.<br>  3) The arguments wrappers (e.g., <code>base::Unretained()</code> and <code>base::ConstRef()</code>).</p>
-<p>The Callback classes represent a generic function pointer. Internally, it<br>stores a refcounted piece of state that represents the target function and all<br>its bound parameters. The <code>base::Callback</code> constructor takes a<br><code>base::BindStateBase*</code>, which is upcasted from a <code>base::BindState&lt;&gt;</code>. In the<br>context of the constructor, the static type of this <code>base::BindState&lt;&gt;</code> pointer<br>uniquely identifies the function it is representing, all its bound parameters,<br>and a <code>Run()</code> method that is capable of invoking the target.</p>
-<p><code>base::Bind()</code> creates the <code>base::BindState&lt;&gt;</code> that has the full static type,<br>and erases the target function type as well as the types of the bound<br>parameters. It does this by storing a pointer to the specific <code>Run()</code> function,<br>and upcasting the state of <code>base::BindState&lt;&gt;*</code> to a <code>base::BindStateBase*</code>.<br>This is safe as long as this <code>BindStateBase</code> pointer is only used with the<br>stored <code>Run()</code> pointer.</p>
-<p>To <code>base::BindState&lt;&gt;</code> objects are created inside the <code>base::Bind()</code> functions.<br>These functions, along with a set of internal templates, are responsible for</p>
-<ul>
-<li>Unwrapping the function signature into return type, and parameters</li>
-<li>Determining the number of parameters that are bound</li>
-<li>Creating the BindState storing the bound parameters</li>
-<li>Performing compile-time asserts to avoid error-prone behavior</li>
-<li>Returning an <code>Callback&lt;&gt;</code> with an arity matching the number of unbound<br>parameters and that knows the correct refcounting semantics for the<br>target object if we are binding a method.</li>
-</ul>
-<p>The <code>base::Bind</code> functions do the above using<br><a href="https://en.wikipedia.org/wiki/Type_inference" target="_blank" rel="noopener">type-inference</a> and<br><a href="https://en.wikipedia.org/wiki/Variadic_template" target="_blank" rel="noopener">variadic templates</a>.</p>
-<p>By default <code>base::Bind()</code> will store copies of all bound parameters, and<br>attempt to refcount a target object if the function being bound is a class<br>method. These copies are created even if the function takes parameters as const<br>references. (Binding to non-const references is forbidden, see bind.h.)</p>
-<p>To change this behavior, we introduce a set of argument wrappers (e.g.,<br><code>base::Unretained()</code>, and <code>base::ConstRef()</code>).  These are simple container<br>templates that are passed by value, and wrap a pointer to argument.  See the<br>file-level comment in base/bind_helpers.h for more info.</p>
-<p>These types are passed to the <code>Unwrap()</code> functions to modify the behavior of<br><code>base::Bind()</code>.  The <code>Unwrap()</code> functions change behavior by doing partial<br>specialization based on whether or not a parameter is a wrapper type.</p>
-<p><code>base::ConstRef()</code> is similar to <code>tr1::cref</code>.  <code>base::Unretained()</code> is specific<br>to Chromium.</p>
-<h3 id="Missing-Functionality"><a href="#Missing-Functionality" class="headerlink" title="Missing Functionality"></a>Missing Functionality</h3><p>今天实在是太困了，后续重新翻译。果然不能太放纵了。</p>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2018/06/21/chromium-base-callback/">
-    <time datetime="2018-06-21T11:01:33.000Z" class="entry-date">
-        2018-06-21
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-repository-tools" class="post-repository-tools post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2018/06/15/repository-tools/">repository_tools</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/15/repository-tools/" data-id="cjioho9xa0010zsusoeigyugu" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p><a href="https://github.com/israel-Liu/repository_tools" target="_blank" rel="noopener">repository_tools</a></p>
-<p>Like Google depot_tools 用来管理代码的工具 Make code management easy</p>
-<h4 id="初版开发背景"><a href="#初版开发背景" class="headerlink" title="初版开发背景:"></a>初版开发背景:</h4><p>因为我们工程是多个branch，每次都要单个目录去更新，自己感觉麻烦就写了个简单脚本  </p>
-<h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法:"></a>使用方法:</h4><p>首先要保证git 和 python设置到环境变量中，也就是要在命令行中可以用，因为要用脚本去执行<br>把工程下载后放到需要更新的目录一级上(同级别)然后执行里面的pull脚本，正确的话就没有什么提示的，错误有提示。</p>
-<h4 id="核心Code"><a href="#核心Code" class="headerlink" title="核心Code"></a>核心Code</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(args = None)</span>:</span></span><br><span class="line">  <span class="keyword">for</span> folder <span class="keyword">in</span> os.listdir(SCRIPT_PATH):</span><br><span class="line">    folder = os.path.join(SCRIPT_PATH, folder)</span><br><span class="line">    <span class="keyword">for</span> git_folder <span class="keyword">in</span> os.listdir(folder):</span><br><span class="line">      <span class="keyword">if</span> git_folder == <span class="string">'.git'</span>:</span><br><span class="line">        os.chdir(folder)</span><br><span class="line">        git.run(<span class="string">'fetch'</span>, <span class="string">'-p'</span>)</span><br><span class="line">        cur_branch = git.current_branch()</span><br><span class="line">        git.run(<span class="string">'rebase'</span>, <span class="string">'origin/master'</span>, cur_branch)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
-<h4 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h4><p>后面如果有需要可以继续添加更多脚本</p>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2018/06/15/repository-tools/">
-    <time datetime="2018-06-15T03:18:38.000Z" class="entry-date">
-        2018-06-15
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-Inter-process-Communication" class="post-Inter-process-Communication post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2018/06/13/Inter-process-Communication/">Inter-process_Communication</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/13/Inter-process-Communication/" data-id="cjioho9ws000czsusyzi6kji2" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p><a href="https://www.chromium.org/developers/design-documents/inter-process-communication" target="_blank" rel="noopener">Inter-process Communication (IPC)</a></p>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2018/06/13/Inter-process-Communication/">
-    <time datetime="2018-06-13T11:10:07.000Z" class="entry-date">
-        2018-06-13
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-Chromium-Source-Code-Directory-Structure" class="post-Chromium-Source-Code-Directory-Structure post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2018/06/12/Chromium-Source-Code-Directory-Structure/">Chromium_Source_Code_Directory_Structure</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/12/Chromium-Source-Code-Directory-Structure/" data-id="cjioho9wn0007zsusuqkrtc7a" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p><a href="https://www.chromium.org/developers/how-tos/getting-around-the-chrome-source-code" target="_blank" rel="noopener">Chromium Source Code Directory Structure</a></p>
-<h4 id="High-level-overview"><a href="#High-level-overview" class="headerlink" title="High-level overview"></a>High-level overview</h4><p>Chromium 主要由browser，renderer，Webkit三部分构成。浏览器是主进程represents所有的UI和。渲染器通常是per-tab sub-process由浏览器驱动。<br>嵌入Webkit负责渲染和布局。</p>
-<h4 id="Quick-introduction-to-the-solution-file"><a href="#Quick-introduction-to-the-solution-file" class="headerlink" title="Quick introduction to the solution file"></a>Quick introduction to the solution file</h4><p>这里跳过，和我看到的工程目录不太一样，需要了解的可以看英文原版。</p>
-<h4 id="Top-level-projects"><a href="#Top-level-projects" class="headerlink" title="Top-level projects"></a>Top-level projects</h4><ul>
-<li>android_webview: 这里是给Android用的，目前不介绍。</li>
-<li>apps: Chrome打包应用程序。</li>
-<li>ash:</li>
-<li>base: 所有top-level project公用的基础库。希望自己可以学会造这样的轮子。</li>
-<li>blink: In the renderer, Blink is the client.</li>
-<li>build: 所有工程共享的build相关配置。</li>
-<li>build_overrides:</li>
-<li>buildtools: 工程编译工具。</li>
-<li>cc: 用于打印排版？(The Chromium compositor implementation.)</li>
-<li>chrome: 浏览器， chrome/test/data: 运行某些测试的数据文件。</li>
-<li>chrome_elf:</li>
-<li>chromecast: <a href="https://chromium.googlesource.com/chromium/src/+/master/base/feature_list.h" target="_blank" rel="noopener">the Chrome feature system</a>.</li>
-<li>chromeos:</li>
-<li>cloud_print:</li>
-<li>components: 顶层模块依赖的组件。</li>
-<li>content: 多进程沙箱浏览器核心代码，<a href="https://www.chromium.org/developers/content-module" target="_blank" rel="noopener">更多信息</a></li>
-<li>courgette:</li>
-<li>crypto:</li>
-<li>dbus:</li>
-<li>device: 硬件层跨平台APIs。</li>
-<li>docs:</li>
-<li>extensions:</li>
-<li>gin:</li>
-<li>google_apis:</li>
-<li>google_update:</li>
-<li>gpu:</li>
-<li>headless:</li>
-<li>infra:</li>
-<li>ios:</li>
-<li>ipc:</li>
-<li>jingle:</li>
-<li>mash:</li>
-<li>media:</li>
-<li>mojo:</li>
-<li>native_client:</li>
-<li>native_client_sdk:</li>
-<li>net: 为Chromium开发的网络库，可单独用于webkit的简单test_shell测试。</li>
-<li>out: 存放编译后生成的文件，可以在这里使用visual studio 2017打开all.sln查看整个工程。<a href="https://israel-liu.github.io/2018/06/12/Building-Chromium-for-Windows/">生成解决方案查看这里</a></li>
-<li>pdf:</li>
-<li>ppapi:</li>
-<li>printing:</li>
-<li>remoting:</li>
-<li>rlz:</li>
-<li>sandbox: 阻止通过修改系统入侵渲染器？(The sandbox project which tries to prevent a hacked renderer from modifying the system.)</li>
-<li>services:</li>
-<li>skia: 从 Android 项目拷贝过来的图形库。我们在 ui/gfx 里面做了封装。</li>
-<li>sql: 对 sqlite 做的封装。</li>
-<li>storage:</li>
-<li>styleguide:</li>
-<li>testing: 单元测试开源工程 GTest</li>
-<li>third_party: 外部依赖库。一些 Chrome-specific 存放在 chrome/third_party。</li>
-<li>tools:</li>
-<li>ui: ui/gfx: 图形库。 ui/views: 简单 UI 开发框架提供渲染，布局和事件处理。一些 browser-specific 放在 chrome/browser/ui/views。</li>
-<li>url: 标准化 URL 解析库？(Google’s open source URL parsing and canonicalization library.)</li>
-<li>v8: Javascript V8 引擎。</li>
-<li><p>webrunner:</p>
-<p>==== 上面是我使用的代码目录 ====</p>
-</li>
-<li>breakpad: 崩溃上报程序</li>
-<li><p>webkit:</p>
-<p>==== 这俩是文章开始连接上包含的内容 ====</p>
-<p><strong><em> 理想目标是按照应用分配目录，应用相关的所有子目录放到一个应用目录下。(e.g. Chrome, Android WebView, Ash) </em></strong></p>
-<h4 id="依赖关系图"><a href="#依赖关系图" class="headerlink" title="依赖关系图"></a>依赖关系图</h4><p>下级的模块不能直接包含更高级别模块的代码，必须通过嵌入的 APIs 进行交流。<br><img src="https://github.com/israel-Liu/theForger/raw/master/images/dependencies_diagram.png" alt=""></p>
-<h4 id="Quick-reference-for-the-directory-tree-under-“content-“"><a href="#Quick-reference-for-the-directory-tree-under-“content-“" class="headerlink" title="Quick reference for the directory tree under “content/“"></a>Quick reference for the directory tree under “content/“</h4></li>
-<li>app:</li>
-<li>browser: The backend for the application which handles all I/O and communication with the child processes . This talks to the renderer to manage web pages.</li>
-<li>child:</li>
-<li>common: Files shared between the multiple processes (i.e. browser and renderer, renderer and plugin, etc…). This is the code specific to Chromium (and not applicable to being in base).</li>
-<li>gpu: Code for the GPU process, which is used for 3D compositing and 3D APIs.</li>
-<li>plugin: Code for running browser plugins in other processes.(只在文档列出)</li>
-<li>ppapi_plugin: Code for the Pepper plugin process.</li>
-<li>public:</li>
-<li>renderer: Code for the subprocess in each tab. This embeds WebKit and talks to browser for I/O.</li>
-<li>shell:</li>
-<li>test:</li>
-<li>utility: Code for running random operations in a sandboxed process.  The browser process uses it when it wants to run an operation on untrusted data.</li>
-<li>worker: Code for running HTML5 Web Workers.(只在文档列出)</li>
-<li>zygote:</li>
-</ul>
-<h4 id="Quick-reference-for-the-directory-tree-under-“chrome-“"><a href="#Quick-reference-for-the-directory-tree-under-“chrome-“" class="headerlink" title="Quick reference for the directory tree under “chrome/“"></a>Quick reference for the directory tree under “chrome/“</h4><p>暂时不学习这块，先不列出。需要的时候补上。</p>
-<h4 id="A-personal-learning-plan"><a href="#A-personal-learning-plan" class="headerlink" title="A personal learning plan"></a>A personal learning plan</h4><h4 id="Code-paths-for-common-operations"><a href="#Code-paths-for-common-operations" class="headerlink" title="Code paths for common operations"></a>Code paths for common operations</h4><h4 id="后续先进行轮子学习。"><a href="#后续先进行轮子学习。" class="headerlink" title="后续先进行轮子学习。"></a>后续先进行轮子学习。</h4>
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2018/06/12/Chromium-Source-Code-Directory-Structure/">
-    <time datetime="2018-06-12T12:08:39.000Z" class="entry-date">
-        2018-06-12
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-Building-Chromium-for-Windows" class="post-Building-Chromium-for-Windows post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2018/06/12/Building-Chromium-for-Windows/">Building_Chromium_for_Windows</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/12/Building-Chromium-for-Windows/" data-id="cjioho9wm0006zsust7h2zbbx" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p><a href="https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#Setting-up-Windows" target="_blank" rel="noopener">官方文档</a><br>请仔细阅读官方文档，如果遇见错误在回来看，以下只写出我编译的时候失败过的地方。</p>
-<h3 id="System-requirements"><a href="#System-requirements" class="headerlink" title="System requirements"></a>System requirements</h3><p>At least 100GB of free disk space on an NTFS-formatted hard drive. FAT32 will not work, as some of the Git packfiles are larger than 4GB.</p>
-<h3 id="Visual-Studio"><a href="#Visual-Studio" class="headerlink" title="Visual Studio"></a>Visual Studio</h3><p>You must install the “Desktop development with C++” component and the “MFC and ATL support” sub-component.<br>You must have the version 10.0.17134 Windows 10 SDK installed.这里如果不安装后面编译会找不到某些库。</p>
-<h3 id="depot-tools"><a href="#depot-tools" class="headerlink" title="depot_tools"></a>depot_tools</h3><p>下载解压，不可拷贝因为需要隐藏的(.git)文件夹，添加路径到环境变量，满足(at least in front of any directory that might already have a copy of Python or Git)<br>因为我们使用depot_tools里面的工具进行下载代码和编译所以( tells depot_tools to use your locally installed version of Visual Studio need add a DEPOT_TOOLS_WIN_TOOLCHAIN system variable in the same way, and set it to 0.)</p>
-<h3 id="Get-the-code"><a href="#Get-the-code" class="headerlink" title="Get the code"></a>Get the code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 因为我是有几个git账号，工作和自己的，所以我没有设置全局的，而是先下载代码，在自己仓库单独配置(在有.git文件夹下去掉--global执行下面命令)</span></span><br><span class="line">$ git config --global user.name <span class="string">"My Name"</span></span><br><span class="line">$ git config --global user.email <span class="string">"my-name@chromium.org"</span></span><br><span class="line">$ git config --global core.autocrlf <span class="literal">false</span></span><br><span class="line">$ git config --global core.filemode <span class="literal">false</span></span><br><span class="line">$ git config --global branch.autosetuprebase always</span><br><span class="line"></span><br><span class="line"><span class="comment">// 找一个你想下载代码的地方执行创建文件夹用于下载代码</span></span><br><span class="line">$ mkdir chromium &amp;&amp; cd chromium</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里是使用的 depot_tools 里面的脚本(也可以下载其它代码，不详细描述)</span></span><br><span class="line">$ fetch chromium <span class="comment">// 下载代码成功很重要，不然你会遇见很多坑，我是弄了很多次，有些网络问题遇见了可以具体配置host(通过网站之家找到延时低的ip)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 下载完成后会看到一个src文件夹和.gclient文件(我还生成了一个.gclient_entries)因为这个要很久，如果你看到控制台没有动，你可以敲下回车</span></span><br><span class="line">$ cd src <span class="comment">// The remaining instructions assume you have switched to the src directory</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// To create a build directory</span></span><br><span class="line">$ gn gen out/Default</span><br><span class="line"></span><br><span class="line"><span class="comment">// Using the Visual Studio IDE</span></span><br><span class="line">$ gn gen --ide=vs out\Default</span><br><span class="line"></span><br><span class="line"><span class="comment">// Build Chromium 这个要很久</span></span><br><span class="line">$ ninja -C out\Default chrome</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.chromium.org/developers/learning-your-way-around-the-code" target="_blank" rel="noopener">从哪里入手学习</a></p>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2018/06/12/Building-Chromium-for-Windows/">
-    <time datetime="2018-06-12T06:25:38.000Z" class="entry-date">
-        2018-06-12
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-Electron-source-directory-structure" class="post-Electron-source-directory-structure post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2018/06/02/Electron-source-directory-structure/">Electron-source-directory-structure</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/02/Electron-source-directory-structure/" data-id="cjioho9wr000bzsus2ljaoo3b" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <h2 id="Electron-源码目录结构"><a href="#Electron-源码目录结构" class="headerlink" title="Electron 源码目录结构"></a>Electron 源码目录结构</h2><p>Electron 的源代码主要依据 Chromium 的拆分约定被拆成了许多部分。<br>为了更好地理解源代码，您可能需要了解一下 Chromium 的多进程架构。</p>
-<h4 id="源代码的结构"><a href="#源代码的结构" class="headerlink" title="源代码的结构"></a>源代码的结构</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Electron</span><br><span class="line">├──atom - Electron 的源代码</span><br><span class="line">|  ├── app - 系统入口代码</span><br><span class="line">|  ├── browser - 包含了主窗口、UI 和其他所有与主进程有关的东西，它会告诉渲染进程如何管理页面</span><br><span class="line">|  |   ├── lib - 主进程初始化代码中 JavaScript 部分的代码</span><br><span class="line">|  |   ├── ui - 不同平台上 UI 部分的实现</span><br><span class="line">|  |   |   ├── cocoa - Cocoa 部分的源代码</span><br><span class="line">|  |   |   ├── gtk - GTK+ 部分的源代码</span><br><span class="line">|  |   |   └── win - Windows GUI 部分的源代码</span><br><span class="line">|  |   ├── default_app - 在没有指定 app 的情况下 Electron 启动时默认显示的页面</span><br><span class="line">|  |   ├── api - 主进程 API 的实现</span><br><span class="line">|  |   |   └── lib - API 实现中 Javascript 部分的代码</span><br><span class="line">|  |   ├── net - 网络相关的代码</span><br><span class="line">|  |   ├── mac - 与 Mac 有关的 Objective-C 代码</span><br><span class="line">|  |   └── resources - 图标，平台相关的文件等</span><br><span class="line">|  ├── renderer - 运行在渲染进程中的代码</span><br><span class="line">|  |   ├── lib - 渲染进程初始化代码中 JavaScript 部分的代码</span><br><span class="line">|  |   └── api - 渲染进程 API 的实现</span><br><span class="line">|  |       └── lib - API 实现中 Javascript 部分的代码</span><br><span class="line">|  └── common - 同时被主进程和渲染进程用到的代码，包括了一些用来将 node 的事件循环</span><br><span class="line">|      |        整合到 Chromium 的事件循环中时用到的工具函数和代码</span><br><span class="line">|      ├── lib - 同时被主进程和渲染进程使用到的 Javascript 初始化代码</span><br><span class="line">|      └── api - 同时被主进程和渲染进程使用到的 API 的实现以及 Electron 内置模块的基础设施</span><br><span class="line">|          └── lib - API 实现中 Javascript 部分的代码</span><br><span class="line">├── chromium_src - 从 Chromium 项目中拷贝来的代码</span><br><span class="line">├── docs - 英语版本的文档</span><br><span class="line">├── docs-translations - 各种语言版本的文档翻译</span><br><span class="line">├── spec - 自动化测试</span><br><span class="line">├── atom.gyp - Electron 的构建规则</span><br><span class="line">└── common.gypi - 为诸如 `node` 和 `breakpad` 等其他组件准备的编译设置和构建规则</span><br></pre></td></tr></table></figure>
-<h4 id="其他目录的结构"><a href="#其他目录的结构" class="headerlink" title="其他目录的结构"></a>其他目录的结构</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">script - 用于诸如构建、打包、测试等开发用途的脚本</span><br><span class="line">tools - 在 gyp 文件中用到的工具脚本，但与 script 目录不同， 该目录中的脚本不应该被用户直接调用</span><br><span class="line">vendor - 第三方依赖项的源代码，为了防止人们将它与 Chromium 源码中的同名目录相混淆， 在这里我们不使用 third_party 作为目录名</span><br><span class="line">node_modules - 在构建中用到的第三方 node 模块</span><br><span class="line">out - ninja 的临时输出目录</span><br><span class="line">dist - 由脚本 script/create-dist.py 创建的临时发布目录</span><br><span class="line">external_binaries - 下载的不支持通过 gyp 构建的预编译第三方框架</span><br></pre></td></tr></table></figure>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2018/06/02/Electron-source-directory-structure/">
-    <time datetime="2018-06-02T02:15:00.000Z" class="entry-date">
-        2018-06-02
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-hexo-theme" class="post-hexo-theme post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2018/04/26/hexo-theme/">hexo-theme</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/26/hexo-theme/" data-id="cjioho9x3000rzsus3w1ijm1f" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2018/04/26/hexo-theme/">
-    <time datetime="2018-04-26T03:00:02.000Z" class="entry-date">
-        2018-04-26
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-C-Run-Time-Library-Reference" class="post-C-Run-Time-Library-Reference post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2018/04/14/C-Run-Time-Library-Reference/">C-Run-Time Library Reference</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/14/C-Run-Time-Library-Reference/" data-id="cjioho9wk0004zsusrrdsgggd" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <h3 id="C-Run-Time-Library-Reference"><a href="#C-Run-Time-Library-Reference" class="headerlink" title="C-Run-Time Library Reference"></a><a href="https://docs.microsoft.com/en-us/cpp/c-runtime-library/c-run-time-library-reference" target="_blank" rel="noopener">C-Run-Time Library Reference</a></h3><h3 id="Potential-Errors-Passing-CRT-Objects-Across-DLL-Boundaries"><a href="#Potential-Errors-Passing-CRT-Objects-Across-DLL-Boundaries" class="headerlink" title="Potential Errors Passing CRT Objects Across DLL Boundaries"></a><a href="https://docs.microsoft.com/en-us/cpp/c-runtime-library/potential-errors-passing-crt-objects-across-dll-boundaries" target="_blank" rel="noopener">Potential Errors Passing CRT Objects Across DLL Boundaries</a></h3>
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2018/04/14/C-Run-Time-Library-Reference/">
-    <time datetime="2018-04-14T09:45:01.000Z" class="entry-date">
-        2018-04-14
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-reading-note-fourth" class="post-reading-note-fourth post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2018/04/10/reading-note-fourth/">C++ Primer, Fifth Edition reading-note-fourth</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/04/10/reading-note-fourth/" data-id="cjioho9x6000vzsus7fj2l599" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2018/04/10/reading-note-fourth/">
-    <time datetime="2018-04-10T11:12:59.000Z" class="entry-date">
-        2018-04-10
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-reading-note-thirdly" class="post-reading-note-thirdly post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2018/03/28/reading-note-thirdly/">C++ Primer, Fifth Edition reading-note-thirdly</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/03/28/reading-note-thirdly/" data-id="cjioho9x9000zzsusbjo3503f" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <h4 id="The-Basics"><a href="#The-Basics" class="headerlink" title="The Basics"></a>The Basics</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;前面两篇写的都是我自己觉得比较难以理解的，现在开始为了某人就写一些基础知识，鉴于也不是完全的初学者，所以只能根据我的了解写，所以也不适合所有人看，当然我的blog也就没啥人看，菜鸡一个，哈哈，现在小透明课堂开课啦</p>
-<h5 id="Variables-and-Basic-Types"><a href="#Variables-and-Basic-Types" class="headerlink" title="Variables and Basic Types"></a>Variables and Basic Types</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>基本内置类型包括 数据类型（整型 <span class="keyword">int</span>, <span class="keyword">bool</span>, <span class="keyword">char</span>, 和 浮点型 <span class="keyword">float</span>, <span class="keyword">double</span>）和空类型 <span class="keyword">void</span></span><br><span class="line">  对于内置类型我们需要知道每个类型占多少字节（<span class="number">1</span> bytes == <span class="number">8</span> bit）x86和x64相同类型可能占不同字节数我们可以用（<span class="keyword">sizeof</span>）获取</span><br><span class="line">  <span class="keyword">char</span>一般是（<span class="number">1</span> byte）， C++规定 <span class="keyword">short</span> &lt;= <span class="keyword">int</span> &lt;=<span class="keyword">long</span> &lt;= <span class="keyword">long</span> <span class="keyword">long</span>，类型转换时候大到小会丢失数据(<span class="keyword">static_cast</span>&lt;&gt;()）</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>字面值常量包括数值，字符，字符串，字符又有转移字符，单双字节和Unicod编码（请自行学习）</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>变量在C++里等同对象，为程序员提供一个可操作的存储空间，要使用一个变量首选要给出变量的定义（定义不同于声明，为了支持分离式编译，C++把声明和定义分开，声明declaration使名字为程序所知道，如果一个文件想使用一个变量必须包含这个变量的声明。而定义definition负责创建实体分配空间）一般来说头文件里面写声明，如果分配了空间就是定义，赋值需要内存空间。（学习关键字<span class="keyword">extern</span>）。变量可多次声明只可一次定义。</span><br><span class="line">（C++是statically typed 静态类型语言，在编译阶段做type checking类型检查，了解这个有助于理解多态），命名规范和作用域请自己了解。</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span>复合类型是基于其他类型定义的类型。下面只介绍指针和引用，基本数据类型+声明符[declarator](http:<span class="comment">//en.cppreference.com/w/cpp/language/declarations)列表组成</span></span><br><span class="line"></span><br><span class="line"><span class="number">4.1</span> 引用reference就是为已经存在的对象起另外一个名字，把引用和初值绑定（bind）在一起如 <span class="keyword">int</span> val = <span class="number">1024</span>; <span class="keyword">int</span>&amp; ref_val = val;这时候val和ref_val就是一个内存空间，更改任何一个另外一个也就变了（因为就是一个啦）</span><br><span class="line"></span><br><span class="line"><span class="number">4.2</span> 指针pointer指向另外一种类型，实现对其他对象的间接访问。指针本身是一个对象（占用<span class="number">4</span>字节）所以你可以对指针进行拷贝和赋值而且无需在定义时候赋初值 <span class="keyword">int</span> val = <span class="number">42</span>; <span class="keyword">int</span>* p = &amp;val;(指针存放某个对象的地址，用取地址符&amp;获取对象地址), 指针访问对象通过解引用符（*）。空指针请自行了解。</span><br></pre></td></tr></table></figure>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2018/03/28/reading-note-thirdly/">
-    <time datetime="2018-03-28T12:00:43.000Z" class="entry-date">
-        2018-03-28
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-  
-    <nav id="pagination">
-      <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-      </nav>
-    </nav>
-  
-
-</div></div>
-        <div id="secondary" class="widget-area" role="complementary">
-  
-    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
-    <div>
-        <input type="text" value="" name="s" id="s" />
-        <input type="submit" id="searchsubmit" value="搜索" />
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://israel-liu.github.io">theForger</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/前端/"><i class="fa "></i>前端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/后端/"><i class="fa "></i>后端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-</form></aside>
-  
-    
-  
-    
-  
-    
-  <aside class="widget">
-    <h3 class="widget-title">Recents</h3>
-    <div class="widget-content">
-      <ul>
-        
-          <li>
-            <a href="/2018/06/21/chromium-base-callback/">chromium_base_callback</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/15/repository-tools/">repository_tools</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/13/Inter-process-Communication/">Inter-process_Communication</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/12/Chromium-Source-Code-Directory-Structure/">Chromium_Source_Code_Directory_Structure</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/12/Building-Chromium-for-Windows/">Building_Chromium_for_Windows</a>
-          </li>
-        
-      </ul>
-    </div>
-  </aside>
-
-  
-    
-  
-    
-  
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content ">
+                    <div class="carousel">
+    <img src="/img/head-img.jpg">
 </div>
-      </div>
-      <footer id="colophon" role="contentinfo">
-    <p>&copy; 2018 John Doe
-    All rights reserved.</p>
-    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+
+
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2018/06/21/chromium-base-callback/">chromium_base_callback</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2018年06月21日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                Callback&amp;lt;&amp;gt; and Bind()官方文档
+Introduction模板类 base::Callback&amp;lt;&amp;gt; 是一个一般化的函数对象。和 base/bind.h 中的函数 base::Bind() 一起...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ ">
+             
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2018/06/21/chromium-base-callback/" class="btn btn-default">阅读全文</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2018/06/15/repository-tools/">repository_tools</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2018年06月15日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                repository_tools
+Like Google depot_tools 用来管理代码的工具 Make code management easy
+初版开发背景:因为我们工程是多个branch，每次都要单个目录去更新，自己感觉麻...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ ">
+             
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2018/06/15/repository-tools/" class="btn btn-default">阅读全文</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2018/06/13/Inter-process-Communication/">Inter-process_Communication</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2018年06月13日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                Inter-process Communication (IPC)
+
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ ">
+             
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2018/06/13/Inter-process-Communication/" class="btn btn-default">阅读全文</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+        <div class="post-media">
+            <a href="/2018/06/12/Chromium-Source-Code-Directory-Structure/">
+                <img class="img-ajax" src="/img/loading.gif"  data-src="https://github.com/israel-Liu/theForger/raw/master/images/dependencies_diagram.png"   alt="Chromium_Source_Code_Directory_Structure">
+            </a>
+        </div>
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2018/06/12/Chromium-Source-Code-Directory-Structure/">Chromium_Source_Code_Directory_Structure</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2018年06月12日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                Chromium Source Code Directory Structure
+High-level overviewChromium 主要由browser，renderer，Webkit三部分构成。浏览器是主进程represent...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ ">
+             
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2018/06/12/Chromium-Source-Code-Directory-Structure/" class="btn btn-default">阅读全文</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2018/06/12/Building-Chromium-for-Windows/">Building_Chromium_for_Windows</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2018年06月12日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                官方文档请仔细阅读官方文档，如果遇见错误在回来看，以下只写出我编译的时候失败过的地方。
+System requirementsAt least 100GB of free disk space on an NTFS-formatted...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ ">
+             
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2018/06/12/Building-Chromium-for-Windows/" class="btn btn-default">阅读全文</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2018/06/02/Electron-source-directory-structure/">Electron-source-directory-structure</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2018年06月02日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                Electron 源码目录结构Electron 的源代码主要依据 Chromium 的拆分约定被拆成了许多部分。为了更好地理解源代码，您可能需要了解一下 Chromium 的多进程架构。
+源代码的结构12345678910111213...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ ">
+             
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2018/06/02/Electron-source-directory-structure/" class="btn btn-default">阅读全文</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2018/04/26/hexo-theme/">hexo-theme</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2018年04月26日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ ">
+             
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2018/04/26/hexo-theme/" class="btn btn-default">阅读全文</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2018/04/14/C-Run-Time-Library-Reference/">C-Run-Time Library Reference</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2018年04月14日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                C-Run-Time Library ReferencePotential Errors Passing CRT Objects Across DLL Boundaries
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ ">
+             
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2018/04/14/C-Run-Time-Library-Reference/" class="btn btn-default">阅读全文</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2018/04/10/reading-note-fourth/">C++ Primer, Fifth Edition reading-note-fourth</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2018年04月10日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ ">
+             
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2018/04/10/reading-note-fourth/" class="btn btn-default">阅读全文</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2018/03/28/reading-note-thirdly/">C++ Primer, Fifth Edition reading-note-thirdly</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2018年03月28日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                The Basics&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前面两篇写的都是我自己觉得比较难以理解的，现在开始为了某人就写一些基础知识，鉴于也不是完全的初学者，所以只能根据我的了解写，所以也不适合所有人看，当然我的blog也就...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ ">
+             
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2018/03/28/reading-note-thirdly/" class="btn btn-default">阅读全文</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+
+
+    <nav class="pagination" role="navigation">
+        <div id="page-nav">
+            <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class='fa fa-angle-right'></i></a>
+        </div>
+    </nav>
+
+
+
+                </main>
+                
+                    
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">Search</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">localSearch</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget notification">
+        <h3 class="title">网站公告</h3>
+        <div>
+            <p>主题Snippet v1.2.1版本已经上线！欢迎更新~ <br/>
+主题下载：<a href="https://github.com/shenliyang/hexo-theme-snippet" title="fork me" target="_blank">Snippet主题</a> <br/>
+<hr/>接受贡献，包括不限于提交问题与需求，修复代码。欢迎Pull Request<br/>支持主题：<a href="https://github.com/shenliyang/hexo-theme-snippet/stargazers">Star一下</a>
+</p>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">Social</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/shenliyang" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="mailto:snippet@91h5.cc" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+	            <a href="//jq.qq.com/?_wv=1027&k=5Cl8cXO" rel="external nofollow" title="QQ群" target="_blank">
+			    	<i class="users fa fa-users"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="联系QQ" target="_blank">
+			    	<i class="qq fa fa-qq"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="微博" target="_blank">
+			    	<i class="weibo fa fa-weibo"></i>
+			    </a>
+            
+	            <a href="/atom.xml" rel="external nofollow" title="RSS" target="_blank">
+			    	<i class="feed fa fa-feed"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+
+        
+        
+    <div class="widget">
+      <h3 class="title">Archives</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/"><i class="fa" aria-hidden="true">2018年06月</i></a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/"><i class="fa" aria-hidden="true">2018年04月</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/"><i class="fa" aria-hidden="true">2018年03月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/"><i class="fa" aria-hidden="true">2017年11月</i></a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/"><i class="fa" aria-hidden="true">2017年09月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/"><i class="fa" aria-hidden="true">2017年06月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/"><i class="fa" aria-hidden="true">2017年05月</i></a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/"><i class="fa" aria-hidden="true">2017年02月</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/"><i class="fa" aria-hidden="true">2016年12月</i></a><span class="archive-list-count">5</span></li></ul>
+    </div>
+
+
+        
+        
+
+        
+        
+    <div class="widget">
+        <h3 class="title">Friends</h3>
+        <div class="content friends-link">
+        
+            <a href="http://www.shenliyang.com" class="fa" target="_blank">个人博客</a>
+        
+        </div>
+    </div>
+
+
+        
+    </aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
 </footer>
-    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 
-<script src="/js/jquery-2.0.3.min.js"></script>
+<!--<a id="toc-btn">
+    <i class="fa fa-bars"></i>
+</a>-->
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js"></script>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
 
-<script src="/js/navigation.js"></script>
 
-<div id="bg"></div>
 
-  </div>
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
 </body>
 </html>

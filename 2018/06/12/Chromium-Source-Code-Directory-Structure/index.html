@@ -1,94 +1,176 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="null">
 <head>
-  <meta charset="utf-8">
-  
-  
-  <meta name="description" content="Chromium Source Code Directory Structure
-High-level overviewChromium 主要由browser，renderer，Webkit三部分构成。浏览器是主进程represents所有的UI和。渲染器通常是per-tab sub-process" />
-  
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="theForger">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://israel-liu.github.io">
+    <!--SEO-->
 
-  
-  
-  
-  
-  
-  
-  <title>Chromium_Source_Code_Directory_Structure | theForger</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Chromium Source Code Directory Structure High-level overviewChromium 主要由browser，renderer，Webkit三部分构成。浏览器是主进程represents所有的UI和。渲染器通常是per-tab sub-process由浏览器驱动。嵌入Webkit负责渲染和布局。 Quick introduction to the">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Chromium_Source_Code_Directory_Structure">
-<meta property="og:url" content="https://israel-liu.github.io/2018/06/12/Chromium-Source-Code-Directory-Structure/index.html">
-<meta property="og:site_name" content="theForger">
-<meta property="og:description" content="Chromium Source Code Directory Structure High-level overviewChromium 主要由browser，renderer，Webkit三部分构成。浏览器是主进程represents所有的UI和。渲染器通常是per-tab sub-process由浏览器驱动。嵌入Webkit负责渲染和布局。 Quick introduction to the">
-<meta property="og:locale" content="default">
-<meta property="og:image" content="https://github.com/israel-Liu/theForger/raw/master/images/dependencies_diagram.png">
-<meta property="og:updated_time" content="2018-06-21T01:35:57.666Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chromium_Source_Code_Directory_Structure">
-<meta name="twitter:description" content="Chromium Source Code Directory Structure High-level overviewChromium 主要由browser，renderer，Webkit三部分构成。浏览器是主进程represents所有的UI和。渲染器通常是per-tab sub-process由浏览器驱动。嵌入Webkit负责渲染和布局。 Quick introduction to the">
-<meta name="twitter:image" content="https://github.com/israel-Liu/theForger/raw/master/images/dependencies_diagram.png">
-  
-  
-    <link rel="icon" href="/css/images/favicon.ico">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
 
-  
-  <!-- baidu webmaster push -->
-  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>Chromium_Source_Code_Directory_Structure | theForger</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="theForger" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
 </head>
-<body class="home blog custom-background custom-font-enabled single-author">
-  <div id="page" class="hfeed site">
-      <header id="masthead" class="site-header" role="banner">
-    <hgroup>
-      <h1 class="site-title">
-        <a href="/" title="theForger" rel="home">theForger</a>
-      </h1>
-      
-        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
-        <h2 class="site-description"><script>hitokoto();</script></h2>
-      
-    </hgroup>
 
-    <nav id="site-navigation" class="main-navigation" role="navigation">
-            <button class="menu-toggle">菜单</button>
-            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
-            <div class="menu-main-container">
-                <ul id="menu-main" class="nav-menu">
-                
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
-                
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
-                
-                </ul>
-            </div>
-    </nav>
-</header>
-      <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-Chromium-Source-Code-Directory-Structure" class="post-Chromium-Source-Code-Directory-Structure post type-post status-publish format-standard hentry">
-    <!---->
 
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title article-title">
-      Chromium_Source_Code_Directory_Structure
-    </h1>
-  
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
 
-        
-        <div class="comments-link">
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='John Doe'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
             
-            <a href="javascript:void(0);" data-url="https://israel-liu.github.io/2018/06/12/Chromium-Source-Code-Directory-Structure/" data-id="cjioho9wn0007zsusuqkrtc7a" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://israel-liu.github.io">theForger</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/前端/"><i class="fa "></i>前端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/后端/"><i class="fa "></i>后端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Chromium_Source_Code_Directory_Structure">
+            
+	            Chromium_Source_Code_Directory_Structure
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ ">
+             
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
 
-    <div class="entry-content">
-      
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/06/12</span>
+        </span>
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
         <p><a href="https://www.chromium.org/developers/how-tos/getting-around-the-chrome-source-code" target="_blank" rel="noopener">Chromium Source Code Directory Structure</a></p>
 <h4 id="High-level-overview"><a href="#High-level-overview" class="headerlink" title="High-level overview"></a>High-level overview</h4><p>Chromium 主要由browser，renderer，Webkit三部分构成。浏览器是主进程represents所有的UI和。渲染器通常是per-tab sub-process由浏览器驱动。<br>嵌入Webkit负责渲染和布局。</p>
 <h4 id="Quick-introduction-to-the-solution-file"><a href="#Quick-introduction-to-the-solution-file" class="headerlink" title="Quick introduction to the solution file"></a>Quick introduction to the solution file</h4><p>这里跳过，和我看到的工程目录不太一样，需要了解的可以看英文原版。</p>
@@ -174,109 +256,106 @@ High-level overviewChromium 主要由browser，renderer，Webkit三部分构成�
 </ul>
 <h4 id="Quick-reference-for-the-directory-tree-under-“chrome-“"><a href="#Quick-reference-for-the-directory-tree-under-“chrome-“" class="headerlink" title="Quick reference for the directory tree under “chrome/“"></a>Quick reference for the directory tree under “chrome/“</h4><p>暂时不学习这块，先不列出。需要的时候补上。</p>
 <h4 id="A-personal-learning-plan"><a href="#A-personal-learning-plan" class="headerlink" title="A personal learning plan"></a>A personal learning plan</h4><h4 id="Code-paths-for-common-operations"><a href="#Code-paths-for-common-operations" class="headerlink" title="Code paths for common operations"></a>Code paths for common operations</h4><h4 id="后续先进行轮子学习。"><a href="#后续先进行轮子学习。" class="headerlink" title="后续先进行轮子学习。"></a>后续先进行轮子学习。</h4>
-      
-    </div><!-- .entry-content -->
+    </div>
 
-    <footer class="entry-meta">
-    <a href="/2018/06/12/Chromium-Source-Code-Directory-Structure/">
-    <time datetime="2018-06-12T12:08:39.000Z" class="entry-date">
-        2018-06-12
-    </time>
-</a>
-    
-    
-    </footer>
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
 </article>
 
-
+<div class="article-nav prev-next-wrap clearfix">
     
-<nav class="nav-single">
-    <h3 class="assistive-text">文章导航</h3>
+        <a href="/2018/06/13/Inter-process-Communication/" class="pre-post btn btn-default" title='Inter-process_Communication'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Inter-process_Communication</span>
+        </a>
     
-        <span class="nav-previous"><a href="/2018/06/13/Inter-process-Communication/" rel="prev"><span class="meta-nav">←</span> Inter-process_Communication</a></span>
     
+        <a href="/2018/06/12/Building-Chromium-for-Windows/" class="next-post btn btn-default" title='Building_Chromium_for_Windows'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Building_Chromium_for_Windows</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
     
-        <span class="nav-next"><a href="/2018/06/12/Building-Chromium-for-Windows/" rel="next">Building_Chromium_for_Windows <span class="meta-nav">→</span></a></span>
-    
-</nav><!-- .nav-single -->
-
-
-
-
-
-
-
-</div></div>
-        <div id="secondary" class="widget-area" role="complementary">
-  
-    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
-    <div>
-        <input type="text" value="" name="s" id="s" />
-        <input type="submit" id="searchsubmit" value="搜索" />
-    </div>
-</form></aside>
-  
-    
-  
-    
-  
-    
-  <aside class="widget">
-    <h3 class="widget-title">Recents</h3>
-    <div class="widget-content">
-      <ul>
-        
-          <li>
-            <a href="/2018/06/21/chromium-base-callback/">chromium_base_callback</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/15/repository-tools/">repository_tools</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/13/Inter-process-Communication/">Inter-process_Communication</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/12/Chromium-Source-Code-Directory-Structure/">Chromium_Source_Code_Directory_Structure</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/12/Building-Chromium-for-Windows/">Building_Chromium_for_Windows</a>
-          </li>
-        
-      </ul>
-    </div>
-  </aside>
-
-  
-    
-  
-    
-  
 </div>
-      </div>
-      <footer id="colophon" role="contentinfo">
-    <p>&copy; 2018 John Doe
-    All rights reserved.</p>
-    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+
+
+    <div id="comments">
+        
+	<!--PC和WAP自适应版-->
+<div id="SOHUCS"></div>
+<script type="text/javascript">
+	(function(){var appid='cyt8KmUC1';var conf='prod_855a68d3b3d91855360a6215672a505a';var width=window.innerWidth||document.documentElement.clientWidth;if(width<960){window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id='+appid+'&conf='+conf+'"><\/script>');}else{var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}
+	c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})});}})();
+</script>	
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#High-level-overview"><span class="toc-text">High-level overview</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Quick-introduction-to-the-solution-file"><span class="toc-text">Quick introduction to the solution file</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Top-level-projects"><span class="toc-text">Top-level projects</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#依赖关系图"><span class="toc-text">依赖关系图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Quick-reference-for-the-directory-tree-under-“content-“"><span class="toc-text">Quick reference for the directory tree under “content/“</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Quick-reference-for-the-directory-tree-under-“chrome-“"><span class="toc-text">Quick reference for the directory tree under “chrome/“</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#A-personal-learning-plan"><span class="toc-text">A personal learning plan</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Code-paths-for-common-operations"><span class="toc-text">Code paths for common operations</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#后续先进行轮子学习。"><span class="toc-text">后续先进行轮子学习。</span></a></li></ol>
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
 </footer>
-    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 
-<script src="/js/jquery-2.0.3.min.js"></script>
+<!--<a id="toc-btn">
+    <i class="fa fa-bars"></i>
+</a>-->
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js"></script>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
 
-<script src="/js/navigation.js"></script>
 
-<div id="bg"></div>
 
-  </div>
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
 </body>
 </html>
