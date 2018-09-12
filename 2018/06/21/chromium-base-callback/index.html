@@ -175,7 +175,7 @@
 <h2 id="Implementation-notes"><a href="#Implementation-notes" class="headerlink" title="Implementation notes"></a>Implementation notes</h2><h3 id="Where-Is-This-Design-From"><a href="#Where-Is-This-Design-From" class="headerlink" title="Where Is This Design From:"></a>Where Is This Design From:</h3><p>The design of <code>base::Callback</code> and <code>base::Bind</code> is heavily influenced by C++’s<br><code>tr1::function</code> / <code>tr1::bind</code>, and by the “Google Callback” system used inside<br>Google.</p>
 <h3 id="Customizing-the-behavior"><a href="#Customizing-the-behavior" class="headerlink" title="Customizing the behavior"></a>Customizing the behavior</h3><p>暂时跳过</p>
 <h3 id="How-The-Implementation-Works"><a href="#How-The-Implementation-Works" class="headerlink" title="How The Implementation Works:"></a>How The Implementation Works:</h3><p>There are three main components to the system:<br>  1) The <code>base::Callback&lt;&gt;</code> classes.<br>  2) The <code>base::Bind()</code> functions.<br>  3) The arguments wrappers (e.g., <code>base::Unretained()</code> and <code>base::ConstRef()</code>).</p>
-<p>The Callback classes represent a generic function pointer. Internally, it<br>stores a refcounted piece of state that represents the target function and all<br>its bound parameters. The <code>base::Callback</code> constructor takes a<br><code>base::BindStateBase*</code>, which is upcasted from a <code>base::BindState&lt;&gt;</code>. In the<br>context of the constructor, the static type of this <code>base::BindState&lt;&gt;</code> pointer<br>uniquely identifies the function it is representing, all its bound parameters,<br>and a <code>Run()</code> method that is capable of invoking the target.</p>
+<p>类 Callback 代表一个通用函数指针. 内部存储一个代表目标函数和参数状态的引用计数类。<br>The <code>base::Callback</code> constructor takes a<br><code>base::BindStateBase*</code>, which is upcasted from a <code>base::BindState&lt;&gt;</code>. In the<br>context of the constructor, the static type of this <code>base::BindState&lt;&gt;</code> pointer<br>uniquely identifies the function it is representing, all its bound parameters,<br>and a <code>Run()</code> method that is capable of invoking the target.</p>
 <p><code>base::Bind()</code> creates the <code>base::BindState&lt;&gt;</code> that has the full static type,<br>and erases the target function type as well as the types of the bound<br>parameters. It does this by storing a pointer to the specific <code>Run()</code> function,<br>and upcasting the state of <code>base::BindState&lt;&gt;*</code> to a <code>base::BindStateBase*</code>.<br>This is safe as long as this <code>BindStateBase</code> pointer is only used with the<br>stored <code>Run()</code> pointer.</p>
 <p>To <code>base::BindState&lt;&gt;</code> objects are created inside the <code>base::Bind()</code> functions.<br>These functions, along with a set of internal templates, are responsible for</p>
 <ul>
@@ -207,6 +207,11 @@
 </article>
 
 <div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2018/07/02/chromium-ipc/" class="pre-post btn btn-default" title='chromium-ipc'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">chromium-ipc</span>
+        </a>
     
     
         <a href="/2018/06/15/repository-tools/" class="next-post btn btn-default" title='repository_tools'>
