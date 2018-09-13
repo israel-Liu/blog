@@ -1,0 +1,292 @@
+<!DOCTYPE HTML>
+<html lang="null">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="五年C++程序员的口水博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://israel-liu.github.io">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>Using COM in Your Windows-Based Program | 五年C++程序员的口水博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="五年C++程序员的口水博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(https://github.com/israel-Liu/theForger/raw/master/images/byosoku.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Licca Chen'>
+            <img src="/img/avatar.JPG" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://israel-liu.github.io">五年C++程序员的口水博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>timeline</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/"><i class="fa "></i>Tags</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about/"><i class="fa "></i>About</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Using COM in Your Windows-Based Program">
+            
+	            Using COM in Your Windows-Based Program
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ ">
+             
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/09/13</span>
+        </span>
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="Using-COM-in-Your-Windows-Based-Program"><a href="#Using-COM-in-Your-Windows-Based-Program" class="headerlink" title="Using COM in Your Windows-Based Program"></a><a href="https://docs.microsoft.com/en-ca/windows/desktop/LearnWin32/module-2--using-com-in-your-windows-program" target="_blank" rel="noopener">Using COM in Your Windows-Based Program</a></h3><h4 id="What-Is-a-COM-Interface"><a href="#What-Is-a-COM-Interface" class="headerlink" title="What Is a COM Interface?"></a>What Is a COM Interface?</h4><p>In C++, the nearest equivalent to an interface is a pure virtual class—that is, a class that contains only pure virtual methods and no other members. </p>
+<h4 id="Initializing-the-COM-Library"><a href="#Initializing-the-COM-Library" class="headerlink" title="Initializing the COM Library"></a>Initializing the COM Library</h4><p>Each thread that uses a COM interface must make a separate call to this function.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">HRESULT <span class="title">CoInitializeEx</span><span class="params">(LPVOID pvReserved, DWORD dwCoInit)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>For every successful call to CoInitializeEx, you must call CoUninitialize before the thread exits.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CoUninitialize();</span><br></pre></td></tr></table></figure></p>
+<h4 id="Error-Codes-in-COM"><a href="#Error-Codes-in-COM" class="headerlink" title="Error Codes in COM"></a>Error Codes in COM</h4><p>This produces the following numeric ranges:<br>Success codes: 0x0–0x7FFFFFFF.<br>Error codes: 0x80000000–0xFFFFFFFF.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HRESULT hr = CoInitializeEx(<span class="literal">NULL</span>, COINIT_APARTMENTTHREADED | COINIT_DISABLE_OLE1DDE);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (SUCCEEDED(hr)) &#123;</span><br><span class="line">    <span class="comment">// The function succeeded.</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// Handle the error.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Creating-an-Object-in-COM"><a href="#Creating-an-Object-in-COM" class="headerlink" title="Creating an Object in COM"></a>Creating an Object in COM</h4><p>In general, there are two ways to create a COM object:<br>The module that implements the object might provide a function specifically designed to create instances of that object.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Not an actual Windows function. </span></span><br><span class="line"><span class="function">HRESULT <span class="title">CreateShape</span><span class="params">(IDrawable** ppShape)</span></span>;</span><br><span class="line">IDrawable *pShape;</span><br><span class="line"></span><br><span class="line">HRESULT hr = CreateShape(&amp;pShape);</span><br><span class="line"><span class="keyword">if</span> (SUCCEEDED(hr)) &#123;</span><br><span class="line">    <span class="comment">// Use the Shape object.</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// An error occurred.</span></span><br><span class="line">&#125;</span><br><span class="line">```   </span><br><span class="line">Alternatively, COM provides a generic creation function named CoCreateInstance.</span><br><span class="line">```CPP</span><br><span class="line"><span class="comment">// In COM, an object or an interface is identified by assigning it a 128-bit number, called a globally unique identifier (GUID).</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">const</span> GUID CLSID_Shape;</span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">const</span> GUID IID_IDrawable;</span><br><span class="line"></span><br><span class="line"><span class="comment">// The CoCreateInstance function has five parameters. The first and fourth parameters are the class identifier and interface identifier. </span></span><br><span class="line"><span class="comment">// In effect, these parameters tell the function, "Create the Shape object, and give me a pointer to the IDrawable interface."</span></span><br><span class="line"></span><br><span class="line">IDrawable *pShape;</span><br><span class="line">hr = CoCreateInstance(CLSID_Shape, <span class="literal">NULL</span>, CLSCTX_INPROC_SERVER, IID_Drawable, <span class="keyword">reinterpret_cast</span>&lt;<span class="keyword">void</span>**&gt;(&amp;pShape));</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (SUCCEEDED(hr)) &#123;</span><br><span class="line">    <span class="comment">// Use the Shape object.</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// An error occurred.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="The-Open-Dialog-Box"><a href="#The-Open-Dialog-Box" class="headerlink" title="The Open Dialog Box"></a>The Open Dialog Box</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;shobjidl.h&gt; </span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> WINAPI <span class="title">wWinMain</span><span class="params">(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, <span class="keyword">int</span> nCmdShow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    HRESULT hr = CoInitializeEx(<span class="literal">NULL</span>, COINIT_APARTMENTTHREADED | COINIT_DISABLE_OLE1DDE);</span><br><span class="line">    <span class="keyword">if</span> (SUCCEEDED(hr)) &#123;</span><br><span class="line">        IFileOpenDialog* pFileOpen;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create the FileOpenDialog object.</span></span><br><span class="line">        hr = CoCreateInstance(CLSID_FileOpenDialog, <span class="literal">NULL</span>, CLSCTX_ALL, IID_IFileOpenDialog, <span class="keyword">reinterpret_cast</span>&lt;<span class="keyword">void</span>**&gt;(&amp;pFileOpen));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (SUCCEEDED(hr)) &#123;</span><br><span class="line">            <span class="comment">// Show the Open dialog box.</span></span><br><span class="line">            hr = pFileOpen-&gt;Show(<span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Get the file name from the dialog box.</span></span><br><span class="line">            <span class="keyword">if</span> (SUCCEEDED(hr)) &#123;</span><br><span class="line">                IShellItem* pItem;</span><br><span class="line">                hr = pFileOpen-&gt;GetResult(&amp;pItem);</span><br><span class="line">                <span class="keyword">if</span> (SUCCEEDED(hr)) &#123;</span><br><span class="line">                    PWSTR pszFilePath;</span><br><span class="line">                    hr = pItem-&gt;GetDisplayName(SIGDN_FILESYSPATH, &amp;pszFilePath);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// Display the file name to the user.</span></span><br><span class="line">                    <span class="keyword">if</span> (SUCCEEDED(hr)) &#123;</span><br><span class="line">                        MessageBox(<span class="literal">NULL</span>, pszFilePath, <span class="string">L"File Path"</span>, MB_OK);</span><br><span class="line">                        CoTaskMemFree(pszFilePath);</span><br><span class="line">                    &#125;</span><br><span class="line">                    pItem-&gt;Release();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            pFileOpen-&gt;Release();</span><br><span class="line">        &#125;</span><br><span class="line">        CoUninitialize();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Managing-the-Lifetime-of-an-Object"><a href="#Managing-the-Lifetime-of-an-Object" class="headerlink" title="Managing the Lifetime of an Object"></a>Managing the Lifetime of an Object</h4><p>Release is called only after you test the HRESULT for success. </p>
+<h4 id="Asking-an-Object-for-an-Interface"><a href="#Asking-an-Object-for-an-Interface" class="headerlink" title="Asking an Object for an Interface"></a>Asking an Object for an Interface</h4><p>You can think of QueryInterface as a language-independent version of the dynamic_cast keyword in C++.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">HRESULT <span class="title">QueryInterface</span><span class="params">(REFIID riid, <span class="keyword">void</span> **ppvObject)</span></span>;</span><br><span class="line"></span><br><span class="line">hr = pFileOpen-&gt;QueryInterface(IID_IFileDialogCustomize, <span class="keyword">reinterpret_cast</span>&lt;<span class="keyword">void</span>**&gt;(&amp;pCustom));</span><br><span class="line"><span class="keyword">if</span> (SUCCEEDED(hr)) &#123;</span><br><span class="line">    <span class="comment">// Use the interface. (Not shown.)</span></span><br><span class="line">    pCustom-&gt;Release();</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// Handle the error.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Memory-Allocation-in-COM"><a href="#Memory-Allocation-in-COM" class="headerlink" title="Memory Allocation in COM"></a>Memory Allocation in COM</h4><p>The CoTaskMemAlloc function allocates a block of memory.<br>The CoTaskMemFree function frees a block of memory that was allocated with CoTaskMemAlloc.</p>
+<h4 id="COM-Coding-Practices"><a href="#COM-Coding-Practices" class="headerlink" title="COM Coding Practices"></a>COM Coding Practices</h4><p>This topic describes ways to make your COM code more effective and robust.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">The __uuidof Operator</span><br><span class="line">The IID_PPV_ARGS Macro</span><br><span class="line">The SafeRelease Pattern</span><br><span class="line">COM Smart Pointers</span><br></pre></td></tr></table></figure></p>
+<h4 id="Error-Handling-in-COM"><a href="#Error-Handling-in-COM" class="headerlink" title="Error Handling in COM"></a>Error Handling in COM</h4><p>With these rules in mind, here are four patterns for handling errors.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Nested ifs</span><br><span class="line">Cascading ifs</span><br><span class="line">Jump on Fail</span><br><span class="line">Throw on Fail</span><br></pre></td></tr></table></figure></p>
+
+    </div>
+
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">theForger</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/2018/09/12/Get-Started-with-Win32-and-C/" class="next-post btn btn-default" title='Get Started with Win32 and C++'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Get Started with Win32 and C++</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+  <script id="dsq-count-scr" src="https://israel-liu.disqus.com/count.js" async></script>
+
+
+<script type="text/javascript">
+  var disqus_config = function () {
+    this.page.url = 'https://israel-liu.github.io/2018/09/13/Using-COM-in-Your-Windows-Based-Program/';
+    this.page.identifier = '2018/09/13/Using-COM-in-Your-Windows-Based-Program/';
+    this.page.title = 'Using COM in Your Windows-Based Program';
+  };
+  var d = document, s = d.createElement('script');
+  s.src = 'https://israel-liu.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', '' + +new Date());
+  (d.head || d.body).appendChild(s);
+</script>
+
+
+	
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Using-COM-in-Your-Windows-Based-Program"><span class="toc-text">Using COM in Your Windows-Based Program</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#What-Is-a-COM-Interface"><span class="toc-text">What Is a COM Interface?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Initializing-the-COM-Library"><span class="toc-text">Initializing the COM Library</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Error-Codes-in-COM"><span class="toc-text">Error Codes in COM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Creating-an-Object-in-COM"><span class="toc-text">Creating an Object in COM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#The-Open-Dialog-Box"><span class="toc-text">The Open Dialog Box</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Managing-the-Lifetime-of-an-Object"><span class="toc-text">Managing the Lifetime of an Object</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Asking-an-Object-for-an-Interface"><span class="toc-text">Asking an Object for an Interface</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Memory-Allocation-in-COM"><span class="toc-text">Memory Allocation in COM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#COM-Coding-Practices"><span class="toc-text">COM Coding Practices</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Error-Handling-in-COM"><span class="toc-text">Error Handling in COM</span></a></li></ol></li></ol>
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<!--<a id="toc-btn">
+    <i class="fa fa-bars"></i>
+</a>-->
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>
