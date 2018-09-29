@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html lang="null">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="五年C++程序员的口水博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://israel-liu.github.io">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>Refactoring_ImprovingTheDesignOfExistiongCode | 五年C++程序员的口水博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="五年C++程序员的口水博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(https://github.com/israel-Liu/theForger/raw/master/images/byosoku.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Licca Chen'>
+            <img src="/img/avatar.JPG" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://israel-liu.github.io">五年C++程序员的口水博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>timeline</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/"><i class="fa "></i>Tags</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about/"><i class="fa "></i>About</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Refactoring_ImprovingTheDesignOfExistiongCode">
+            
+	            Refactoring_ImprovingTheDesignOfExistiongCode
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ ">
+             
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/09/29</span>
+        </span>
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>近期需要对维护的代码进行重构，主要针对一个很大的类进行重构，为了不影响其他使用这个代码的人。<br>我们在保证对外接口不变的情况下对类进行分解。为了影响最小化先定规矩，每次只改当前任务涉及代码。<br>更改方式主要依据一下<a href="https://israel-liu.github.io/2018/09/21/CppCoreGuidelines/">两点</a>  </p>
+<h4 id="I-27-For-stable-library-ABI-consider-the-Pimpl-idiom"><a href="#I-27-For-stable-library-ABI-consider-the-Pimpl-idiom" class="headerlink" title="I.27: For stable library ABI, consider the Pimpl idiom"></a>I.27: For stable library ABI, consider the Pimpl idiom</h4><p>Reason Because private data members participate in class layout and private member functions participate in overload resolution,<br>changes to those implementation details require recompilation of all users of a class that uses them.<br>A non-polymorphic interface class holding a pointer to implementation (Pimpl) can isolate the users of a class from changes in its implementation at the cost of an indirection.<br>Example interface (widget.h)<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">widget</span> &#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">impl</span>;</span></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">unique_ptr</span>&lt;impl&gt; pimpl;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span></span>; <span class="comment">// public API that will be forwarded to the implementation</span></span><br><span class="line">    widget(<span class="keyword">int</span>); <span class="comment">// defined in the implementation file</span></span><br><span class="line">    ~widget();   <span class="comment">// defined in the implementation file, where impl is a complete type</span></span><br><span class="line">    widget(widget&amp;&amp;) = <span class="keyword">default</span>;</span><br><span class="line">    widget(<span class="keyword">const</span> widget&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">    widget&amp; <span class="keyword">operator</span>=(widget&amp;&amp;); <span class="comment">// defined in the implementation file</span></span><br><span class="line">    widget&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> widget&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// implementation (widget.cpp)</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">widget</span>:</span>:impl &#123;</span><br><span class="line">    <span class="keyword">int</span> n; <span class="comment">// private data</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">draw</span><span class="params">(<span class="keyword">const</span> widget&amp; w)</span> </span>&#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">    impl(<span class="keyword">int</span> n) : n(n) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> widget::draw() &#123; pimpl-&gt;draw(*<span class="keyword">this</span>); &#125;</span><br><span class="line">widget::widget(<span class="keyword">int</span> n) : pimpl&#123;<span class="built_in">std</span>::make_unique&lt;impl&gt;(n)&#125; &#123;&#125;</span><br><span class="line">widget::~widget() = <span class="keyword">default</span>;</span><br><span class="line">widget&amp; widget::<span class="keyword">operator</span>=(widget&amp;&amp;) = <span class="keyword">default</span>;</span><br></pre></td></tr></table></figure></p>
+<h4 id="C-5-Place-helper-functions-in-the-same-namespace-as-the-class-they-support"><a href="#C-5-Place-helper-functions-in-the-same-namespace-as-the-class-they-support" class="headerlink" title="C.5: Place helper functions in the same namespace as the class they support"></a>C.5: Place helper functions in the same namespace as the class they support</h4><p>Reason A helper function is a function (usually supplied by the writer of a class) that does not need direct access to the representation of the class,<br>yet is seen as part of the useful interface to the class.<br>Placing them in the same namespace as the class makes their relationship to the class obvious and allows them to be found by argument dependent lookup.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> Chrono &#123; <span class="comment">// here we keep time-related services</span></span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Time</span> &#123;</span> <span class="comment">/* ... */</span> &#125;;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Date</span> &#123;</span> <span class="comment">/* ... */</span> &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// helper functions:</span></span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>==(Date, Date);</span><br><span class="line">    <span class="function">Date <span class="title">next_weekday</span><span class="params">(Date)</span></span>;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">theForger</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/2018/09/27/The-Design-And-Evolution-Of-Cpp/" class="next-post btn btn-default" title='The Design And Evolution Of Cpp'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">The Design And Evolution Of Cpp</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+  <script id="dsq-count-scr" src="https://israel-liu.disqus.com/count.js" async></script>
+
+
+<script type="text/javascript">
+  var disqus_config = function () {
+    this.page.url = 'https://israel-liu.github.io/2018/09/29/Refactoring-ImprovingTheDesignOfExistiongCode/';
+    this.page.identifier = '2018/09/29/Refactoring-ImprovingTheDesignOfExistiongCode/';
+    this.page.title = 'Refactoring_ImprovingTheDesignOfExistiongCode';
+  };
+  var d = document, s = d.createElement('script');
+  s.src = 'https://israel-liu.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', '' + +new Date());
+  (d.head || d.body).appendChild(s);
+</script>
+
+
+	
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#I-27-For-stable-library-ABI-consider-the-Pimpl-idiom"><span class="toc-text">I.27: For stable library ABI, consider the Pimpl idiom</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C-5-Place-helper-functions-in-the-same-namespace-as-the-class-they-support"><span class="toc-text">C.5: Place helper functions in the same namespace as the class they support</span></a></li></ol>
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<!--<a id="toc-btn">
+    <i class="fa fa-bars"></i>
+</a>-->
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>
