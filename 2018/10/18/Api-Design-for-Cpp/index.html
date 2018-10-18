@@ -27,7 +27,7 @@
     <!--Title-->
 
 
-<title>Code Complete | 五年C++程序员的口水博客</title>
+<title>Api Design for Cpp | 五年C++程序员的口水博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="五年C++程序员的口水博客" type="application/atom+xml">
@@ -128,9 +128,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="Code Complete">
+        <h1 id="Api Design for Cpp">
             
-	            Code Complete
+	            Api Design for Cpp
             
         </h1>
         <div class="post-meta">
@@ -158,7 +158,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2018/10/15</span>
+            <span class="date-meta">2018/10/18</span>
         </span>
     
 </div>
@@ -168,12 +168,11 @@
     </div>
     
     <div class="post-body post-content">
-        <p>你可以另找一份工作。优秀的程序员是非常短缺的。可以找到更好的工作，干吗非<br>要呆在一个很不开明的程序店里，徒损生命呢？</p>
-<h4 id="让每个人都知道由于变化需求所付出的代价"><a href="#让每个人都知道由于变化需求所付出的代价" class="headerlink" title="让每个人都知道由于变化需求所付出的代价"></a>让每个人都知道由于变化需求所付出的代价</h4><h4 id="需求内容"><a href="#需求内容" class="headerlink" title="需求内容"></a>需求内容</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">· 系统的所有输入都定义了吗？包括它们的来源、精度、取值范围和频率？</span><br><span class="line">· 系统所有的输出都定义了吗？包括它们的目标、精度、取值范围、频率和格式？</span><br><span class="line">· 所有的报告格式都定义了吗？</span><br><span class="line">· 所有的硬件与软件接口都定义了吗？</span><br><span class="line">· 所有的通信交界面都定义了吗？包括握手、错误检查以及通信约定？</span><br><span class="line">· 是否从用户的观点出发，定义了所有必要操作的反应时间？</span><br><span class="line">· 是否定义了时间问题，如处理时间、数据传输率以及系统吞吐能力？</span><br><span class="line">· 是否对用户所要求完成的任务部作出了规定？</span><br><span class="line">· 每项任务所需用到和产生的数据都规定了吗？</span><br><span class="line">· 规定保密级别了吗？</span><br><span class="line">· 规定可靠性了吗？包括软件出错的后果、在出错时要保护的至关重要的信息、以及错误测试和恢复策略。</span><br><span class="line">· 规定所需最大内存了吗？</span><br><span class="line">· 所需最大存储容量规定了吗？</span><br><span class="line">· 对系统的维护性是否作出了规定？包括系统对运行环境、精度、性能以其与其它软件的接口等方面变化的适应能力规定了吗？</span><br><span class="line">· 是否规定了相互冲突的设计之间的折衷原则，例如，在坚固性与准确性之间如何进行折衷？</span><br><span class="line">· 是否制定了系统成败的标准？</span><br></pre></td></tr></table></figure>
-<h4 id="程序的组织形式"><a href="#程序的组织形式" class="headerlink" title="程序的组织形式"></a>程序的组织形式</h4><p>一个模块是一个能完成某一高级功能的子程序的组合，例如，对输出结果进行格式化，解释命令，从文件中读取数据等.</p>
-<h3 id="建立子程序的步骤"><a href="#建立子程序的步骤" class="headerlink" title="建立子程序的步骤"></a>建立子程序的步骤</h3><p><a href="https://en.wikipedia.org/wiki/Program_Design_Language" target="_blank" rel="noopener">Program Design Language</a></p>
-<h3 id="模块化设计"><a href="#模块化设计" class="headerlink" title="模块化设计"></a>模块化设计</h3><h3 id="布局和风格"><a href="#布局和风格" class="headerlink" title="布局和风格"></a>布局和风格</h3><p><a href="https://en.wikipedia.org/wiki/The_Elements_of_Programming_Style" target="_blank" rel="noopener">The Elements of Programming Style</a></p>
-<h3 id="代码调试技术"><a href="#代码调试技术" class="headerlink" title="代码调试技术"></a>代码调试技术</h3>
+        <p><a href="http://www.apibook.com/blog/" target="_blank" rel="noopener">Api Design for Cpp</a></p>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><h4 id="More-Robust-Code"><a href="#More-Robust-Code" class="headerlink" title="More Robust Code"></a>More Robust Code</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Hides implementation.</span><br><span class="line">Increases longevity.</span><br><span class="line">Promotes modularization.</span><br><span class="line">Reduces code duplication.</span><br><span class="line">Removes hardcoded assumptions.</span><br><span class="line">Easier to change the implementation.</span><br><span class="line">Easier to optimize.</span><br></pre></td></tr></table></figure>
+<h4 id="1-3-3-Parallel-Development"><a href="#1-3-3-Parallel-Development" class="headerlink" title="1.3.3 Parallel Development"></a>1.3.3 Parallel Development</h4><p>By stubbing out the API early on, you can write unit tests to validate the desired functionality and run these continuously<br>to make sure that you haven’t broken your contract with your colleague.</p>
+<h4 id="1-6-FILE-FORMATS-AND-NETWORK-PROTOCOLS"><a href="#1-6-FILE-FORMATS-AND-NETWORK-PROTOCOLS" class="headerlink" title="1.6 FILE FORMATS AND NETWORK PROTOCOLS"></a>1.6 FILE FORMATS AND NETWORK PROTOCOLS</h4><p>Whenever you create a file format or client/server protocol, you should also create an API for it. This allows details<br>of the specification, and any future changes to it, to be centralized and hidden</p>
+<h3 id="Qualities"><a href="#Qualities" class="headerlink" title="Qualities"></a>Qualities</h3>
     </div>
 
     <div class="post-footer">
@@ -190,15 +189,10 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2018/10/17/English-Magicia/" class="pre-post btn btn-default" title='English Magicia'>
-            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">English Magicia</span>
-        </a>
     
-    
-        <a href="/2018/10/10/Win-Core-Audio-APIs/" class="next-post btn btn-default" title='Win Core Audio APIs'>
+        <a href="/2018/10/17/English-Magicia/" class="next-post btn btn-default" title='English Magicia'>
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">Win Core Audio APIs</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">English Magicia</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -212,9 +206,9 @@
 
 <script type="text/javascript">
   var disqus_config = function () {
-    this.page.url = 'https://israel-liu.github.io/2018/10/15/Code-Complete/';
-    this.page.identifier = '2018/10/15/Code-Complete/';
-    this.page.title = 'Code Complete';
+    this.page.url = 'https://israel-liu.github.io/2018/10/18/Api-Design-for-Cpp/';
+    this.page.identifier = '2018/10/18/Api-Design-for-Cpp/';
+    this.page.title = 'Api Design for Cpp';
   };
   var d = document, s = d.createElement('script');
   s.src = 'https://israel-liu.disqus.com/embed.js';
@@ -236,7 +230,7 @@
                     <aside id="article-toc" role="navigation" class="col-md-4">
     <div class="widget">
         <h3 class="title">文章目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#让每个人都知道由于变化需求所付出的代价"><span class="toc-text">让每个人都知道由于变化需求所付出的代价</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#需求内容"><span class="toc-text">需求内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#程序的组织形式"><span class="toc-text">程序的组织形式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建立子程序的步骤"><span class="toc-text">建立子程序的步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模块化设计"><span class="toc-text">模块化设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#布局和风格"><span class="toc-text">布局和风格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码调试技术"><span class="toc-text">代码调试技术</span></a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#More-Robust-Code"><span class="toc-text">More Robust Code</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-3-Parallel-Development"><span class="toc-text">1.3.3 Parallel Development</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-FILE-FORMATS-AND-NETWORK-PROTOCOLS"><span class="toc-text">1.6 FILE FORMATS AND NETWORK PROTOCOLS</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Qualities"><span class="toc-text">Qualities</span></a></li></ol>
     </div>
 </aside>
 
