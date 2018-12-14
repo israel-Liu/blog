@@ -27,7 +27,7 @@
     <!--Title-->
 
 
-<title>Synchronization | 五年C++程序员的口水博客</title>
+<title>Windows via C/C++ | 五年C++程序员的口水博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="五年C++程序员的口水博客" type="application/atom+xml">
@@ -128,9 +128,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="Synchronization">
+        <h1 id="Windows via C/C++">
             
-	            Synchronization
+	            Windows via C/C++
             
         </h1>
         <div class="post-meta">
@@ -158,7 +158,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2018/11/14</span>
+            <span class="date-meta">2018/12/14</span>
         </span>
     
 </div>
@@ -168,12 +168,8 @@
     </div>
     
     <div class="post-body post-content">
-        <h3 id="Synchronization"><a href="#Synchronization" class="headerlink" title="Synchronization"></a><a href="https://docs.microsoft.com/en-gb/windows/desktop/Sync/synchronization" target="_blank" rel="noopener">Synchronization</a></h3><p>协调多个执行线程，同步访问资源。<br>To synchronize access to a resource, use one of the synchronization objects in one of the wait functions.<br>The state of a synchronization object is either signaled or nonsignaled.<br>The wait functions allow a thread to block its own execution until a specified nonsignaled object is set to the signaled state.    </p>
-<h4 id="Wait-Functions"><a href="#Wait-Functions" class="headerlink" title="Wait Functions"></a>Wait Functions</h4><p>Wait functions allow a thread to block its own execution. until the conditions of the wait criteria have been met or the specified time-out interval elapses.<br>1.Alertable Wait Functions<br>2.Registered Wait Functions<br>3.Waiting on an Address</p>
-<h4 id="Synchronization-Objects"><a href="#Synchronization-Objects" class="headerlink" title="Synchronization Objects"></a>Synchronization Objects</h4><p>A synchronization object is an object whose handle can be specified in one of the wait functions to coordinate the execution of multiple threads.<br>More than one process can have a handle to the same synchronization object, making interprocess synchronization possible.<br>In some circumstances, you can also use a file, named pipe, or communications device as a synchronization object;<br>however, their use for this purpose is discouraged. Instead, use asynchronous I/O and wait on the event object set in the OVERLAPPED structure.<br>It is safer to use the event object because of the confusion that can occur when multiple simultaneous overlapped operations are performed on the same file, named pipe, or communications device.<br>In this situation, there is no way to know which operation caused the object’s state to be signaled.<br>1.<a href="https://docs.microsoft.com/en-gb/windows/desktop/Sync/event-objects" target="_blank" rel="noopener">Event Objects</a><br>2.<a href="https://docs.microsoft.com/en-gb/windows/desktop/Sync/mutex-objects" target="_blank" rel="noopener">Mutex Objects</a><br>3.<a href="https://docs.microsoft.com/en-gb/windows/desktop/Sync/semaphore-objects" target="_blank" rel="noopener">Semaphore Objects</a><br>4.<a href="https://docs.microsoft.com/en-gb/windows/desktop/Sync/waitable-timer-objects" target="_blank" rel="noopener">Waitable Timer Objects</a><br>5.<a href="https://docs.microsoft.com/en-gb/windows/desktop/Sync/synchronization-object-security-and-access-rights" target="_blank" rel="noopener">Synchronization Object Security and Access Rights</a></p>
-<h4 id="Interprocess-Synchronization"><a href="#Interprocess-Synchronization" class="headerlink" title="Interprocess Synchronization"></a>Interprocess Synchronization</h4><p>Multiple processes can have handles to the same event, mutex, semaphore, or timer object, so these objects can be used to accomplish interprocess synchronization.<br>1.<a href="https://docs.microsoft.com/en-gb/windows/desktop/Sync/object-names" target="_blank" rel="noopener">Object Names</a><br>2.<a href="https://docs.microsoft.com/en-gb/windows/desktop/Sync/object-namespaces" target="_blank" rel="noopener">Object Namespaces</a><br>3.<a href="https://docs.microsoft.com/en-gb/windows/desktop/Sync/object-inheritance" target="_blank" rel="noopener">Object Inheritance</a><br>4.<a href="https://docs.microsoft.com/en-gb/windows/desktop/Sync/object-duplication" target="_blank" rel="noopener">Object Duplication</a></p>
-<h4 id="About-Synchronization"><a href="#About-Synchronization" class="headerlink" title="About Synchronization"></a><a href="https://docs.microsoft.com/en-gb/windows/desktop/Sync/about-synchronization" target="_blank" rel="noopener">About Synchronization</a></h4><p>以下章节需要作为扩展至少再次学习,学习就是一个记忆到理解的过程，理解不来就先记住，记不住就过段时间再来理解。<br>1.Synchronization and Multiprocessor Issues<br>2.Synchronization and Overlapped Input and Output<br>3.Asynchronous Procedure Calls<br>4.Critical Section Objects<br>5.Condition Variables<br>6.Slim Reader/Writer (SRW) Locks<br>7.One-Time Initialization<br>8.Interlocked Variable Access<br>9.Interlocked Singly Linked Lists<br>10.Timer Queues<br>11.Synchronization Barriers</p>
-<h4 id="Using-Synchronization"><a href="#Using-Synchronization" class="headerlink" title="Using Synchronization"></a><a href="https://docs.microsoft.com/en-gb/windows/desktop/Sync/using-synchronization" target="_blank" rel="noopener">Using Synchronization</a></h4><h4 id="Synchronization-Reference"><a href="#Synchronization-Reference" class="headerlink" title="Synchronization Reference"></a><a href="https://docs.microsoft.com/en-gb/windows/desktop/Sync/synchronization-reference" target="_blank" rel="noopener">Synchronization Reference</a></h4>
+        <h3 id="Chapter-7-线程调度-优先级和关联性"><a href="#Chapter-7-线程调度-优先级和关联性" class="headerlink" title="Chapter 7 : 线程调度, 优先级和关联性"></a>Chapter 7 : 线程调度, 优先级和关联性</h3><p>进程优先级类下分线程优先级</p>
+<h3 id="Chapter-8-用户模式下的线程同步"><a href="#Chapter-8-用户模式下的线程同步" class="headerlink" title="Chapter 8 : 用户模式下的线程同步"></a>Chapter 8 : 用户模式下的线程同步</h3>
     </div>
 
     <div class="post-footer">
@@ -190,15 +186,10 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2018/12/14/Windows-Via-C-Cpp/" class="pre-post btn btn-default" title='Windows via C/C++'>
-            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">Windows via C/C++</span>
-        </a>
     
-    
-        <a href="/2018/10/18/Api-Design-for-Cpp/" class="next-post btn btn-default" title='Api Design for Cpp'>
+        <a href="/2018/11/14/Synchronization/" class="next-post btn btn-default" title='Synchronization'>
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">Api Design for Cpp</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">Synchronization</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -212,9 +203,9 @@
 
 <script type="text/javascript">
   var disqus_config = function () {
-    this.page.url = 'https://israel-liu.github.io/2018/11/14/Synchronization/';
-    this.page.identifier = '2018/11/14/Synchronization/';
-    this.page.title = 'Synchronization';
+    this.page.url = 'https://israel-liu.github.io/2018/12/14/Windows-Via-C-Cpp/';
+    this.page.identifier = '2018/12/14/Windows-Via-C-Cpp/';
+    this.page.title = 'Windows via C/C++';
   };
   var d = document, s = d.createElement('script');
   s.src = 'https://israel-liu.disqus.com/embed.js';
@@ -236,7 +227,7 @@
                     <aside id="article-toc" role="navigation" class="col-md-4">
     <div class="widget">
         <h3 class="title">文章目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Synchronization"><span class="toc-text">Synchronization</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Wait-Functions"><span class="toc-text">Wait Functions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Synchronization-Objects"><span class="toc-text">Synchronization Objects</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Interprocess-Synchronization"><span class="toc-text">Interprocess Synchronization</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#About-Synchronization"><span class="toc-text">About Synchronization</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Using-Synchronization"><span class="toc-text">Using Synchronization</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Synchronization-Reference"><span class="toc-text">Synchronization Reference</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter-7-线程调度-优先级和关联性"><span class="toc-text">Chapter 7 : 线程调度, 优先级和关联性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter-8-用户模式下的线程同步"><span class="toc-text">Chapter 8 : 用户模式下的线程同步</span></a></li></ol>
     </div>
 </aside>
 
