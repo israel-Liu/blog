@@ -168,11 +168,11 @@
     </div>
     
     <div class="post-body post-content">
-        <h3 id="Chapter-7-线程调度-优先级和关联性"><a href="#Chapter-7-线程调度-优先级和关联性" class="headerlink" title="Chapter 7 : 线程调度, 优先级和关联性"></a>Chapter 7 : 线程调度, 优先级和关联性</h3><p>进程优先级类下分线程优先级</p>
+        <h3 id="Chapter-3-内核对象"><a href="#Chapter-3-内核对象" class="headerlink" title="Chapter 3 : 内核对象"></a>Chapter 3 : 内核对象</h3><p>内核对象与创建它的进程相关联，进程句柄表里面保存地址。</p>
+<h3 id="Chapter-7-线程调度-优先级和关联性"><a href="#Chapter-7-线程调度-优先级和关联性" class="headerlink" title="Chapter 7 : 线程调度, 优先级和关联性"></a>Chapter 7 : 线程调度, 优先级和关联性</h3><p>进程优先级类下分线程优先级</p>
 <h3 id="Chapter-8-用户模式下的线程同步"><a href="#Chapter-8-用户模式下的线程同步" class="headerlink" title="Chapter 8 : 用户模式下的线程同步"></a>Chapter 8 : 用户模式下的线程同步</h3><p>有键事件类型的内核对象名叫 \KernelObjects\CritSecOutOfMemoryEvent 它的一个实例能够同步不同的线程组，每组由一个指针大小的key来标识和阻挡。 </p>
 <h3 id="Chapter-9-用内核对象进行线程同步"><a href="#Chapter-9-用内核对象进行线程同步" class="headerlink" title="Chapter 9 : 用内核对象进行线程同步"></a>Chapter 9 : 用内核对象进行线程同步</h3><p>WaitForMultipleObjects只等待一个对象有信号的时候，再次调用的时候要去掉已经触发的句柄，防止立刻返回无法正常工作。<br>回调函数是调用线程调用后加入被调用线程的APC队列，由被调用线程执行的？是否立即响应<br>还是说回调函数不过是调用线程执行我模块的代码而已。我调用底层代码也是我的线程执行底层代码。<br>如果说各自执行代码，那什么时候出现交流的，难道是系统控制异步？</p>
-<p>### </p>
-
+<h3 id="Chapter-10-同步设备-I-O-与-异步设备-I-O"><a href="#Chapter-10-同步设备-I-O-与-异步设备-I-O" class="headerlink" title="Chapter 10 : 同步设备 I/O 与 异步设备 I/O"></a>Chapter 10 : 同步设备 I/O 与 异步设备 I/O</h3>
     </div>
 
     <div class="post-footer">
@@ -230,7 +230,7 @@
                     <aside id="article-toc" role="navigation" class="col-md-4">
     <div class="widget">
         <h3 class="title">文章目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter-7-线程调度-优先级和关联性"><span class="toc-text">Chapter 7 : 线程调度, 优先级和关联性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter-8-用户模式下的线程同步"><span class="toc-text">Chapter 8 : 用户模式下的线程同步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter-9-用内核对象进行线程同步"><span class="toc-text">Chapter 9 : 用内核对象进行线程同步</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter-3-内核对象"><span class="toc-text">Chapter 3 : 内核对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter-7-线程调度-优先级和关联性"><span class="toc-text">Chapter 7 : 线程调度, 优先级和关联性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter-8-用户模式下的线程同步"><span class="toc-text">Chapter 8 : 用户模式下的线程同步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter-9-用内核对象进行线程同步"><span class="toc-text">Chapter 9 : 用内核对象进行线程同步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter-10-同步设备-I-O-与-异步设备-I-O"><span class="toc-text">Chapter 10 : 同步设备 I/O 与 异步设备 I/O</span></a></li></ol>
     </div>
 </aside>
 
