@@ -186,8 +186,24 @@ By contrast, with both C++98 and C++03, it was:
 <h3 id="2-2-Complexity-and-Big-O-Notation"><a href="#2-2-Complexity-and-Big-O-Notation" class="headerlink" title="2.2 Complexity and Big-O Notation"></a>2.2 Complexity and Big-O Notation</h3><p>主要用来衡量算法效率的概念，不考虑其它时间消耗，不如插入效率不考虑内存不够需要分配内存所花费的时候。amortized？</p>
 <h2 id="Chapter-3-New-Language-Features"><a href="#Chapter-3-New-Language-Features" class="headerlink" title="Chapter 3 : New Language Features"></a>Chapter 3 : New Language Features</h2><h3 id="3-1-New-C-11-Language-Features"><a href="#3-1-New-C-11-Language-Features" class="headerlink" title="3.1 New C++11 Language Features"></a>3.1 New C++11 Language Features</h3><h4 id="3-1-1-Important-Minor-Syntax-Cleanups"><a href="#3-1-1-Important-Minor-Syntax-Cleanups" class="headerlink" title="3.1.1 Important Minor Syntax Cleanups"></a>3.1.1 Important Minor Syntax Cleanups</h4><p>nullptr 类型是 std::nullptr_t 可以赋值为各种指针类型。</p>
 <h4 id="3-1-2-Automatic-Type-Deduction-with-auto"><a href="#3-1-2-Automatic-Type-Deduction-with-auto" class="headerlink" title="3.1.2 Automatic Type Deduction with auto"></a>3.1.2 Automatic Type Deduction with auto</h4><p><a href="https://www.youtube.com/watch?v=wQxj20X-tIU" target="_blank" rel="noopener">CppCon 2014: Scott Meyers “Type Deduction and Why You Care”</a></p>
-<h4 id="3-1-3-Uniform-Initialization-and-Initializer-Lists"><a href="#3-1-3-Uniform-Initialization-and-Initializer-Lists" class="headerlink" title="3.1.3 Uniform Initialization and Initializer Lists"></a>3.1.3 Uniform Initialization and Initializer Lists</h4><p>C++11开始所有初始化都可以使用大括号。传递错误类型可能会导致初始化失败。std::initializer_list&lt;&gt;可以用来处理一列数据。<br>    int x1(5.3); // OK, but OUCH: x1 becomes 5<br>    int x2 = 5.3; // OK, but OUCH: x2 becomes 5<br>    int x3{5.0}; // ERROR: narrowing<br>    int x4 = {5.3}; // ERROR: narrowing<br>    char c1{7}; // OK: even though 7 is an int, this is not narrowing<br>    char c2{99999}; // ERROR: narrowing (if 99999 doesn’t fit into a char)<br>    std::vector<int> v1 { 1, 2, 4, 5 }; // OK<br>    std::vector<int> v2 { 1, 2.3, 4, 5.6 }; // ERROR: narrowing doubles to ints<br>explicit 关键字和 initializer lists 的结合使用，可以显示初始化多个值。<br>    Because of initializer lists, explicit now also becomes relevant for constructors taking more than one argument.<br>    So, you can now disable automatic type conversions from multiple values, which is also used when an initialization uses the = syntax:<br>    In the same manner, an explicit constructor taking an initializer list disables implicit conversions for initializer lists with zero, one, or more initial values.</int></int></p>
-<h4 id="3-1-4-Range-Based-for-Loops"><a href="#3-1-4-Range-Based-for-Loops" class="headerlink" title="3.1.4 Range-Based for Loops"></a>3.1.4 Range-Based for Loops</h4>
+<h4 id="3-1-3-Uniform-Initialization-and-Initializer-Lists"><a href="#3-1-3-Uniform-Initialization-and-Initializer-Lists" class="headerlink" title="3.1.3 Uniform Initialization and Initializer Lists"></a>3.1.3 Uniform Initialization and Initializer Lists</h4><p>C++11开始所有初始化都可以使用大括号。传递错误类型可能会导致初始化失败。std::initializer_list&lt;&gt;可以用来处理一列数据。</p>
+<pre><code>int x1(5.3); // OK, but OUCH: x1 becomes 5
+int x2 = 5.3; // OK, but OUCH: x2 becomes 5
+int x3{5.0}; // ERROR: narrowing
+int x4 = {5.3}; // ERROR: narrowing
+char c1{7}; // OK: even though 7 is an int, this is not narrowing
+char c2{99999}; // ERROR: narrowing (if 99999 doesn’t fit into a char)
+std::vector&lt;int&gt; v1 { 1, 2, 4, 5 }; // OK
+std::vector&lt;int&gt; v2 { 1, 2.3, 4, 5.6 }; // ERROR: narrowing doubles to ints
+</code></pre><p>explicit 关键字和 initializer lists 的结合使用，可以显示初始化多个值。</p>
+<pre><code>Because of initializer lists, explicit now also becomes relevant for constructors taking more than one argument. 
+So, you can now disable automatic type conversions from multiple values, which is also used when an initialization uses the = syntax:
+In the same manner, an explicit constructor taking an initializer list disables implicit conversions for initializer lists with zero, one, or more initial values.
+</code></pre><h4 id="3-1-4-Range-Based-for-Loops"><a href="#3-1-4-Range-Based-for-Loops" class="headerlink" title="3.1.4 Range-Based for Loops"></a>3.1.4 Range-Based for Loops</h4><p>添加引用避免拷贝。auto == vec 元素类型。</p>
+<pre><code>for ( auto&amp; elem : vec ) {
+    elem *= 3;
+}
+</code></pre>
     </div>
 
     <div class="post-footer">
