@@ -170,8 +170,17 @@
     <div class="post-body post-content">
         <p>最近看了WIN核心编程后想再提升下C++语言方面的知识，访问了网站 <a href="https://isocpp.org/get-started" target="_blank" rel="noopener">IsoCpp</a>，看到了几本相关书籍。   </p>
 <p>经大佬前同事推荐然后选择先看这本书，首先这本书在我两年前看C++ Primer的时候是看过的。当初是从会用的角度，再看一遍以用好为目标。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">### Looking <span class="keyword">for</span> the authoritative tutorial <span class="keyword">and</span> reference <span class="keyword">for</span> the C++ standard library?    </span><br><span class="line"></span><br><span class="line">A Tutorial <span class="keyword">and</span> Reference by renowned ISO C++ member Nicolai Josuttis is the most respected book <span class="keyword">for</span> learning <span class="keyword">and</span> studying the standard library.    </span><br><span class="line"></span><br><span class="line">It provides comprehensive documentation of each library component, including an introduction to its purpose <span class="keyword">and</span> design; clearly written explanations of <span class="keyword">complex</span> concepts;    </span><br><span class="line"></span><br><span class="line">the practical programming details needed <span class="keyword">for</span> effective use; traps <span class="keyword">and</span> pitfalls; the exact signature <span class="keyword">and</span> definition of the most important classes <span class="keyword">and</span> functions;    </span><br><span class="line"></span><br><span class="line"><span class="keyword">and</span> numerous examples of working code. You’ll find it all here – everything from concurrency <span class="keyword">and</span> clocks, to the <span class="keyword">new</span> hash-based containers <span class="keyword">and</span> regular expressions,    </span><br><span class="line">to high-quality guidance on how to use key language features like lambdas with it all.</span><br></pre></td></tr></table></figure>
-<h2 id="Preface-to-the-Second-Edition"><a href="#Preface-to-the-Second-Edition" class="headerlink" title="Preface to the Second Edition"></a>Preface to the Second Edition</h2><h2 id="Acknowledgments-for-the-Second-Edition"><a href="#Acknowledgments-for-the-Second-Edition" class="headerlink" title="Acknowledgments for the Second Edition"></a>Acknowledgments for the Second Edition</h2><h2 id="Preface-to-the-First-Edition"><a href="#Preface-to-the-First-Edition" class="headerlink" title="Preface to the First Edition"></a>Preface to the First Edition</h2><h2 id="Acknowledgments-for-the-First-Edition"><a href="#Acknowledgments-for-the-First-Edition" class="headerlink" title="Acknowledgments for the First Edition"></a>Acknowledgments for the First Edition</h2><h1 id="Chapter-1-About-This-Book"><a href="#Chapter-1-About-This-Book" class="headerlink" title="Chapter 1 : About This Book"></a>Chapter 1 : About This Book</h1><h3 id="1-1-Why-This-Book"><a href="#1-1-Why-This-Book" class="headerlink" title="1.1 Why This Book"></a>1.1 Why This Book</h3><p>本书从概念的角度介绍了C11的库和组件，描述了使用细节。使用示例来演示组件的精确使用。</p>
+<pre><code>### Looking for the authoritative tutorial and reference for the C++ standard library?    
+
+A Tutorial and Reference by renowned ISO C++ member Nicolai Josuttis is the most respected book for learning and studying the standard library.    
+
+It provides comprehensive documentation of each library component, including an introduction to its purpose and design; clearly written explanations of complex concepts;    
+
+the practical programming details needed for effective use; traps and pitfalls; the exact signature and definition of the most important classes and functions;    
+
+and numerous examples of working code. You’ll find it all here – everything from concurrency and clocks, to the new hash-based containers and regular expressions,    
+to high-quality guidance on how to use key language features like lambdas with it all.
+</code></pre><h2 id="Preface-to-the-Second-Edition"><a href="#Preface-to-the-Second-Edition" class="headerlink" title="Preface to the Second Edition"></a>Preface to the Second Edition</h2><h2 id="Acknowledgments-for-the-Second-Edition"><a href="#Acknowledgments-for-the-Second-Edition" class="headerlink" title="Acknowledgments for the Second Edition"></a>Acknowledgments for the Second Edition</h2><h2 id="Preface-to-the-First-Edition"><a href="#Preface-to-the-First-Edition" class="headerlink" title="Preface to the First Edition"></a>Preface to the First Edition</h2><h2 id="Acknowledgments-for-the-First-Edition"><a href="#Acknowledgments-for-the-First-Edition" class="headerlink" title="Acknowledgments for the First Edition"></a>Acknowledgments for the First Edition</h2><h1 id="Chapter-1-About-This-Book"><a href="#Chapter-1-About-This-Book" class="headerlink" title="Chapter 1 : About This Book"></a>Chapter 1 : About This Book</h1><h3 id="1-1-Why-This-Book"><a href="#1-1-Why-This-Book" class="headerlink" title="1.1 Why This Book"></a>1.1 Why This Book</h3><p>本书从概念的角度介绍了C11的库和组件，描述了使用细节。使用示例来演示组件的精确使用。</p>
 <h3 id="1-2-Before-Reading-This-Book"><a href="#1-2-Before-Reading-This-Book" class="headerlink" title="1.2 Before Reading This Book"></a>1.2 Before Reading This Book</h3><p>主要描述库的实现细节，所以要求具备一定C++基础。</p>
 <h3 id="1-3-Style-and-Structure-of-the-Book"><a href="#1-3-Style-and-Structure-of-the-Book" class="headerlink" title="1.3 Style and Structure of the Book"></a>1.3 Style and Structure of the Book</h3><p>本书先介绍了一般概念和库使用的实用程序(utilities), 然后在一章或多章介绍components第一个介绍STL。最后描述self-explanatory components。  </p>
 <p>每个组件介绍从设计目的和用途开始，然后介绍使用方法和避免陷阱，最后细节描述和reference。</p>
@@ -200,8 +209,85 @@ std::vector&lt;int&gt; v2 { 1, 2.3, 4, 5.6 }; // ERROR: narrowing doubles to int
 So, you can now disable automatic type conversions from multiple values, which is also used when an initialization uses the = syntax:
 In the same manner, an explicit constructor taking an initializer list disables implicit conversions for initializer lists with zero, one, or more initial values.
 </code></pre><h4 id="3-1-4-Range-Based-for-Loops"><a href="#3-1-4-Range-Based-for-Loops" class="headerlink" title="3.1.4 Range-Based for Loops"></a>3.1.4 Range-Based for Loops</h4><p>添加引用避免拷贝。auto == vec 元素类型。No explicit type conversions are possible when elements are initialized as decl inside the for loop.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ( <span class="keyword">auto</span>&amp; elem : vec ) &#123;</span><br><span class="line">	elem *= <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="3-1-5-Move-Semantics-and-Rvalue-References"><a href="#3-1-5-Move-Semantics-and-Rvalue-References" class="headerlink" title="3.1.5 Move Semantics and Rvalue References"></a>3.1.5 Move Semantics and Rvalue References</h4>
+<pre><code>for ( auto&amp; elem : vec ) {
+    elem *= 3;
+}
+</code></pre><h4 id="3-1-5-Move-Semantics-and-Rvalue-References"><a href="#3-1-5-Move-Semantics-and-Rvalue-References" class="headerlink" title="3.1.5 Move Semantics and Rvalue References"></a>3.1.5 Move Semantics and Rvalue References</h4><p>当调用者不再使用传递的参数时，可以使用移动语义避免拷贝。右值只能出现在等号右边为啥还可以修改？<br>使用右值构造的对象，就相当于View如果他具备Owner就可以修改内部数据。如std::string内部维护的内存字符。</p>
+<pre><code>Thus, you usually have to clear the contents of the passed argument (for example, by assigning nullptr to its internal member referring to its elements).
+</code></pre><h4 id="3-1-6-New-String-Literals"><a href="#3-1-6-New-String-Literals" class="headerlink" title="3.1.6 New String Literals"></a>3.1.6 New String Literals</h4><p>原始字符串定义多用于正则表达式。</p>
+<h4 id="3-1-7-Keyword-noexcept"><a href="#3-1-7-Keyword-noexcept" class="headerlink" title="3.1.7 Keyword noexcept"></a>3.1.7 Keyword noexcept</h4><p>不确定如何补救的行为不抛出异常可以节约运行开销，只有出现异常无法执行的情况才需要抛出异常。</p>
+<pre><code>If foo() throws — the program is terminated, calling std::terminate(), which by default calls std::abort()
+</code></pre><h4 id="3-1-8-Keyword-constexpr"><a href="#3-1-8-Keyword-constexpr" class="headerlink" title="3.1.8 Keyword constexpr"></a>3.1.8 Keyword constexpr</h4><p>用来在编译期确定表达式的值(metaprogramming)可以用表达式指定数值大小了。</p>
+<pre><code>std::array&lt;float, std::numeric_limits&lt;short&gt;::max()&gt; a; // Since C++ 11
+</code></pre><h4 id="3-1-9-New-Template-Features"><a href="#3-1-9-New-Template-Features" class="headerlink" title="3.1.9 New Template Features"></a>3.1.9 New Template Features</h4><pre><code>Note that it is currently under discussion whether the following example also is valid. The reason is
+that formally for a single argument the variadic form is ambiguous with the nonvariadic form for a
+single argument; however, compilers usually accept this code:
+template &lt;typename T&gt;
+void print (const T&amp; arg)
+{
+    std::cout &lt;&lt; arg &lt;&lt; std::endl;
+}
+template &lt;typename T, typename... Types&gt;
+void print (const T&amp; firstArg, const Types&amp;... args)
+{
+    std::cout &lt;&lt; firstArg &lt;&lt; std::endl; // print first argument
+    print(args...); // call print() for remaining arguments
+}
+Inside variadic templates, sizeof...(args) yields the number of arguments.
+Class std::tuple&lt;&gt; makes heavy use of this feature (see Section 5.1.2, page 68).
+</code></pre><h4 id="3-1-10-Lambdas"><a href="#3-1-10-Lambdas" class="headerlink" title="3.1.10 Lambdas"></a>3.1.10 Lambdas</h4><p>使用mutable可以对按值捕获的外部变量进行改变。</p>
+<h4 id="3-1-11-Keyword-decltype"><a href="#3-1-11-Keyword-decltype" class="headerlink" title="3.1.11 Keyword decltype"></a>3.1.11 Keyword decltype</h4><p>可以让编译器找到表达式类型。</p>
+<h4 id="3-1-12-New-Function-Declaration-Syntax"><a href="#3-1-12-New-Function-Declaration-Syntax" class="headerlink" title="3.1.12 New Function Declaration Syntax"></a>3.1.12 New Function Declaration Syntax</h4><pre><code>template &lt;typename T1, typename T2&gt;
+auto add(T1 x, T2 y) -&gt; decltype(x+y);
+</code></pre><h4 id="3-1-13-Scoped-Enumerations"><a href="#3-1-13-Scoped-Enumerations" class="headerlink" title="3.1.13 Scoped Enumerations"></a>3.1.13 Scoped Enumerations</h4><p>使用std::underlying_type可以获取底层类型。<br>    enum class Salutation : char { mr, ms, co, none }; </p>
+<h4 id="3-1-14-New-Fundamental-Data-Types"><a href="#3-1-14-New-Fundamental-Data-Types" class="headerlink" title="3.1.14 New Fundamental Data Types"></a>3.1.14 New Fundamental Data Types</h4><pre><code>• char16_t and char32_t
+• long long and unsigned long long
+• std::nullptr_t
+</code></pre><h4 id="3-2-Old-“New”-Language-Features"><a href="#3-2-Old-“New”-Language-Features" class="headerlink" title="3.2 Old “New” Language Features"></a>3.2 Old “New” Language Features</h4><pre><code>// Nontype Template Parameters
+bitset&lt;32&gt; flags32; // bitset with 32 bits
+bitset&lt;50&gt; flags50; // bitset with 50 bits
+
+
+
+// Default Template Parameters
+template &lt;typename T, typename container = vector&lt;T&gt;&gt;
+class MyClass;
+
+
+
+// Keyword typename 这个在STL里面太常见了，理解了可以更好理解源码
+template &lt;typename T&gt;
+class MyClass {
+    typename T::SubType * ptr;  // 这里声明是SubType个类型，要求T里面提供类型SubType
+    ...
+};
+
+class Q {
+    typedef int SubType;
+    ...
+};
+MyClass&lt;Q&gt; x; // OK
+
+
+
+// Member Templates 模板构造函数。C++模板还是强大啊，还需要好好理解。
+class MyClass {
+    ...
+    template &lt;typename T&gt;
+    void f(T);                   // 这里f可以接收人任何类型的参数。
+};
+
+template &lt;typename T&gt;
+class MyClass {
+    private:
+        T value; // Support automatic type conversions for members in class templates.
+    public:
+        void assign (const MyClass&lt;T&gt;&amp; x) { // x must have same type as *this
+            value = x.value;
+        }
+    ...
+};
+</code></pre><h4 id="3-2-1-Explicit-Initialization-for-Fundamental-Types"><a href="#3-2-1-Explicit-Initialization-for-Fundamental-Types" class="headerlink" title="3.2.1 Explicit Initialization for Fundamental Types"></a>3.2.1 Explicit Initialization for Fundamental Types</h4>
     </div>
 
     <div class="post-footer">
@@ -259,7 +345,7 @@ In the same manner, an explicit constructor taking an initializer list disables 
                     <aside id="article-toc" role="navigation" class="col-md-4">
     <div class="widget">
         <h3 class="title">文章目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Preface-to-the-Second-Edition"><span class="toc-text">Preface to the Second Edition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Acknowledgments-for-the-Second-Edition"><span class="toc-text">Acknowledgments for the Second Edition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Preface-to-the-First-Edition"><span class="toc-text">Preface to the First Edition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Acknowledgments-for-the-First-Edition"><span class="toc-text">Acknowledgments for the First Edition</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-1-About-This-Book"><span class="toc-text">Chapter 1 : About This Book</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Why-This-Book"><span class="toc-text">1.1 Why This Book</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Before-Reading-This-Book"><span class="toc-text">1.2 Before Reading This Book</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-Style-and-Structure-of-the-Book"><span class="toc-text">1.3 Style and Structure of the Book</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-How-to-Read-This-Book"><span class="toc-text">1.4 How to Read This Book</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-2-Introduction-to-C-and-the-Standard-Library"><span class="toc-text">Chapter 2 Introduction to C++ and the Standard Library</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-History-of-the-C-Standards"><span class="toc-text">2.1 History of the C++ Standards</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-Common-Questions-about-the-C-11-Standard"><span class="toc-text">2.1.1 Common Questions about the C++11 Standard</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-Compatibility-between-C-98-and-C-11"><span class="toc-text">2.1.2 Compatibility between C++98 and C++11</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Complexity-and-Big-O-Notation"><span class="toc-text">2.2 Complexity and Big-O Notation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-3-New-Language-Features"><span class="toc-text">Chapter 3 : New Language Features</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-New-C-11-Language-Features"><span class="toc-text">3.1 New C++11 Language Features</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1-Important-Minor-Syntax-Cleanups"><span class="toc-text">3.1.1 Important Minor Syntax Cleanups</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2-Automatic-Type-Deduction-with-auto"><span class="toc-text">3.1.2 Automatic Type Deduction with auto</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-3-Uniform-Initialization-and-Initializer-Lists"><span class="toc-text">3.1.3 Uniform Initialization and Initializer Lists</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-4-Range-Based-for-Loops"><span class="toc-text">3.1.4 Range-Based for Loops</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-5-Move-Semantics-and-Rvalue-References"><span class="toc-text">3.1.5 Move Semantics and Rvalue References</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Preface-to-the-Second-Edition"><span class="toc-text">Preface to the Second Edition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Acknowledgments-for-the-Second-Edition"><span class="toc-text">Acknowledgments for the Second Edition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Preface-to-the-First-Edition"><span class="toc-text">Preface to the First Edition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Acknowledgments-for-the-First-Edition"><span class="toc-text">Acknowledgments for the First Edition</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-1-About-This-Book"><span class="toc-text">Chapter 1 : About This Book</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Why-This-Book"><span class="toc-text">1.1 Why This Book</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Before-Reading-This-Book"><span class="toc-text">1.2 Before Reading This Book</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-Style-and-Structure-of-the-Book"><span class="toc-text">1.3 Style and Structure of the Book</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-How-to-Read-This-Book"><span class="toc-text">1.4 How to Read This Book</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-2-Introduction-to-C-and-the-Standard-Library"><span class="toc-text">Chapter 2 Introduction to C++ and the Standard Library</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-History-of-the-C-Standards"><span class="toc-text">2.1 History of the C++ Standards</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-Common-Questions-about-the-C-11-Standard"><span class="toc-text">2.1.1 Common Questions about the C++11 Standard</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-Compatibility-between-C-98-and-C-11"><span class="toc-text">2.1.2 Compatibility between C++98 and C++11</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Complexity-and-Big-O-Notation"><span class="toc-text">2.2 Complexity and Big-O Notation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-3-New-Language-Features"><span class="toc-text">Chapter 3 : New Language Features</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-New-C-11-Language-Features"><span class="toc-text">3.1 New C++11 Language Features</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1-Important-Minor-Syntax-Cleanups"><span class="toc-text">3.1.1 Important Minor Syntax Cleanups</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2-Automatic-Type-Deduction-with-auto"><span class="toc-text">3.1.2 Automatic Type Deduction with auto</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-3-Uniform-Initialization-and-Initializer-Lists"><span class="toc-text">3.1.3 Uniform Initialization and Initializer Lists</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-4-Range-Based-for-Loops"><span class="toc-text">3.1.4 Range-Based for Loops</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-5-Move-Semantics-and-Rvalue-References"><span class="toc-text">3.1.5 Move Semantics and Rvalue References</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-6-New-String-Literals"><span class="toc-text">3.1.6 New String Literals</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-7-Keyword-noexcept"><span class="toc-text">3.1.7 Keyword noexcept</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-8-Keyword-constexpr"><span class="toc-text">3.1.8 Keyword constexpr</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-9-New-Template-Features"><span class="toc-text">3.1.9 New Template Features</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-10-Lambdas"><span class="toc-text">3.1.10 Lambdas</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-11-Keyword-decltype"><span class="toc-text">3.1.11 Keyword decltype</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-12-New-Function-Declaration-Syntax"><span class="toc-text">3.1.12 New Function Declaration Syntax</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-13-Scoped-Enumerations"><span class="toc-text">3.1.13 Scoped Enumerations</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-14-New-Fundamental-Data-Types"><span class="toc-text">3.1.14 New Fundamental Data Types</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-Old-“New”-Language-Features"><span class="toc-text">3.2 Old “New” Language Features</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-Explicit-Initialization-for-Fundamental-Types"><span class="toc-text">3.2.1 Explicit Initialization for Fundamental Types</span></a></li></ol></li></ol></li></ol>
     </div>
 </aside>
 
