@@ -27,7 +27,7 @@
     <!--Title-->
 
 
-<title>Standard for Programming Language C++ (n4727) | 五年C++程序员的口水博客</title>
+<title>Algorithm Design and Applications | 五年C++程序员的口水博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="五年C++程序员的口水博客" type="application/atom+xml">
@@ -128,9 +128,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="Standard for Programming Language C++ (n4727)">
+        <h1 id="Algorithm Design and Applications">
             
-	            Standard for Programming Language C++ (n4727)
+	            Algorithm Design and Applications
             
         </h1>
         <div class="post-meta">
@@ -158,7 +158,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2017/11/16</span>
+            <span class="date-meta">2019/03/24</span>
         </span>
     
 </div>
@@ -168,16 +168,11 @@
     </div>
     
     <div class="post-body post-content">
-        <ol>
-<li><a href="https://israel-liu.github.io/2016/12/01/reading-note-one/#more">reading_note_one</a></li>
-<li><a href="http://en.cppreference.com/w/cpp/language/declarations" target="_blank" rel="noopener">Declarations</a></li>
-<li><a href="http://en.cppreference.com/w/cpp/language/storage_duration" target="_blank" rel="noopener">Storage class specifiers</a></li>
-<li><a href="http://en.cppreference.com/w/cpp/language/namespace" target="_blank" rel="noopener">Unnamed namespaces in a translation unit have the same identifier this identifier differs from all other identifiers in the translation unit. In addition, all names declared in unnamed namespace or a namespace within an unnamed namespace, even ones explicitly declared extern, have internal linkage.</a></li>
-<li><a href="http://en.cppreference.com/w/cpp/io" target="_blank" rel="noopener">Input/output library</a> std::basic_streambuf store data std::basic_ios operator.(write log class)</li>
-<li><a href="http://en.cppreference.com/w/cpp/string" target="_blank" rel="noopener">Strings library</a> Null-terminated strings is string array, std::char_traits provide charT operator.</li>
-</ol>
-<h3 id="Classes"><a href="#Classes" class="headerlink" title="Classes"></a>Classes</h3><p>10.<a href="https://www.cppfans.org/1431.html" target="_blank" rel="noopener">plain old data</a> A POD struct109 is a non-union class that is both a trivial class and a standard-layout class, and has no<br>non-static data members of type non-POD struct, non-POD union (or array of such types). Similarly, a POD<br>union is a union that is both a trivial class and a standard-layout class, and has no non-static data members<br>of type non-POD struct, non-POD union (or array of such types). A POD class is a class that is either a POD struct or a POD union.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[ Example:</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">N</span> &#123;</span> <span class="comment">// neither trivial nor standard-layout</span></span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">int</span> j;</span><br><span class="line">	<span class="keyword">virtual</span> ~N();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">T</span> &#123;</span> <span class="comment">// trivial but not standard-layout</span></span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> j;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SL</span> &#123;</span> <span class="comment">// standard-layout but not trivial</span></span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">int</span> j;</span><br><span class="line">	~SL();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">POD</span> &#123;</span> <span class="comment">// both trivial and standard-layout</span></span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">int</span> j;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">—end example ]</span><br></pre></td></tr></table></figure></p>
-<h2 id="17-Templates"><a href="#17-Templates" class="headerlink" title="17 Templates"></a>17 Templates</h2>
+        <h2 id="Chapter-8-Merge-Sort-and-Quick-Sort"><a href="#Chapter-8-Merge-Sort-and-Quick-Sort" class="headerlink" title="Chapter 8 Merge-Sort and Quick-Sort"></a>Chapter 8 Merge-Sort and Quick-Sort</h2><h3 id="8-1-Merge-Sort"><a href="#8-1-Merge-Sort" class="headerlink" title="8.1 Merge-Sort"></a>8.1 Merge-Sort</h3><h4 id="8-1-1-Divide-and-Conquer"><a href="#8-1-1-Divide-and-Conquer" class="headerlink" title="8.1.1 Divide-and-Conquer"></a>8.1.1 Divide-and-Conquer</h4><p>分成小块进行处理，最后再 merge 到一起。大事化小，小事化了。</p>
+<h3 id="8-2-Quick-Sort"><a href="#8-2-Quick-Sort" class="headerlink" title="8.2 Quick-Sort"></a>8.2 Quick-Sort</h3><p>每次选择一个 pivot 把小于 pivot 的放到 L，大于 pivot 的放到 G，循环直到不可分。可以采用递归或者迭代法。</p>
+<h4 id="8-2-1-Randomized-Quick-Sort"><a href="#8-2-1-Randomized-Quick-Sort" class="headerlink" title="8.2.1 Randomized Quick-Sort"></a>8.2.1 Randomized Quick-Sort</h4><p>增加随机选择 pivot 保证每次分配到 L 集合的合 G 集合的几乎均等，保证算法运行时间为 O(n log n).</p>
+<h4 id="8-2-2-In-Place-Quick-Sort"><a href="#8-2-2-In-Place-Quick-Sort" class="headerlink" title="8.2.2 In-Place Quick-Sort"></a>8.2.2 In-Place Quick-Sort</h4><p>使用本身的存储空间进行排序。</p>
+<h3 id="8-3-A-Lower-Bound-on-Comparison-Based-Sorting"><a href="#8-3-A-Lower-Bound-on-Comparison-Based-Sorting" class="headerlink" title="8.3 A Lower Bound on Comparison-Based Sorting"></a>8.3 A Lower Bound on Comparison-Based Sorting</h3>
     </div>
 
     <div class="post-footer">
@@ -194,15 +189,10 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2017/11/16/Windows-Programer/" class="pre-post btn btn-default" title='Windows Programer'>
-            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">Windows Programer</span>
-        </a>
     
-    
-        <a href="/2017/11/16/programer/" class="next-post btn btn-default" title='programer'>
+        <a href="/2019/01/23/The-Cpp-Standard-Library-A-Tutorial-and-Reference-2nd-Edition/" class="next-post btn btn-default" title='The_Cpp_Standard_Library_A_Tutorial_and_Reference_2nd_Edition'>
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">programer</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">The_Cpp_Standard_Library_A_Tutorial_and_Reference_2nd_Edition</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -216,9 +206,9 @@
 
 <script type="text/javascript">
   var disqus_config = function () {
-    this.page.url = 'https://israel-liu.github.io/2017/11/16/Standard-for-Programming-Language-C/';
-    this.page.identifier = '2017/11/16/Standard-for-Programming-Language-C/';
-    this.page.title = 'Standard for Programming Language C++ (n4727)';
+    this.page.url = 'https://israel-liu.github.io/2019/03/24/Algorithm-Design-and-Applications/';
+    this.page.identifier = '2019/03/24/Algorithm-Design-and-Applications/';
+    this.page.title = 'Algorithm Design and Applications';
   };
   var d = document, s = d.createElement('script');
   s.src = 'https://israel-liu.disqus.com/embed.js';
@@ -240,7 +230,7 @@
                     <aside id="article-toc" role="navigation" class="col-md-4">
     <div class="widget">
         <h3 class="title">文章目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Classes"><span class="toc-text">Classes</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-Templates"><span class="toc-text">17 Templates</span></a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-8-Merge-Sort-and-Quick-Sort"><span class="toc-text">Chapter 8 Merge-Sort and Quick-Sort</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-Merge-Sort"><span class="toc-text">8.1 Merge-Sort</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-1-1-Divide-and-Conquer"><span class="toc-text">8.1.1 Divide-and-Conquer</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-Quick-Sort"><span class="toc-text">8.2 Quick-Sort</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-2-1-Randomized-Quick-Sort"><span class="toc-text">8.2.1 Randomized Quick-Sort</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-2-2-In-Place-Quick-Sort"><span class="toc-text">8.2.2 In-Place Quick-Sort</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-A-Lower-Bound-on-Comparison-Based-Sorting"><span class="toc-text">8.3 A Lower Bound on Comparison-Based Sorting</span></a></li></ol></li></ol>
     </div>
 </aside>
 

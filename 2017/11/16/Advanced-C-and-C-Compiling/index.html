@@ -175,7 +175,10 @@
 <li>Loading</li>
 <li>Executing</li>
 </ol>
-
+<h2 id="Chapter-1-Multitasking-OS-Basics"><a href="#Chapter-1-Multitasking-OS-Basics" class="headerlink" title="Chapter 1 Multitasking OS Basics"></a>Chapter 1 Multitasking OS Basics</h2><p>动态链接库加载到进程模型的时候，数据区和命令区都是统一存放的吗。如何分离数据和指令的。<br>The program binaries carry the details of the blueprint of the running process memory map.<br><a href="https://manybutfinite.com/post/anatomy-of-a-program-in-memory/" target="_blank" rel="noopener">https://manybutfinite.com/post/anatomy-of-a-program-in-memory/</a></p>
+<h3 id="The-Roles-of-Binaries-Compiler-Linker-and-Loader"><a href="#The-Roles-of-Binaries-Compiler-Linker-and-Loader" class="headerlink" title="The Roles of Binaries, Compiler, Linker, and Loader"></a>The Roles of Binaries, Compiler, Linker, and Loader</h3><p>编译器负责生成二进制文件，连接器把他们连接生成可执行文件。加载器打开二进制文件读取信息映射到进程。populates the process memory map structure.</p>
+<h2 id="Chapter-2-Simple-Program-Lifetime-Stages"><a href="#Chapter-2-Simple-Program-Lifetime-Stages" class="headerlink" title="Chapter 2 Simple Program Lifetime Stages"></a>Chapter 2 Simple Program Lifetime Stages</h2><p>对象文件基本确定了最后二进制文件需要的东西。所以理论上一个对象文件可以是一个可执行文件。多个好管理但需要拼装。</p>
+<h2 id="Chapter-3-Program-Execution-Stages"><a href="#Chapter-3-Program-Execution-Stages" class="headerlink" title="Chapter 3 Program Execution Stages"></a>Chapter 3 Program Execution Stages</h2>
     </div>
 
     <div class="post-footer">
@@ -238,7 +241,7 @@
                     <aside id="article-toc" role="navigation" class="col-md-4">
     <div class="widget">
         <h3 class="title">文章目录</h3>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-1-Multitasking-OS-Basics"><span class="toc-text">Chapter 1 Multitasking OS Basics</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Roles-of-Binaries-Compiler-Linker-and-Loader"><span class="toc-text">The Roles of Binaries, Compiler, Linker, and Loader</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-2-Simple-Program-Lifetime-Stages"><span class="toc-text">Chapter 2 Simple Program Lifetime Stages</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-3-Program-Execution-Stages"><span class="toc-text">Chapter 3 Program Execution Stages</span></a></li></ol>
     </div>
 </aside>
 

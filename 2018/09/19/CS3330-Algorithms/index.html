@@ -27,7 +27,7 @@
     <!--Title-->
 
 
-<title>Standard for Programming Language C++ (n4727) | 五年C++程序员的口水博客</title>
+<title>Algorithm Design and Applications | 五年C++程序员的口水博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="五年C++程序员的口水博客" type="application/atom+xml">
@@ -128,9 +128,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="Standard for Programming Language C++ (n4727)">
+        <h1 id="Algorithm Design and Applications">
             
-	            Standard for Programming Language C++ (n4727)
+	            Algorithm Design and Applications
             
         </h1>
         <div class="post-meta">
@@ -158,7 +158,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2017/11/16</span>
+            <span class="date-meta">2018/09/19</span>
         </span>
     
 </div>
@@ -168,16 +168,9 @@
     </div>
     
     <div class="post-body post-content">
-        <ol>
-<li><a href="https://israel-liu.github.io/2016/12/01/reading-note-one/#more">reading_note_one</a></li>
-<li><a href="http://en.cppreference.com/w/cpp/language/declarations" target="_blank" rel="noopener">Declarations</a></li>
-<li><a href="http://en.cppreference.com/w/cpp/language/storage_duration" target="_blank" rel="noopener">Storage class specifiers</a></li>
-<li><a href="http://en.cppreference.com/w/cpp/language/namespace" target="_blank" rel="noopener">Unnamed namespaces in a translation unit have the same identifier this identifier differs from all other identifiers in the translation unit. In addition, all names declared in unnamed namespace or a namespace within an unnamed namespace, even ones explicitly declared extern, have internal linkage.</a></li>
-<li><a href="http://en.cppreference.com/w/cpp/io" target="_blank" rel="noopener">Input/output library</a> std::basic_streambuf store data std::basic_ios operator.(write log class)</li>
-<li><a href="http://en.cppreference.com/w/cpp/string" target="_blank" rel="noopener">Strings library</a> Null-terminated strings is string array, std::char_traits provide charT operator.</li>
-</ol>
-<h3 id="Classes"><a href="#Classes" class="headerlink" title="Classes"></a>Classes</h3><p>10.<a href="https://www.cppfans.org/1431.html" target="_blank" rel="noopener">plain old data</a> A POD struct109 is a non-union class that is both a trivial class and a standard-layout class, and has no<br>non-static data members of type non-POD struct, non-POD union (or array of such types). Similarly, a POD<br>union is a union that is both a trivial class and a standard-layout class, and has no non-static data members<br>of type non-POD struct, non-POD union (or array of such types). A POD class is a class that is either a POD struct or a POD union.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[ Example:</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">N</span> &#123;</span> <span class="comment">// neither trivial nor standard-layout</span></span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">int</span> j;</span><br><span class="line">	<span class="keyword">virtual</span> ~N();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">T</span> &#123;</span> <span class="comment">// trivial but not standard-layout</span></span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> j;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SL</span> &#123;</span> <span class="comment">// standard-layout but not trivial</span></span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">int</span> j;</span><br><span class="line">	~SL();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">POD</span> &#123;</span> <span class="comment">// both trivial and standard-layout</span></span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">int</span> j;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">—end example ]</span><br></pre></td></tr></table></figure></p>
-<h2 id="17-Templates"><a href="#17-Templates" class="headerlink" title="17 Templates"></a>17 Templates</h2>
+        <h3 id="CS-3330-22C-031-Algorithms-Spring-2018"><a href="#CS-3330-22C-031-Algorithms-Spring-2018" class="headerlink" title="CS:3330 (22C:031) Algorithms, Spring 2018"></a><a href="http://homepage.divms.uiowa.edu/~hzhang/c31/" target="_blank" rel="noopener">CS:3330 (22C:031) Algorithms, Spring 2018</a></h3><h3 id="Tree"><a href="#Tree" class="headerlink" title="Tree"></a>Tree</h3><h4 id="Depth"><a href="#Depth" class="headerlink" title="Depth"></a>Depth</h4><p>Let v be a node of a tree T. The depth of v is the number of ancestors of v,<br>excluding v itself. Note that this definition implies that the depth of the root of T<br>is 0. The depth of a node v can also be recursively defined as follows:<br>• If v is the root, then the depth of v is 0.<br>• Otherwise, the depth of v is one plus the depth of the parent of v.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Algorithm depth(T, v):</span><br><span class="line"><span class="keyword">if</span> T.isRoot(v) then</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="keyword">return</span> <span class="number">1</span> + depth(T, T.parent(v))</span><br></pre></td></tr></table></figure></p>
+<p>####<br>using the following recursive definition of the height of a node v in a tree T:<br>• If v is an external node, then the height of v is 0.<br>• Otherwise, the height of v is one plus the maximum height of a child of v.<br>The height of a tree T is the height of the root of T.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Algorithm height(T, v):</span><br><span class="line"><span class="keyword">if</span> T.isExternal(v) then</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">h = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> each w ∈ T.children(v) <span class="keyword">do</span></span><br><span class="line">h = max(h, height(T,w))</span><br><span class="line"><span class="keyword">return</span> <span class="number">1</span> + h</span><br></pre></td></tr></table></figure></p>
+<h4 id="Preorder-Traversal"><a href="#Preorder-Traversal" class="headerlink" title="Preorder Traversal"></a>Preorder Traversal</h4><h4 id="Postorder-Traversal"><a href="#Postorder-Traversal" class="headerlink" title="Postorder Traversal"></a>Postorder Traversal</h4>
     </div>
 
     <div class="post-footer">
@@ -194,15 +187,15 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2017/11/16/Windows-Programer/" class="pre-post btn btn-default" title='Windows Programer'>
+        <a href="/2018/09/21/CppCoreGuidelines/" class="pre-post btn btn-default" title='CppCoreGuidelines'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">Windows Programer</span>
+            <span class="hidden-xs">CppCoreGuidelines</span>
         </a>
     
     
-        <a href="/2017/11/16/programer/" class="next-post btn btn-default" title='programer'>
+        <a href="/2018/09/13/User-Input/" class="next-post btn btn-default" title='User Input'>
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">programer</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">User Input</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -216,9 +209,9 @@
 
 <script type="text/javascript">
   var disqus_config = function () {
-    this.page.url = 'https://israel-liu.github.io/2017/11/16/Standard-for-Programming-Language-C/';
-    this.page.identifier = '2017/11/16/Standard-for-Programming-Language-C/';
-    this.page.title = 'Standard for Programming Language C++ (n4727)';
+    this.page.url = 'https://israel-liu.github.io/2018/09/19/CS3330-Algorithms/';
+    this.page.identifier = '2018/09/19/CS3330-Algorithms/';
+    this.page.title = 'Algorithm Design and Applications';
   };
   var d = document, s = d.createElement('script');
   s.src = 'https://israel-liu.disqus.com/embed.js';
@@ -240,7 +233,7 @@
                     <aside id="article-toc" role="navigation" class="col-md-4">
     <div class="widget">
         <h3 class="title">文章目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Classes"><span class="toc-text">Classes</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-Templates"><span class="toc-text">17 Templates</span></a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CS-3330-22C-031-Algorithms-Spring-2018"><span class="toc-text">CS:3330 (22C:031) Algorithms, Spring 2018</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tree"><span class="toc-text">Tree</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Depth"><span class="toc-text">Depth</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Preorder-Traversal"><span class="toc-text">Preorder Traversal</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Postorder-Traversal"><span class="toc-text">Postorder Traversal</span></a></li></ol></li></ol>
     </div>
 </aside>
 

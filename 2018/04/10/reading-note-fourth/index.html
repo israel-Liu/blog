@@ -168,7 +168,37 @@
     </div>
     
     <div class="post-body post-content">
-        
+        <h2 id="Chapter-16-Templates-and-Generic-Programming"><a href="#Chapter-16-Templates-and-Generic-Programming" class="headerlink" title="Chapter 16. Templates and Generic Programming"></a>Chapter 16. Templates and Generic Programming</h2><h3 id="16-1-Defining-a-Template"><a href="#16-1-Defining-a-Template" class="headerlink" title="16.1. Defining a Template"></a>16.1. Defining a Template</h3><h4 id="16-1-1-Function-Templates"><a href="#16-1-1-Function-Templates" class="headerlink" title="16.1.1. Function Templates"></a>16.1.1. Function Templates</h4><h4 id="16-1-2-Class-Templates"><a href="#16-1-2-Class-Templates" class="headerlink" title="16.1.2. Class Templates"></a>16.1.2. Class Templates</h4><p>By default, a member function of a class template is instantiated only if the program uses that member function</p>
+<h4 id="16-1-3-Template-Parameters"><a href="#16-1-3-Template-Parameters" class="headerlink" title="16.1.3. Template Parameters"></a>16.1.3. Template Parameters</h4><p>为了区分类型和静态成员，我们在类型前面加上 typename 显示说明。</p>
+<h4 id="16-1-4-Member-Templates"><a href="#16-1-4-Member-Templates" class="headerlink" title="16.1.4. Member Templates"></a>16.1.4. Member Templates</h4><pre><code>template &lt;typename T&gt; // type parameter for the class
+template &lt;typename It&gt; // type parameter for the constructor
+Blob&lt;T&gt;::Blob(It b, It e):
+    data(std::make_shared&lt;std::vector&lt;T&gt;&gt;(b, e)) {
+}
+</code></pre><h4 id="16-1-5-Controlling-Instantiations"><a href="#16-1-5-Controlling-Instantiations" class="headerlink" title="16.1.5. Controlling Instantiations"></a>16.1.5. Controlling Instantiations</h4><p>每个编译单元都会生成一份模板实例，通过显示声明，可以共享一份。但是连接后必须存在一份。</p>
+<h4 id="16-1-6-Efficiency-and-Flexibility"><a href="#16-1-6-Efficiency-and-Flexibility" class="headerlink" title="16.1.6. Efficiency and Flexibility"></a>16.1.6. Efficiency and Flexibility</h4><p>shared_ptr 删除器在运行期确定，保存在本地执行，不绑定模板参数更好自定义。 unique_ptr 提供模板参数，在编译器确定，每个实例有自己的删除器。</p>
+<h3 id="16-2-Template-Argument-Deduction"><a href="#16-2-Template-Argument-Deduction" class="headerlink" title="16.2. Template Argument Deduction"></a>16.2. Template Argument Deduction</h3><h4 id="16-2-1-Conversions-and-Template-Type-Parameters"><a href="#16-2-1-Conversions-and-Template-Type-Parameters" class="headerlink" title="16.2.1. Conversions and Template Type Parameters"></a>16.2.1. Conversions and Template Type Parameters</h4><pre><code>template &lt;typename T&gt; ostream&amp; print(ostream&amp; os, const T&amp; obj) 
+{
+    return os &lt;&lt; obj; // 这个返回类型，干嘛用的呢。
+}
+</code></pre><h4 id="16-2-2-Function-Template-Explicit-Arguments"><a href="#16-2-2-Function-Template-Explicit-Arguments" class="headerlink" title="16.2.2. Function-Template Explicit Arguments"></a>16.2.2. Function-Template Explicit Arguments</h4><p>在函数名称后，参数前使用尖括号指定返回值类型。sum<long long="">(i, lng);</long></p>
+<h4 id="16-2-3-Trailing-Return-Types-and-Type-Transformation"><a href="#16-2-3-Trailing-Return-Types-and-Type-Transformation" class="headerlink" title="16.2.3. Trailing Return Types and Type Transformation"></a>16.2.3. Trailing Return Types and Type Transformation</h4><pre><code>// a trailing return lets us declare the return type after the parameter list is seen
+template &lt;typename It&gt; // 因为放到前面还没有确定参数。放到后面已经知道参数了。
+auto fcn(It beg, It end) -&gt; decltype(*beg)
+{
+    // process the range
+    return *beg; // return a reference to an element from the range
+}
+
+
+// must use typename to use a type member of a template parameter; see § 16.1.3 (p.670)
+template &lt;typename It&gt;
+auto fcn2(It beg, It end) -&gt; typename remove_reference&lt;decltype(*beg)&gt;::type // typename 用来表示 ::type 不是静态变量而是类型。
+{
+    // process the range
+    return *beg; // return a copy of an element from the range
+}
+</code></pre><h4 id="16-2-4-Function-Pointers-and-Argument-Deduction"><a href="#16-2-4-Function-Pointers-and-Argument-Deduction" class="headerlink" title="16.2.4. Function Pointers and Argument Deduction"></a>16.2.4. Function Pointers and Argument Deduction</h4>
     </div>
 
     <div class="post-footer">
@@ -231,7 +261,7 @@
                     <aside id="article-toc" role="navigation" class="col-md-4">
     <div class="widget">
         <h3 class="title">文章目录</h3>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-16-Templates-and-Generic-Programming"><span class="toc-text">Chapter 16. Templates and Generic Programming</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#16-1-Defining-a-Template"><span class="toc-text">16.1. Defining a Template</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#16-1-1-Function-Templates"><span class="toc-text">16.1.1. Function Templates</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#16-1-2-Class-Templates"><span class="toc-text">16.1.2. Class Templates</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#16-1-3-Template-Parameters"><span class="toc-text">16.1.3. Template Parameters</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#16-1-4-Member-Templates"><span class="toc-text">16.1.4. Member Templates</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#16-1-5-Controlling-Instantiations"><span class="toc-text">16.1.5. Controlling Instantiations</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#16-1-6-Efficiency-and-Flexibility"><span class="toc-text">16.1.6. Efficiency and Flexibility</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16-2-Template-Argument-Deduction"><span class="toc-text">16.2. Template Argument Deduction</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#16-2-1-Conversions-and-Template-Type-Parameters"><span class="toc-text">16.2.1. Conversions and Template Type Parameters</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#16-2-2-Function-Template-Explicit-Arguments"><span class="toc-text">16.2.2. Function-Template Explicit Arguments</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#16-2-3-Trailing-Return-Types-and-Type-Transformation"><span class="toc-text">16.2.3. Trailing Return Types and Type Transformation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#16-2-4-Function-Pointers-and-Argument-Deduction"><span class="toc-text">16.2.4. Function Pointers and Argument Deduction</span></a></li></ol></li></ol></li></ol>
     </div>
 </aside>
 
