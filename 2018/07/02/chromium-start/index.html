@@ -27,7 +27,7 @@
     <!--Title-->
 
 
-<title>Advanced C and C++ Compiling | 五年C++程序员的口水博客</title>
+<title>chromium-learning | 五年C++程序员的口水博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="五年C++程序员的口水博客" type="application/atom+xml">
@@ -128,9 +128,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="Advanced C and C++ Compiling">
+        <h1 id="chromium-learning">
             
-	            Advanced C and C++ Compiling
+	            chromium-learning
             
         </h1>
         <div class="post-meta">
@@ -158,7 +158,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2017/11/16</span>
+            <span class="date-meta">2018/07/02</span>
         </span>
     
 </div>
@@ -168,24 +168,15 @@
     </div>
     
     <div class="post-body post-content">
-        <ol>
-<li>Creating the source code</li>
-<li>Compiling <a href="https://docs.microsoft.com/en-us/cpp/preprocessor/phases-of-translation" target="_blank" rel="noopener">Precompiled</a></li>
-<li>Linking</li>
-<li>Loading</li>
-<li>Executing</li>
-</ol>
-<h2 id="Chapter-1-Multitasking-OS-Basics"><a href="#Chapter-1-Multitasking-OS-Basics" class="headerlink" title="Chapter 1 Multitasking OS Basics"></a>Chapter 1 Multitasking OS Basics</h2><p>动态链接库加载到进程模型的时候，数据区和命令区都是统一存放的吗。如何分离数据和指令的。<br>The program binaries carry the details of the blueprint of the running process memory map.<br><a href="https://manybutfinite.com/post/anatomy-of-a-program-in-memory/" target="_blank" rel="noopener">https://manybutfinite.com/post/anatomy-of-a-program-in-memory/</a></p>
-<h3 id="The-Roles-of-Binaries-Compiler-Linker-and-Loader"><a href="#The-Roles-of-Binaries-Compiler-Linker-and-Loader" class="headerlink" title="The Roles of Binaries, Compiler, Linker, and Loader"></a>The Roles of Binaries, Compiler, Linker, and Loader</h3><p>编译器负责生成二进制文件，连接器把他们连接生成可执行文件。加载器打开二进制文件读取信息映射到进程。populates the process memory map structure.</p>
-<h2 id="Chapter-2-Simple-Program-Lifetime-Stages"><a href="#Chapter-2-Simple-Program-Lifetime-Stages" class="headerlink" title="Chapter 2 Simple Program Lifetime Stages"></a>Chapter 2 Simple Program Lifetime Stages</h2><p>对象文件基本确定了最后二进制文件需要的东西。所以理论上一个对象文件可以是一个可执行文件。多个好管理但需要拼装。</p>
-<h2 id="Chapter-3-Program-Execution-Stages"><a href="#Chapter-3-Program-Execution-Stages" class="headerlink" title="Chapter 3 Program Execution Stages"></a>Chapter 3 Program Execution Stages</h2><p>真正跑起来的时候才加载到进程map，前面load只是填充信息结构体。调用main之前做了一些系统函数调用。做准备工作。</p>
-<h2 id="Chapter-4-The-Impact-of-Reusing-Concept"><a href="#Chapter-4-The-Impact-of-Reusing-Concept" class="headerlink" title="Chapter 4 The Impact of Reusing Concept"></a>Chapter 4 The Impact of Reusing Concept</h2><p>静态连接可以是ob文件直接被连接器连接到目标文件，也可以是先打包ob文件然后连接到目标文件。最后都是各段拼到各段。<br>LoadLibrary是在运行时加载到进程空间(process memory map)。#pragma comment ( lib,”xxx.lib” )和工程中设置是一样的。<br>静态链接库中在client bin 文件中不适用的函数并不连接进去的。当然单位是ob文件。也就是说使用一个ob文件的一个函数，就包含整个ob文件。</p>
-<p>An interesting twist happens when the static library’s functionality needs to be presented to the binary clients through the intermediary dynamic library</p>
-<h2 id="Chapter-5-Working-with-Static-Libraries"><a href="#Chapter-5-Working-with-Static-Libraries" class="headerlink" title="Chapter 5 Working with Static Libraries"></a>Chapter 5 Working with Static Libraries</h2><p>静态库被连接的时候，只连接那些真正被使用的ob文件。</p>
-<h2 id="Chapter-6-Designing-Dynamic-Libraries-Basics"><a href="#Chapter-6-Designing-Dynamic-Libraries-Basics" class="headerlink" title="Chapter 6 Designing Dynamic Libraries: Basics"></a>Chapter 6 Designing Dynamic Libraries: Basics</h2><p>静态方式动态库加载应该就是使用宏命令 #pragma comment(lib, “<import library="" name,="" full="" path,="" or="" relative="" path="">“);<br>和工程中设置，动态方式加载动态库，就是使用LoadLibrary函数了。</import></p>
-<h2 id="Chapter-7-Locating-the-Libraries"><a href="#Chapter-7-Locating-the-Libraries" class="headerlink" title="Chapter 7 Locating the Libraries"></a>Chapter 7 Locating the Libraries</h2><p>系统会预加载一些库，程序运行的时候就不需要再加载了。这种方式可以动态替换程序要加载的库版本。</p>
-<h2 id="Chapter-8-Designing-Dynamic-Libraries-Advanced-Topics"><a href="#Chapter-8-Designing-Dynamic-Libraries-Advanced-Topics" class="headerlink" title="Chapter 8 Designing Dynamic Libraries: Advanced Topics"></a>Chapter 8 Designing Dynamic Libraries: Advanced Topics</h2><p>就是讲动态链接库符号地址定位问题，生成的汇编需要使用绝对地址。所以需要链接器和加载器配合重现定位动态链接库里面的符合地址。</p>
-<h2 id="Chapter-9-Handling-Duplicate-Symbols-When-Linking-In-Dynamic-Libraries"><a href="#Chapter-9-Handling-Duplicate-Symbols-When-Linking-In-Dynamic-Libraries" class="headerlink" title="Chapter 9 Handling Duplicate Symbols When Linking In Dynamic Libraries"></a>Chapter 9 Handling Duplicate Symbols When Linking In Dynamic Libraries</h2>
+        <h2 id="Learning-your-way-around-the-code"><a href="#Learning-your-way-around-the-code" class="headerlink" title="Learning your way around the code"></a><a href="https://www.chromium.org/developers/learning-your-way-around-the-code" target="_blank" rel="noopener">Learning your way around the code</a></h2><p>建议的学习步骤。</p>
+<h3 id="Multi-process-Architecture"><a href="#Multi-process-Architecture" class="headerlink" title="Multi-process Architecture"></a><a href="https://www.chromium.org/developers/design-documents/multi-process-architecture" target="_blank" rel="noopener">Multi-process Architecture</a></h3><p>chromium 分为浏览器主进程和多个渲染进程，他们直接通过ipc通信，主进程中存在和渲染进程对应的类对象。他们之间进行对应通信。</p>
+<h3 id="Inter-process-Communication-IPC"><a href="#Inter-process-Communication-IPC" class="headerlink" title="Inter-process Communication (IPC)"></a><a href="https://www.chromium.org/developers/design-documents/inter-process-communication" target="_blank" rel="noopener">Inter-process Communication (IPC)</a></h3><p>通过 IPC::Channel 进行通信，通过使用 IPC::ChannelProxy 可以把一些资源请求筛选掉，放到 io 线程处理</p>
+<h3 id="How-Chromium-Displays-Web-Pages"><a href="#How-Chromium-Displays-Web-Pages" class="headerlink" title="How Chromium Displays Web Pages"></a><a href="https://www.chromium.org/developers/design-documents/displaying-a-web-page-in-chrome" target="_blank" rel="noopener">How Chromium Displays Web Pages</a></h3><p>The WebKit glue 作为 chromium 使用 webkit 的一层接口，这样可以剥离对 webkit 的直接使用，这才是使用第三方库的正确姿势。<br>渲染和排版都弄好了那边传到 WebContents 然后又给chrome浏览器的都是需要做什么平台相关的事情，还是说真正的渲染？那前面渲染进程中都做啥了除了排版。<br>Life of a “set cursor” message 和 Life of a “mouse click” message 两个例子需要再好好理解一下，明确每个部分倒底做了什么事情。</p>
+<h3 id="Multi-process-Resource-Loading"><a href="#Multi-process-Resource-Loading" class="headerlink" title="Multi-process Resource Loading"></a><a href="https://www.chromium.org/developers/design-documents/multi-process-resource-loading" target="_blank" rel="noopener">Multi-process Resource Loading</a></h3><p>Blink(ResourceLoader::WebURLLoader, ResourceLoader:WebURLLoaderClient(Renderer_Callback))<---><br>Renderer(WebURLLoader::WebURLLoaderImpl, ResourceDispatcher(发送), RequestPeer(接受))<---><br>Browser(RenderProcessHost(接受renderer，ipc请求)——&gt; 发送到 ResourceDispatcherHost转换为URLRequest对象，发送到具体的URLRequestJob处理)然后返回请求响应。<br>等下写那个 web source load 转换的时候参考一下。</---></---></p>
+<h3 id="Content-module"><a href="#Content-module" class="headerlink" title="Content module"></a><a href="https://www.chromium.org/developers/content-module" target="_blank" rel="noopener">Content module</a></h3><p>核心 render a page 功能被单独放到 src/content 作为一层， chrome等应用可以直接使用，通过 content api 也可以反过来调用chrome函数。</p>
+<h3 id="How-to-Add-New-Features"><a href="#How-to-Add-New-Features" class="headerlink" title="How to Add New Features"></a><a href="https://www.chromium.org/developers/design-documents/multi-process-architecture/how-to-add-new-features" target="_blank" rel="noopener">How to Add New Features</a></h3><p>为了不膨胀原有代码添加新功能在各处，需要自己实现对应接口。当初在B站要是可以做到这些，应该会不太一样吧。虽然现在也不能。后面尝试一些。</p>
+<h3 id="Content-API"><a href="#Content-API" class="headerlink" title="Content API"></a><a href="https://www.chromium.org/developers/content-module/content-api" target="_blank" rel="noopener">Content API</a></h3><p>DEPS rules would prevent chrome from reaching to the implementation files ??? 那我上面岂不是说反了，后续看代码确认，那些是底层那些是顶层。大概就是写代码的规则吧。</p>
+<h3 id="Process-Models"><a href="#Process-Models" class="headerlink" title="Process Models"></a><a href="https://www.chromium.org/developers/design-documents/process-models" target="_blank" rel="noopener">Process Models</a></h3>
     </div>
 
     <div class="post-footer">
@@ -202,15 +193,15 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2017/11/16/Building-C-C-Programs/" class="pre-post btn btn-default" title='Building C/C++ Programs'>
+        <a href="/2018/09/12/Get-Started-with-Win32-and-C/" class="pre-post btn btn-default" title='Get Started with Win32 and C++'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">Building C/C++ Programs</span>
+            <span class="hidden-xs">Get Started with Win32 and C++</span>
         </a>
     
     
-        <a href="/2017/11/16/Windows-API/" class="next-post btn btn-default" title='Windows API'>
+        <a href="/2018/06/21/chromium-base-callback/" class="next-post btn btn-default" title='chromium_base_callback'>
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">Windows API</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">chromium_base_callback</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -224,9 +215,9 @@
 
 <script type="text/javascript">
   var disqus_config = function () {
-    this.page.url = 'https://israel-liu.github.io/2017/11/16/Advanced-C-and-C-Compiling/';
-    this.page.identifier = '2017/11/16/Advanced-C-and-C-Compiling/';
-    this.page.title = 'Advanced C and C++ Compiling';
+    this.page.url = 'https://israel-liu.github.io/2018/07/02/chromium-start/';
+    this.page.identifier = '2018/07/02/chromium-start/';
+    this.page.title = 'chromium-learning';
   };
   var d = document, s = d.createElement('script');
   s.src = 'https://israel-liu.disqus.com/embed.js';
@@ -248,7 +239,7 @@
                     <aside id="article-toc" role="navigation" class="col-md-4">
     <div class="widget">
         <h3 class="title">文章目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-1-Multitasking-OS-Basics"><span class="toc-text">Chapter 1 Multitasking OS Basics</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Roles-of-Binaries-Compiler-Linker-and-Loader"><span class="toc-text">The Roles of Binaries, Compiler, Linker, and Loader</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-2-Simple-Program-Lifetime-Stages"><span class="toc-text">Chapter 2 Simple Program Lifetime Stages</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-3-Program-Execution-Stages"><span class="toc-text">Chapter 3 Program Execution Stages</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-4-The-Impact-of-Reusing-Concept"><span class="toc-text">Chapter 4 The Impact of Reusing Concept</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-5-Working-with-Static-Libraries"><span class="toc-text">Chapter 5 Working with Static Libraries</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-6-Designing-Dynamic-Libraries-Basics"><span class="toc-text">Chapter 6 Designing Dynamic Libraries: Basics</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-7-Locating-the-Libraries"><span class="toc-text">Chapter 7 Locating the Libraries</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-8-Designing-Dynamic-Libraries-Advanced-Topics"><span class="toc-text">Chapter 8 Designing Dynamic Libraries: Advanced Topics</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-9-Handling-Duplicate-Symbols-When-Linking-In-Dynamic-Libraries"><span class="toc-text">Chapter 9 Handling Duplicate Symbols When Linking In Dynamic Libraries</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Learning-your-way-around-the-code"><span class="toc-text">Learning your way around the code</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Multi-process-Architecture"><span class="toc-text">Multi-process Architecture</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inter-process-Communication-IPC"><span class="toc-text">Inter-process Communication (IPC)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-Chromium-Displays-Web-Pages"><span class="toc-text">How Chromium Displays Web Pages</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multi-process-Resource-Loading"><span class="toc-text">Multi-process Resource Loading</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Content-module"><span class="toc-text">Content module</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-to-Add-New-Features"><span class="toc-text">How to Add New Features</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Content-API"><span class="toc-text">Content API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Process-Models"><span class="toc-text">Process Models</span></a></li></ol></li></ol>
     </div>
 </aside>
 
