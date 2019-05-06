@@ -27,7 +27,7 @@
     <!--Title-->
 
 
-<title>Algorithm Design and Applications | 五年C++程序员的口水博客</title>
+<title>Windows Installer | 五年C++程序员的口水博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="五年C++程序员的口水博客" type="application/atom+xml">
@@ -128,9 +128,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="Algorithm Design and Applications">
+        <h1 id="Windows Installer">
             
-	            Algorithm Design and Applications
+	            Windows Installer
             
         </h1>
         <div class="post-meta">
@@ -158,7 +158,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2019/03/24</span>
+            <span class="date-meta">2019/04/13</span>
         </span>
     
 </div>
@@ -168,11 +168,18 @@
     </div>
     
     <div class="post-body post-content">
-        <h2 id="Chapter-8-Merge-Sort-and-Quick-Sort"><a href="#Chapter-8-Merge-Sort-and-Quick-Sort" class="headerlink" title="Chapter 8 Merge-Sort and Quick-Sort"></a>Chapter 8 Merge-Sort and Quick-Sort</h2><h3 id="8-1-Merge-Sort"><a href="#8-1-Merge-Sort" class="headerlink" title="8.1 Merge-Sort"></a>8.1 Merge-Sort</h3><h4 id="8-1-1-Divide-and-Conquer"><a href="#8-1-1-Divide-and-Conquer" class="headerlink" title="8.1.1 Divide-and-Conquer"></a>8.1.1 Divide-and-Conquer</h4><p>分成小块进行处理，最后再 merge 到一起。大事化小，小事化了。</p>
-<h3 id="8-2-Quick-Sort"><a href="#8-2-Quick-Sort" class="headerlink" title="8.2 Quick-Sort"></a>8.2 Quick-Sort</h3><p>每次选择一个 pivot 把小于 pivot 的放到 L，大于 pivot 的放到 G，循环直到不可分。可以采用递归或者迭代法。</p>
-<h4 id="8-2-1-Randomized-Quick-Sort"><a href="#8-2-1-Randomized-Quick-Sort" class="headerlink" title="8.2.1 Randomized Quick-Sort"></a>8.2.1 Randomized Quick-Sort</h4><p>增加随机选择 pivot 保证每次分配到 L 集合的合 G 集合的几乎均等，保证算法运行时间为 O(n log n).</p>
-<h4 id="8-2-2-In-Place-Quick-Sort"><a href="#8-2-2-In-Place-Quick-Sort" class="headerlink" title="8.2.2 In-Place Quick-Sort"></a>8.2.2 In-Place Quick-Sort</h4><p>使用本身的存储空间进行排序。</p>
-<h3 id="8-3-A-Lower-Bound-on-Comparison-Based-Sorting"><a href="#8-3-A-Lower-Bound-on-Comparison-Based-Sorting" class="headerlink" title="8.3 A Lower Bound on Comparison-Based Sorting"></a>8.3 A Lower Bound on Comparison-Based Sorting</h3>
+        <h2 id="Windows-Installer"><a href="#Windows-Installer" class="headerlink" title="Windows Installer"></a><a href="https://docs.microsoft.com/en-us/windows/desktop/Msi/windows-installer-portal" target="_blank" rel="noopener">Windows Installer</a></h2><h3 id="Msi-command-line-options"><a href="#Msi-command-line-options" class="headerlink" title="Msi/command-line-options"></a><a href="https://docs.microsoft.com/en-us/windows/desktop/Msi/command-line-options" target="_blank" rel="noopener">Msi/command-line-options</a></h3><p>Windows ® Installer. V 5.0.18362.1</p>
+<p>msiexec /Option <required parameter=""> [Optional Parameter]</required></p>
+<p>安装选项<br>    &lt;/package | /i&gt; &lt;Product.msi&gt;<br>        安装或配置产品<br>    /a &lt;Product.msi&gt;<br>        管理安装 - 在网络上安装产品<br>    /j&lt;u|m&gt; &lt;Product.msi&gt; [/t <transform list="">] [/g <language id="">]<br>        公布产品 - m 公布到所有用户，u 公布到当前用户<br>    &lt;/uninstall | /x&gt; &lt;Product.msi | ProductCode&gt;<br>        卸载产品<br>显示选项<br>    /quiet<br>        安静模式，无用户交互<br>    /passive<br>        无人参与模式 - 只显示进度栏<br>    /q[n|b|r|f]<br>        设置用户界面级别<br>        n - 无用户界面<br>        b - 基本界面<br>        r - 精简界面<br>        f - 完整界面(默认值)<br>    /help<br>        帮助信息<br>重新启动选项<br>    /norestart<br>        安装完成后不重新启动<br>    /promptrestart<br>        必要时提示用户重新启动<br>    /forcerestart<br>        安装后始终重新启动计算机<br>日志选项<br>    /l[i|w|e|a|r|u|c|m|o|p|v|x|+|!|*] <logfile><br>        i - 状态消息<br>        w - 非致命警告<br>        e - 所有错误消息<br>        a - 操作的启动<br>        r - 操作特定记录<br>        u - 用户请求<br>        c - 初始用户界面参数<br>        m - 内存不足或致命退出信息<br>        o - 磁盘空间不足消息<br>        p - 终端属性<br>        v - 详细输出<br>        x - 额外调试信息</logfile></language></transform></p>
+<pre><code>    + - 扩展到现有日志文件
+    ! - 每一行刷新到日志
+    * - 记录所有信息，除了 v 和 x 选项
+/log &lt;LogFile&gt;
+    与 /l* &lt;LogFile&gt; 相同
+</code></pre><p>更新选项<br>    /update &lt;Update1.msp&gt;[;Update2.msp]<br>        应用更新<br>    /uninstall <patchcodeguid>[;Update2.msp] /package &lt;Product.msi | ProductCode&gt;<br>        删除产品的更新<br>修复选项<br>    /f[p|e|c|m|s|o|d|a|u|v] &lt;Product.msi | ProductCode&gt;<br>        修复产品<br>        p - 仅当文件丢失时<br>        o - 如果文件丢失或安装了更旧的版本(默认值)<br>        e - 如果文件丢失或安装了相同或更旧的版本<br>        d - 如果文件丢失或安装了不同版本<br>        c - 如果文件丢失或较验和与计算的值不匹配<br>        a - 强制重新安装所有文件<br>        u - 所有必要的用户特定注册表项(默认值)<br>        m - 所有必要的计算机特定注册表项(默认值)<br>        s - 所有现有的快捷键方式(默认值)<br>        v - 从源运行并重新缓存本地安装包<br>设置公共属性<br>    [PROPERTY=PropertyValue]</patchcodeguid></p>
+<p>请查阅 Windows (R) Installer SDK 获得有关命令行语法的其他文档。</p>
+<p>版权所有 (C) Microsoft Corporation. 保留所有权利。<br>此软件的部分内容系基于 Independent JPEG Group 的工作。</p>
+
     </div>
 
     <div class="post-footer">
@@ -189,15 +196,15 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2019/04/09/Year-Read-Posts-in-2019/" class="pre-post btn btn-default" title='Year Read Posts in 2019'>
+        <a href="/2019/04/15/Inside-Windows-Debugging/" class="pre-post btn btn-default" title='Inside Windows Debugging'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">Year Read Posts in 2019</span>
+            <span class="hidden-xs">Inside Windows Debugging</span>
         </a>
     
     
-        <a href="/2019/01/23/The-Cpp-Standard-Library-A-Tutorial-and-Reference-2nd-Edition/" class="next-post btn btn-default" title='The_Cpp_Standard_Library_A_Tutorial_and_Reference_2nd_Edition'>
+        <a href="/2019/04/09/Year-Read-Posts-in-2019/" class="next-post btn btn-default" title='Year Read Posts in 2019'>
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">The_Cpp_Standard_Library_A_Tutorial_and_Reference_2nd_Edition</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">Year Read Posts in 2019</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -211,9 +218,9 @@
 
 <script type="text/javascript">
   var disqus_config = function () {
-    this.page.url = 'https://israel-liu.github.io/2019/03/24/Algorithm-Design-and-Applications/';
-    this.page.identifier = '2019/03/24/Algorithm-Design-and-Applications/';
-    this.page.title = 'Algorithm Design and Applications';
+    this.page.url = 'https://israel-liu.github.io/2019/04/13/Windows-Installer/';
+    this.page.identifier = '2019/04/13/Windows-Installer/';
+    this.page.title = 'Windows Installer';
   };
   var d = document, s = d.createElement('script');
   s.src = 'https://israel-liu.disqus.com/embed.js';
@@ -235,7 +242,7 @@
                     <aside id="article-toc" role="navigation" class="col-md-4">
     <div class="widget">
         <h3 class="title">文章目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-8-Merge-Sort-and-Quick-Sort"><span class="toc-text">Chapter 8 Merge-Sort and Quick-Sort</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-Merge-Sort"><span class="toc-text">8.1 Merge-Sort</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-1-1-Divide-and-Conquer"><span class="toc-text">8.1.1 Divide-and-Conquer</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-Quick-Sort"><span class="toc-text">8.2 Quick-Sort</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-2-1-Randomized-Quick-Sort"><span class="toc-text">8.2.1 Randomized Quick-Sort</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-2-2-In-Place-Quick-Sort"><span class="toc-text">8.2.2 In-Place Quick-Sort</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-A-Lower-Bound-on-Comparison-Based-Sorting"><span class="toc-text">8.3 A Lower Bound on Comparison-Based Sorting</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows-Installer"><span class="toc-text">Windows Installer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Msi-command-line-options"><span class="toc-text">Msi/command-line-options</span></a></li></ol></li></ol>
     </div>
 </aside>
 
