@@ -169,7 +169,44 @@
     
     <div class="post-body post-content">
         <h4 id="4-1-5-Memory"><a href="#4-1-5-Memory" class="headerlink" title="4.1.5 Memory"></a>4.1.5 Memory</h4><p><img src="https://github.com/israel-Liu/theForger/raw/master/images/Little_Endian.png" alt="Little_Endian"></p>
-
+<p><a href="https://docs.microsoft.com/en-us/cpp/assembler/masm/microsoft-macro-assembler-reference?view=vs-2019" target="_blank" rel="noopener">Microsoft Macro Assembler Reference</a></p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Who want to learn assembly language on a given assembler only need to read the first section and the chapter in the second section。</p>
+<h2 id="X86-Architecture"><a href="#X86-Architecture" class="headerlink" title="X86 Architecture"></a>X86 Architecture</h2><ol>
+<li>EAX : Accumulator register. Used in arithmetic operations.</li>
+<li>ECX : Counter register. Used in shift/rotate instructions.</li>
+<li>EDX : Data register. Used in arithmetic operations and I/O operations.</li>
+<li>EBX : Base register. Used as a pointer to data (located in DS in segmented mode).</li>
+<li>ESP : Stack Pointer register. Pointer to the top of the stack.</li>
+<li>EBP : Stack Base Pointer register. Used to point to the base of the stack.</li>
+<li>ESI : Source register. Used as a pointer to a source in stream operations.</li>
+<li>EDI : Destination register. Used as a pointer to a destination in stream operations.</li>
+</ol>
+<p>The 6 Segment Registers are:<br>• SS : Stack Segment. Pointer to the stack.<br>• CS : Code Segment. Pointer to the code.<br>• DS : Data Segment. Pointer to the data.<br>• ES : Extra Segment. Pointer to extra data. (‘E’ stands for “Extra”)<br>• FS : F Segment. Pointer to more extra data. (‘F’ comes after ‘E’)<br>• GS : G Segment. Pointer to still more extra data. (‘G’ comes after ‘F’)</p>
+<p>The EFLAGS is a 32 bits register used as a vector to store and control the results of operations and the state of the processor.</p>
+<p>The EIP register contains the address of the next instruction to be executed if no branching is done.<br>EIP can only be read through the stack after a call instruction。</p>
+<h3 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h3><p>The Stack is usually used to pass arguments to functions or procedures and also to keep track of control flow when the call instruction is used.<br>The other common use of the Stack is temporarily saving registers.</p>
+<h2 id="CPU-Operation-Modes"><a href="#CPU-Operation-Modes" class="headerlink" title="CPU Operation Modes"></a>CPU Operation Modes</h2><h2 id="Comments"><a href="#Comments" class="headerlink" title="Comments"></a>Comments</h2><p>; 后面同一行的是注释，也可以使用 HLA C / Cpp 方式注释。</p>
+<h2 id="16-32-and-64-Bits"><a href="#16-32-and-64-Bits" class="headerlink" title="16 32 and 64 Bits"></a>16 32 and 64 Bits</h2><h3 id="32-Bit-Addressing"><a href="#32-Bit-Addressing" class="headerlink" title="32-Bit Addressing"></a>32-Bit Addressing</h3><p>“Flat addressing” scheme, where the address in the register directly points to a physical memory location.</p>
+<h2 id="X86-Instructions"><a href="#X86-Instructions" class="headerlink" title="X86 Instructions"></a>X86 Instructions</h2><p>The movsb instruction copies one byte from the location specified in esi to the location specified in edi.<br>The movsw instruction copies one word (two bytes) from the location specified in esi to the location specified in edi.</p>
+<h2 id="Control-Flow"><a href="#Control-Flow" class="headerlink" title="Control Flow"></a>Control Flow</h2><h3 id="Function-Calls"><a href="#Function-Calls" class="headerlink" title="Function Calls"></a>Function Calls</h3><p>call proc (pushes the value EIP+4 onto the top of the stack, and jumps to the specified location)</p>
+<h2 id="Arithmetic"><a href="#Arithmetic" class="headerlink" title="Arithmetic"></a>Arithmetic</h2><h3 id="Shift-and-Rotate"><a href="#Shift-and-Rotate" class="headerlink" title="Shift and Rotate"></a>Shift and Rotate</h3><p>In a rotate instruction, the bits that slide off the end of the register are fed back into the spaces.</p>
+<pre><code>ror arg
+rotate to the right
+rol arg
+rotate to the left
+</code></pre><h3 id="Other-Instructions"><a href="#Other-Instructions" class="headerlink" title="Other Instructions"></a>Other Instructions</h3><pre><code>sahf
+Stores the content of AH register into the lower byte of the flag register.
+lahf
+Loads the AH register with the contents of the lower byte of the flag register.
+</code></pre><h3 id="I-O-Instructions"><a href="#I-O-Instructions" class="headerlink" title="I/O Instructions"></a>I/O Instructions</h3><h3 id="System-Instructions"><a href="#System-Instructions" class="headerlink" title="System Instructions"></a>System Instructions</h3><pre><code>sysenter
+This instruction causes the processor to enter protected system mode.
+sysexit
+This instruction causes the processor to leave protected system mode, and enter usermode.
+</code></pre><h2 id="X86-Interrupts"><a href="#X86-Interrupts" class="headerlink" title="X86 Interrupts"></a>X86 Interrupts</h2><h2 id="Interrupt-Instruction"><a href="#Interrupt-Instruction" class="headerlink" title="Interrupt Instruction"></a>Interrupt Instruction</h2><p>int arg<br>This instruction calls the specified interrupt.</p>
+<h3 id="Types-of-Interrupts"><a href="#Types-of-Interrupts" class="headerlink" title="Types of Interrupts"></a>Types of Interrupts</h3><p>There are 3 types of interrupts: Hardware Interrupts, Software Interrupts and Exceptions.</p>
+<h2 id="x86-Assemblers"><a href="#x86-Assemblers" class="headerlink" title="x86 Assemblers"></a>x86 Assemblers</h2><h2 id="GAS-Syntax"><a href="#GAS-Syntax" class="headerlink" title="GAS Syntax"></a>GAS Syntax</h2><p>GCC 的后端 ，先跳过。</p>
+<h2 id="MASM-Syntax"><a href="#MASM-Syntax" class="headerlink" title="MASM Syntax"></a>MASM Syntax</h2><p>应该要详细看下了。</p>
+<h2 id="HLA-Syntax"><a href="#HLA-Syntax" class="headerlink" title="HLA Syntax"></a>HLA Syntax</h2><h2 id="FASM-Syntax"><a href="#FASM-Syntax" class="headerlink" title="FASM Syntax"></a>FASM Syntax</h2><h2 id="NASM-Syntax"><a href="#NASM-Syntax" class="headerlink" title="NASM Syntax"></a>NASM Syntax</h2><h2 id="Example-I-O-Linux"><a href="#Example-I-O-Linux" class="headerlink" title="Example I/O (Linux)"></a>Example I/O (Linux)</h2><h2 id="Floating-Point"><a href="#Floating-Point" class="headerlink" title="Floating Point"></a>Floating Point</h2><h2 id="MMX"><a href="#MMX" class="headerlink" title="MMX"></a>MMX</h2><h2 id="Advanced-x86"><a href="#Advanced-x86" class="headerlink" title="Advanced x86"></a>Advanced x86</h2>
     </div>
 
     <div class="post-footer">
@@ -232,7 +269,7 @@
                     <aside id="article-toc" role="navigation" class="col-md-4">
     <div class="widget">
         <h3 class="title">文章目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-5-Memory"><span class="toc-text">4.1.5 Memory</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-5-Memory"><span class="toc-text">4.1.5 Memory</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#X86-Architecture"><span class="toc-text">X86 Architecture</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Stack"><span class="toc-text">Stack</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU-Operation-Modes"><span class="toc-text">CPU Operation Modes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Comments"><span class="toc-text">Comments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-32-and-64-Bits"><span class="toc-text">16 32 and 64 Bits</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#32-Bit-Addressing"><span class="toc-text">32-Bit Addressing</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#X86-Instructions"><span class="toc-text">X86 Instructions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Control-Flow"><span class="toc-text">Control Flow</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Function-Calls"><span class="toc-text">Function Calls</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Arithmetic"><span class="toc-text">Arithmetic</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Shift-and-Rotate"><span class="toc-text">Shift and Rotate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Other-Instructions"><span class="toc-text">Other Instructions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I-O-Instructions"><span class="toc-text">I/O Instructions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#System-Instructions"><span class="toc-text">System Instructions</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#X86-Interrupts"><span class="toc-text">X86 Interrupts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interrupt-Instruction"><span class="toc-text">Interrupt Instruction</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Types-of-Interrupts"><span class="toc-text">Types of Interrupts</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#x86-Assemblers"><span class="toc-text">x86 Assemblers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GAS-Syntax"><span class="toc-text">GAS Syntax</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MASM-Syntax"><span class="toc-text">MASM Syntax</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HLA-Syntax"><span class="toc-text">HLA Syntax</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FASM-Syntax"><span class="toc-text">FASM Syntax</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NASM-Syntax"><span class="toc-text">NASM Syntax</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-I-O-Linux"><span class="toc-text">Example I/O (Linux)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Floating-Point"><span class="toc-text">Floating Point</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MMX"><span class="toc-text">MMX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Advanced-x86"><span class="toc-text">Advanced x86</span></a>
     </div>
 </aside>
 
