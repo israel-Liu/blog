@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<html lang="null">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="五年C++程序员的口水博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://israel-liu.github.io">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>Linux Kernel Development 3rd Edition | 五年C++程序员的口水博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="五年C++程序员的口水博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(https://github.com/israel-Liu/theForger/raw/master/images/byosoku.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Licca Chen'>
+            <img src="/img/avatar.JPG" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://israel-liu.github.io">五年C++程序员的口水博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>timeline</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/"><i class="fa "></i>Tags</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about/"><i class="fa "></i>About</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Linux Kernel Development 3rd Edition">
+            
+	            Linux Kernel Development 3rd Edition
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ ">
+             
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/08/01</span>
+        </span>
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>Contents at a Glance</p>
+<h1 id="1-Introduction-to-the-Linux-Kernel-1"><a href="#1-Introduction-to-the-Linux-Kernel-1" class="headerlink" title="1 Introduction to the Linux Kernel 1"></a>1 Introduction to the Linux Kernel 1</h1><h2 id="History-of-Unix-1"><a href="#History-of-Unix-1" class="headerlink" title="History of Unix 1"></a>History of Unix 1</h2><h2 id="Along-Came-Linus-Introduction-to-Linux-3"><a href="#Along-Came-Linus-Introduction-to-Linux-3" class="headerlink" title="Along Came Linus: Introduction to Linux 3"></a>Along Came Linus: Introduction to Linux 3</h2><h2 id="Overview-of-Operating-Systems-and-Kernels-4"><a href="#Overview-of-Operating-Systems-and-Kernels-4" class="headerlink" title="Overview of Operating Systems and Kernels 4"></a>Overview of Operating Systems and Kernels 4</h2><h2 id="Linux-Versus-Classic-Unix-Kernels-6"><a href="#Linux-Versus-Classic-Unix-Kernels-6" class="headerlink" title="Linux Versus Classic Unix Kernels 6"></a>Linux Versus Classic Unix Kernels 6</h2><h2 id="Linux-Kernel-Versions-8"><a href="#Linux-Kernel-Versions-8" class="headerlink" title="Linux Kernel Versions 8"></a>Linux Kernel Versions 8</h2><h2 id="The-Linux-Kernel-Development-Community-10"><a href="#The-Linux-Kernel-Development-Community-10" class="headerlink" title="The Linux Kernel Development Community 10"></a>The Linux Kernel Development Community 10</h2><h2 id="Before-We-Begin-10"><a href="#Before-We-Begin-10" class="headerlink" title="Before We Begin 10"></a>Before We Begin 10</h2><h1 id="2-Getting-Started-with-the-Kernel-11"><a href="#2-Getting-Started-with-the-Kernel-11" class="headerlink" title="2 Getting Started with the Kernel 11"></a>2 Getting Started with the Kernel 11</h1><p>Obtaining the Kernel Source 11<br>    Using Git 11<br>    Installing the Kernel Source 12<br>    Using Patches 12</p>
+<h2 id="The-Kernel-Source-Tree-12"><a href="#The-Kernel-Source-Tree-12" class="headerlink" title="The Kernel Source Tree 12"></a>The Kernel Source Tree 12</h2><p>Building the Kernel 13<br>    Configuring the Kernel 14<br>    Minimizing Build Noise 15<br>    Spawning Multiple Build Jobs 16<br>    Installing the New Kernel 16<br>A Beast of a Different Nature 16<br>    No libc or Standard Headers 17<br>    GNU C 18<br>        Inline Functions 18<br>        Inline Assembly 19<br>        Branch Annotation 19<br>    No Memory Protection 20<br>    No (Easy) Use of Floating Point 20<br>    Small, Fixed-Size Stack 20<br>    Synchronization and Concurrency 21<br>    Importance of Portability 21<br>    Conclusion 21</p>
+<h1 id="3-Process-Management-23"><a href="#3-Process-Management-23" class="headerlink" title="3 Process Management 23"></a>3 Process Management 23</h1><p>The Process 23<br>Process Descriptor and the Task Structure 24<br>    Allocating the Process Descriptor 25<br>    Storing the Process Descriptor 26<br>    Process State 27<br>    Manipulating the Current Process State 29<br>    Process Context 29<br>    The Process Family Tree 29<br>Process Creation 31<br>    Copy-on-Write 31<br>    Forking 32<br>    vfork() 33<br>The Linux Implementation of Threads 33<br>    Creating Threads 34<br>    Kernel Threads 35<br>Process Termination 36<br>    Removing the Process Descriptor 37<br>    The Dilemma of the Parentless Task 38<br>    Conclusion 40</p>
+<h1 id="4-Process-Scheduling-41"><a href="#4-Process-Scheduling-41" class="headerlink" title="4 Process Scheduling 41"></a>4 Process Scheduling 41</h1><p>Multitasking 41<br>Linux’s Process Scheduler 42<br>Policy 43<br>    I/O-Bound Versus Processor-Bound Processes 43<br>    Process Priority 44<br>    Timeslice 45<br>    The Scheduling Policy in Action 45<br>The Linux Scheduling Algorithm 46<br>    Scheduler Classes 46<br>    Process Scheduling in Unix Systems 47<br>    Fair Scheduling 48<br>The Linux Scheduling Implementation 50<br>    Time Accounting 50<br>        The Scheduler Entity Structure 50<br>        The Virtual Runtime 51<br>Process Selection 52<br>    Picking the Next Task 53<br>    Adding Processes to the Tree 54<br>    Removing Processes from the Tree 56<br>The Scheduler Entry Point 57<br>Sleeping and Waking Up 58<br>    Wait Queues 58<br>    Waking Up 61<br>Preemption and Context Switching 62<br>    User Preemption 62<br>    Kernel Preemption 63<br>Real-Time Scheduling Policies 64<br>Scheduler-Related System Calls 65<br>    Scheduling Policy and Priority-Related<br>    System Calls 66<br>    Processor Affinity System Calls 66<br>    Yielding Processor Time 66<br>Conclusion 67</p>
+<h1 id="5-System-Calls-69"><a href="#5-System-Calls-69" class="headerlink" title="5 System Calls 69"></a>5 System Calls 69</h1><p>Communicating with the Kernel 69<br>APIs, POSIX, and the C Library 70<br>Syscalls 71<br>    System Call Numbers 72<br>    System Call Performance 72<br>System Call Handler 73<br>    Denoting the Correct System Call 73<br>    Parameter Passing 74<br>System Call Implementation 74<br>    Implementing System Calls 74<br>    Verifying the Parameters 75<br>System Call Context 78<br>    Final Steps in Binding a System Call 79<br>    Accessing the System Call from User-Space 81<br>    Why Not to Implement a System Call 82<br>Conclusion 83</p>
+<h1 id="6-Kernel-Data-Structures-85"><a href="#6-Kernel-Data-Structures-85" class="headerlink" title="6 Kernel Data Structures 85"></a>6 Kernel Data Structures 85</h1><p>Linked Lists 85<br>    Singly and Doubly Linked Lists 85<br>    Circular Linked Lists 86<br>    Moving Through a Linked List 87<br>    The Linux Kernel’s Implementation 88<br>        The Linked List Structure 88<br>        Defining a Linked List 89<br>        List Heads 90<br>Manipulating Linked Lists 90<br>    Adding a Node to a Linked List 90<br>    Deleting a Node from a Linked List 91<br>    Moving and Splicing Linked List Nodes 92<br>Traversing Linked Lists 93<br>    The Basic Approach 93<br>    The Usable Approach 93<br>    Iterating Through a List Backward 94<br>    Iterating While Removing 95<br>    Other Linked List Methods 96<br>Queues 96<br>    kfifo 97<br>    Creating a Queue 97<br>    Enqueuing Data 98<br>    Dequeuing Data 98<br>    Obtaining the Size of a Queue 98<br>    Resetting and Destroying the Queue 99<br>    Example Queue Usage 99<br>Maps 100<br>    Initializing an idr 101<br>    Allocating a New UID 101<br>    Looking Up a UID 102<br>    Removing a UID 103<br>    Destroying an idr 103<br>Binary Trees 103<br>    Binary Search Trees 104<br>    Self-Balancing Binary Search Trees 105<br>        Red-Black Trees 105<br>        rbtrees 106<br>What Data Structure to Use, When 108<br>Algorithmic Complexity 109<br>    Algorithms 109<br>    Big-O Notation 109<br>    Big Theta Notation 109<br>    Time Complexity 110<br>Conclusion 111</p>
+<h1 id="7-Interrupts-and-Interrupt-Handlers-113"><a href="#7-Interrupts-and-Interrupt-Handlers-113" class="headerlink" title="7 Interrupts and Interrupt Handlers 113"></a>7 Interrupts and Interrupt Handlers 113</h1><p>Interrupts 113<br>Interrupt Handlers 114<br>Top Halves Versus Bottom Halves 115<br>Registering an Interrupt Handler 116<br>    Interrupt Handler Flags 116<br>    An Interrupt Example 117<br>    Freeing an Interrupt Handler 118<br>Writing an Interrupt Handler 118<br>    Shared Handlers 119<br>    A Real-Life Interrupt Handler 120<br>Interrupt Context 122<br>Implementing Interrupt Handlers 123<br>/proc/interrupts 126<br>Interrupt Control 127<br>    Disabling and Enabling Interrupts 127<br>    Disabling a Specific Interrupt Line 129<br>    Status of the Interrupt System 130<br>    Conclusion 131</p>
+<h1 id="8-Bottom-Halves-and-Deferring-Work-133"><a href="#8-Bottom-Halves-and-Deferring-Work-133" class="headerlink" title="8 Bottom Halves and Deferring Work 133"></a>8 Bottom Halves and Deferring Work 133</h1><p>Bottom Halves 134<br>    Why Bottom Halves? 134<br>    A World of Bottom Halves 135<br>        The Original “Bottom Half” 135<br>        Task Queues 135<br>        Softirqs and Tasklets 136<br>        Dispelling the Confusion 137<br>Softirqs 137<br>    Implementing Softirqs 137<br>        The Softirq Handler 138<br>        Executing Softirqs 138<br>    Using Softirqs 140<br>        Assigning an Index 140<br>        Registering Your Handler 141<br>        Raising Your Softirq 141<br>Tasklets 142<br>    Implementing Tasklets 142<br>        The Tasklet Structure 142<br>        Scheduling Tasklets 143<br>    Using Tasklets 144<br>        Declaring Your Tasklet 144<br>        Writing Your Tasklet Handler 145<br>        Scheduling Your Tasklet 145<br>    ksoftirqd 146<br>    The Old BH Mechanism 148<br>Work Queues 149<br>    Implementing Work Queues 149<br>        Data Structures Representing the Threads 149<br>        Data Structures Representing the Work 150<br>        Work Queue Implementation Summary 152<br>    Using Work Queues 153<br>        Creating Work 153<br>        Your Work Queue Handler 153<br>        Scheduling Work 153<br>        Flushing Work 154<br>        Creating New Work Queues 154<br>    The Old Task Queue Mechanism 155<br>Which Bottom Half Should I Use? 156<br>Locking Between the Bottom Halves 157<br>Disabling Bottom Halves 157<br>Conclusion 159</p>
+<h1 id="9-An-Introduction-to-Kernel-Synchronization-161"><a href="#9-An-Introduction-to-Kernel-Synchronization-161" class="headerlink" title="9 An Introduction to Kernel Synchronization 161"></a>9 An Introduction to Kernel Synchronization 161</h1><p>Critical Regions and Race Conditions 162<br>    Why Do We Need Protection? 162<br>    The Single Variable 163<br>Locking 165<br>    Causes of Concurrency 167<br>    Knowing What to Protect 168<br>Deadlocks 169<br>Contention and Scalability 171<br>Conclusion 172</p>
+<h1 id="10-Kernel-Synchronization-Methods-175"><a href="#10-Kernel-Synchronization-Methods-175" class="headerlink" title="10 Kernel Synchronization Methods 175"></a>10 Kernel Synchronization Methods 175</h1><p>Atomic Operations 175<br>    Atomic Integer Operations 176<br>    64-Bit Atomic Operations 180<br>    Atomic Bitwise Operations 181<br>Spin Locks 183<br>    Spin Lock Methods 184<br>    Other Spin Lock Methods 186<br>    Spin Locks and Bottom Halves 187<br>Reader-Writer Spin Locks 188<br>Semaphores 190<br>    Counting and Binary Semaphores 191<br>    Creating and Initializing Semaphores 192<br>    Using Semaphores 193<br>Reader-Writer Semaphores 194<br>Mutexes 195<br>    Semaphores Versus Mutexes 197<br>    Spin Locks Versus Mutexes 197<br>Completion Variables 197<br>BKL: The Big Kernel Lock 198<br>Sequential Locks 200<br>Preemption Disabling 201<br>Ordering and Barriers 203<br>Conclusion 206</p>
+<h1 id="11-Timers-and-Time-Management-207"><a href="#11-Timers-and-Time-Management-207" class="headerlink" title="11 Timers and Time Management 207"></a>11 Timers and Time Management 207</h1><p>Kernel Notion of Time 208<br>The Tick Rate: HZ 208<br>    The Ideal HZ Value 210<br>    Advantages with a Larger HZ 210<br>    Disadvantages with a Larger HZ 211<br>Jiffies 212<br>    Internal Representation of Jiffies 213<br>    Jiffies Wraparound 214<br>    User-Space and HZ 216<br>Hardware Clocks and Timers 216<br>    Real-Time Clock 217<br>    System Timer 217<br>The Timer Interrupt Handler 217<br>The Time of Day 220<br>Timers 222<br>    Using Timers 222<br>    Timer Race Conditions 224<br>    Timer Implementation 224<br>Delaying Execution 225<br>    Busy Looping 225<br>    Small Delays 226<br>    schedule_timeout() 227<br>        schedule_timeout() Implementation 228<br>        Sleeping on a Wait Queue, with a Timeout 229<br>    Conclusion 230</p>
+<h1 id="12-Memory-Management-231"><a href="#12-Memory-Management-231" class="headerlink" title="12 Memory Management 231"></a>12 Memory Management 231</h1><p>Pages 231<br>Zones 233<br>Getting Pages 235<br>    Getting Zeroed Pages 236<br>    Freeing Pages 237<br>kmalloc() 238<br>    gfp_mask Flags 238<br>        Action Modifiers 239<br>        Zone Modifiers 240<br>        Type Flags 241<br>    kfree() 243<br>vmalloc() 244<br>Slab Layer 245<br>    Design of the Slab Layer 246<br>    Slab Allocator Interface 249<br>        Allocating from the Cache 250<br>        Example of Using the Slab Allocator 251<br>Statically Allocating on the Stack 252<br>    Single-Page Kernel Stacks 252<br>    Playing Fair on the Stack 253<br>High Memory Mappings 253<br>    Permanent Mappings 254<br>    Temporary Mappings 254<br>Per-CPU Allocations 255<br>The New percpu Interface 256<br>    Per-CPU Data at Compile-Time 256<br>    Per-CPU Data at Runtime 257<br>Reasons for Using Per-CPU Data 258<br>Picking an Allocation Method 259<br>Conclusion 260</p>
+<h1 id="13-The-Virtual-Filesystem-261"><a href="#13-The-Virtual-Filesystem-261" class="headerlink" title="13 The Virtual Filesystem 261"></a>13 The Virtual Filesystem 261</h1><p>Common Filesystem Interface 261<br>Filesystem Abstraction Layer 262<br>Unix Filesystems 263<br>VFS Objects and Their Data Structures 265<br>The Superblock Object 266<br>Superblock Operations 267<br>The Inode Object 270<br>Inode Operations 271<br>The Dentry Object 275<br>    Dentry State 276<br>    The Dentry Cache 276<br>Dentry Operations 278<br>The File Object 279<br>File Operations 280<br>Data Structures Associated with Filesystems 285<br>Data Structures Associated with a Process 286<br>Conclusion 288</p>
+<h1 id="14-The-Block-I-O-Layer-289"><a href="#14-The-Block-I-O-Layer-289" class="headerlink" title="14 The Block I/O Layer 289"></a>14 The Block I/O Layer 289</h1><p>Anatomy of a Block Device 290<br>Buffers and Buffer Heads 291<br>The bio Structure 294<br>    I/O vectors 295<br>    The Old Versus the New 296<br>Request Queues 297<br>I/O Schedulers 297<br>    The Job of an I/O Scheduler 298<br>    The Linus Elevator 299<br>    The Deadline I/O Scheduler 300<br>    The Anticipatory I/O Scheduler 302<br>    The Complete Fair Queuing I/O Scheduler 303<br>    The Noop I/O Scheduler 303<br>    I/O Scheduler Selection 304<br>    Conclusion 304</p>
+<h1 id="15-The-Process-Address-Space-305"><a href="#15-The-Process-Address-Space-305" class="headerlink" title="15 The Process Address Space 305"></a>15 The Process Address Space 305</h1><p>Address Spaces 305<br>The Memory Descriptor 306<br>    Allocating a Memory Descriptor 308<br>    Destroying a Memory Descriptor 309<br>    The mm_struct and Kernel Threads 309<br>Virtual Memory Areas 309<br>    VMA Flags 311<br>    VMA Operations 312<br>    Lists and Trees of Memory Areas 313<br>    Memory Areas in Real Life 314<br>Manipulating Memory Areas 315<br>    find_vma() 316<br>    find_vma_prev() 317<br>    find_vma_intersection() 317<br>mmap() and do_mmap(): Creating an<br>Address Interval 318<br>munmap() and do_munmap(): Removing an<br>Address Interval 320<br>Page Tables 320<br>Conclusion 322</p>
+<h1 id="16-The-Page-Cache-and-Page-Writeback-323"><a href="#16-The-Page-Cache-and-Page-Writeback-323" class="headerlink" title="16 The Page Cache and Page Writeback 323"></a>16 The Page Cache and Page Writeback 323</h1><p>Approaches to Caching 323<br>    Write Caching 324<br>    Cache Eviction 324<br>        Least Recently Used 325<br>        The Two-List Strategy 325<br>The Linux Page Cache 326<br>    The address_space Object 326<br>    address_space Operations 328<br>    Radix Tree 330<br>    The Old Page Hash Table 330<br>The Buffer Cache 330<br>The Flusher Threads 331<br>    Laptop Mode 333<br>    History: bdflush, kupdated, and pdflush 333<br>    Avoiding Congestion with Multiple Threads 334<br>Conclusion 335</p>
+<h1 id="17-Devices-and-Modules-337"><a href="#17-Devices-and-Modules-337" class="headerlink" title="17 Devices and Modules 337"></a>17 Devices and Modules 337</h1><p>Device Types 337<br>Modules 338<br>    Hello, World! 338<br>    Building Modules 340<br>        Living in the Source Tree 340<br>        Living Externally 342<br>    Installing Modules 342<br>    Generating Module Dependencies 342<br>    Loading Modules 343<br>    Managing Configuration Options 344<br>    Module Parameters 346<br>    Exported Symbols 348<br>The Device Model 348<br>    Kobjects 349<br>    Ktypes 350<br>    Ksets 351<br>    Interrelation of Kobjects, Ktypes, and Ksets 351<br>    Managing and Manipulating Kobjects 352<br>Reference Counts 353<br>    Incrementing and Decrementing<br>    Reference Counts 354<br>    Krefs 354<br>sysfs 355<br>    Adding and Removing kobjects from sysfs 357<br>    Adding Files to sysfs 358<br>        Default Attributes 358<br>        Creating New Attributes 359<br>        Destroying Attributes 360<br>        sysfs Conventions 360<br>    The Kernel Events Layer 361<br>Conclusion 362</p>
+<h1 id="18-Debugging-363"><a href="#18-Debugging-363" class="headerlink" title="18 Debugging 363"></a>18 Debugging 363</h1><p>Getting Started 363<br>Bugs in the Kernel 364<br>Debugging by Printing 364<br>    Robustness 365<br>    Loglevels 365<br>    The Log Buffer 366<br>    syslogd and klogd 367<br>    Transposing printf() and printk() 367<br>Oops 367<br>    ksymoops 369<br>    kallsyms 369<br>Kernel Debugging Options 370<br>Asserting Bugs and Dumping Information 370<br>Magic SysRq Key 371<br>The Saga of a Kernel Debugger 372<br>    gdb 372<br>    kgdb 373<br>Poking and Probing the System 373<br>    Using UID as a Conditional 373<br>    Using Condition Variables 374<br>    Using Statistics 374<br>    Rate and Occurrence Limiting Your Debugging 375<br>Binary Searching to Find the Culprit Change 376<br>Binary Searching with Git 376<br>When All Else Fails: The Community 377<br>Conclusion 378</p>
+<h1 id="19-Portability-379"><a href="#19-Portability-379" class="headerlink" title="19 Portability 379"></a>19 Portability 379</h1><p>Portable Operating Systems 379<br>History of Portability in Linux 380<br>Word Size and Data Types 381<br>    Opaque Types 384<br>    Special Types 384<br>    Explicitly Sized Types 385<br>    Signedness of Chars 386<br>Data Alignment 386<br>    Avoiding Alignment Issues 387<br>    Alignment of Nonstandard Types 387<br>    Structure Padding 387<br>Byte Order 389<br>Time 391<br>Page Size 391<br>Processor Ordering 392<br>SMP, Kernel Preemption, and High Memory 393<br>Conclusion 393</p>
+<h1 id="20-Patches-Hacking-and-the-Community-395"><a href="#20-Patches-Hacking-and-the-Community-395" class="headerlink" title="20 Patches, Hacking, and the Community 395"></a>20 Patches, Hacking, and the Community 395</h1><p>The Community 395<br>Linux Coding Style 396<br>    Indention 396<br>    Switch Statements 396<br>    Spacing 397<br>    Braces 398<br>    Line Length 399<br>    Naming 400<br>    Functions 400<br>    Comments 400<br>    Typedefs 401<br>    Use Existing Routines 402<br>    Minimize ifdefs in the Source 402<br>    Structure Initializers 402<br>    Fixing Up Code Ex Post Facto 403<br>Chain of Command 403<br>Submitting Bug Reports 403<br>Patches 404<br>    Generating Patches 404<br>    Generating Patches with Git 405<br>    Submitting Patches 406<br>    Conclusion 406</p>
+<h1 id="Bibliography-407"><a href="#Bibliography-407" class="headerlink" title="Bibliography 407"></a>Bibliography 407</h1><h1 id="Index-411"><a href="#Index-411" class="headerlink" title="Index 411"></a>Index 411</h1>
+    </div>
+
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">theForger</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/2019/08/01/TCP-IP-ARCHITECTURE-DESIGN-AND-IMPLEMENTATION-IN-LINUX/" class="next-post btn btn-default" title='TCP/IP ARCHITECTURE DESIGN AND IMPLEMENTATION IN LINUX'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">TCP/IP ARCHITECTURE DESIGN AND IMPLEMENTATION IN LINUX</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+  <script id="dsq-count-scr" src="https://israel-liu.disqus.com/count.js" async></script>
+
+
+<script type="text/javascript">
+  var disqus_config = function () {
+    this.page.url = 'https://israel-liu.github.io/2019/08/01/Linux-Kernel-Development-3rd-Edition/';
+    this.page.identifier = '2019/08/01/Linux-Kernel-Development-3rd-Edition/';
+    this.page.title = 'Linux Kernel Development 3rd Edition';
+  };
+  var d = document, s = d.createElement('script');
+  s.src = 'https://israel-liu.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', '' + +new Date());
+  (d.head || d.body).appendChild(s);
+</script>
+
+
+	
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Introduction-to-the-Linux-Kernel-1"><span class="toc-text">1 Introduction to the Linux Kernel 1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#History-of-Unix-1"><span class="toc-text">History of Unix 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Along-Came-Linus-Introduction-to-Linux-3"><span class="toc-text">Along Came Linus: Introduction to Linux 3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview-of-Operating-Systems-and-Kernels-4"><span class="toc-text">Overview of Operating Systems and Kernels 4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-Versus-Classic-Unix-Kernels-6"><span class="toc-text">Linux Versus Classic Unix Kernels 6</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-Kernel-Versions-8"><span class="toc-text">Linux Kernel Versions 8</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Linux-Kernel-Development-Community-10"><span class="toc-text">The Linux Kernel Development Community 10</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Before-We-Begin-10"><span class="toc-text">Before We Begin 10</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Getting-Started-with-the-Kernel-11"><span class="toc-text">2 Getting Started with the Kernel 11</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Kernel-Source-Tree-12"><span class="toc-text">The Kernel Source Tree 12</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Process-Management-23"><span class="toc-text">3 Process Management 23</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Process-Scheduling-41"><span class="toc-text">4 Process Scheduling 41</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-System-Calls-69"><span class="toc-text">5 System Calls 69</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-Kernel-Data-Structures-85"><span class="toc-text">6 Kernel Data Structures 85</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-Interrupts-and-Interrupt-Handlers-113"><span class="toc-text">7 Interrupts and Interrupt Handlers 113</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-Bottom-Halves-and-Deferring-Work-133"><span class="toc-text">8 Bottom Halves and Deferring Work 133</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-An-Introduction-to-Kernel-Synchronization-161"><span class="toc-text">9 An Introduction to Kernel Synchronization 161</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10-Kernel-Synchronization-Methods-175"><span class="toc-text">10 Kernel Synchronization Methods 175</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#11-Timers-and-Time-Management-207"><span class="toc-text">11 Timers and Time Management 207</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12-Memory-Management-231"><span class="toc-text">12 Memory Management 231</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13-The-Virtual-Filesystem-261"><span class="toc-text">13 The Virtual Filesystem 261</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#14-The-Block-I-O-Layer-289"><span class="toc-text">14 The Block I/O Layer 289</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#15-The-Process-Address-Space-305"><span class="toc-text">15 The Process Address Space 305</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#16-The-Page-Cache-and-Page-Writeback-323"><span class="toc-text">16 The Page Cache and Page Writeback 323</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#17-Devices-and-Modules-337"><span class="toc-text">17 Devices and Modules 337</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#18-Debugging-363"><span class="toc-text">18 Debugging 363</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#19-Portability-379"><span class="toc-text">19 Portability 379</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#20-Patches-Hacking-and-the-Community-395"><span class="toc-text">20 Patches, Hacking, and the Community 395</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Bibliography-407"><span class="toc-text">Bibliography 407</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Index-411"><span class="toc-text">Index 411</span></a></li></ol>
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<!--<a id="toc-btn">
+    <i class="fa fa-bars"></i>
+</a>-->
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>
