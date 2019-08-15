@@ -174,7 +174,21 @@
 <li>WTL</li>
 <li>MFC</li>
 </ol>
-<h2 id="Windows-and-Messages"><a href="#Windows-and-Messages" class="headerlink" title="Windows and Messages"></a><a href="https://docs.microsoft.com/zh-cn/windows/win32/winmsg/windowing" target="_blank" rel="noopener">Windows and Messages</a></h2>
+<h1 id="Windows-and-Messages"><a href="#Windows-and-Messages" class="headerlink" title="Windows and Messages"></a><a href="https://docs.microsoft.com/zh-cn/windows/win32/winmsg/windowing" target="_blank" rel="noopener">Windows and Messages</a></h1><h2 id="About-Windows"><a href="#About-Windows" class="headerlink" title="About Windows"></a><a href="https://docs.microsoft.com/en-us/windows/win32/winmsg/about-windows" target="_blank" rel="noopener">About Windows</a></h2><p>The WindowFromPoint function retrieves a handle to the window occupying a particular point on the screen. Similarly, the ChildWindowFromPoint and ChildWindowFromPointEx functions retrieve a handle to the child window occupying a particular point in the parent window’s client area.     </p>
+<p>An application uses the GetSystemMetrics function with the SM_CXMIN and SM_CYMIN flags.    </p>
+<p>The AdjustWindowRect and AdjustWindowRectEx functions calculate the required size of a window based on the desired size of the client area.     </p>
+<p>Before setting a window’s size, the application should check the width and height of the screen by using GetSystemMetrics with the SM_CXSCREEN and SM_CYSCREEN flags.</p>
+<p>A window that has no parent, or whose parent is the desktop window, is called a top-level window.    </p>
+<p>An owned window always appears in front of its owner window, is hidden when its owner window is minimized, and is destroyed when its owner window is destroyed.     </p>
+<p>An application can include a menu by providing a menu handle either when registering the window’s class or when creating the window.    </p>
+<p>Every window can have application-defined creation data associated with it. When the window is first created, the system passes a pointer to the data on to the window procedure of the window being created. The window procedure uses the data to initialize application-defined variables.   </p>
+<p>The IsWindow function determines whether a window handle identifies a valid, existing window.    </p>
+<p>Normally, the flag can be set to any of the constants beginning with the SW_ prefix. However, when ShowWindow is called to display the application’s main window, the flag must be set to SW_SHOWDEFAULT.    </p>
+<p>If a window class was registered with the Unicode version of RegisterClass, the window receives only Unicode messages. To determine whether a window uses the Unicode character set or not, call IsWindowUnicode.    </p>
+<p>The system sends the WM_NCCREATE message after creating the window’s nonclient area and the WM_CREATE message after creating the client area.    </p>
+<p>When creating a child window, the system sends the WM_PARENTNOTIFY message to the parent window after sending the WM_NCCREATE and WM_CREATE messages.    </p>
+<p>An application can use the EnumThreadWindows function to enumerate the windows created by a particular thread. This function passes the handle to each thread window, in turn, to an application-defined callback function, EnumThreadWndProc.   </p>
+
     </div>
 
     <div class="post-footer">
@@ -237,7 +251,7 @@
                     <aside id="article-toc" role="navigation" class="col-md-4">
     <div class="widget">
         <h3 class="title">文章目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows-and-Messages"><span class="toc-text">Windows and Messages</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Windows-and-Messages"><span class="toc-text">Windows and Messages</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#About-Windows"><span class="toc-text">About Windows</span></a></li></ol></li></ol>
     </div>
 </aside>
 
