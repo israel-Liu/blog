@@ -188,7 +188,33 @@
 <p>The system sends the WM_NCCREATE message after creating the window’s nonclient area and the WM_CREATE message after creating the client area.    </p>
 <p>When creating a child window, the system sends the WM_PARENTNOTIFY message to the parent window after sending the WM_NCCREATE and WM_CREATE messages.    </p>
 <p>An application can use the EnumThreadWindows function to enumerate the windows created by a particular thread. This function passes the handle to each thread window, in turn, to an application-defined callback function, EnumThreadWndProc.   </p>
-
+<h2 id="Window-Features"><a href="#Window-Features" class="headerlink" title="Window Features"></a><a href="https://docs.microsoft.com/en-us/windows/win32/winmsg/window-features" target="_blank" rel="noopener">Window Features</a></h2><p>The WS_CAPTION style must be combined with the WS_POPUPWINDOW style to make the window menu visible.   </p>
+<p>If you specify the WS_CHILD style in CreateWindowEx but do not specify a parent window, the system does not create the window.   </p>
+<p>An application can request a title bar, a window menu, minimize and maximize buttons, a border, and scroll bars for a child window, but a child window cannot have a menu.  </p>
+<p>The system does not automatically clip a child window from the parent window’s client area.    </p>
+<p>This means the parent window draws over the child window if it carries out any drawing in the same location as the child window.   </p>
+<p>However, the system does clip the child window from the parent window’s client area if the parent window has the WS_CLIPCHILDREN style. </p>
+<p>If the child window is clipped, the parent window cannot draw over it.   </p>
+<p>When calling the SetParent function, system removes the child window from the client area of the old parent window and moves it to the client area of the new parent window.  </p>
+<p>The parent window relinquishes a portion of its client area to a child window, and the child window receives all input from this area.   </p>
+<p>The system passes a child window’s input messages directly to the child window; the messages are not passed through the parent window.<br>The only exception is if the child window has been disabled by the EnableWindow function.     </p>
+<p>The system automatically composes and repaints layered windows and the windows of underlying applications.   </p>
+<p>The layered window will not become visible until the SetLayeredWindowAttributes or UpdateLayeredWindow function has been called for this window.</p>
+<p>In addition, layered windows can be partially translucent, that is, alpha-blended.   </p>
+<p>Please note that after SetLayeredWindowAttributes has been called, subsequent UpdateLayeredWindow calls will fail until the layering style bit is cleared and set again.  </p>
+<p>Hit testing of a layered window is based on the shape and transparency of the window. This means that the areas of the window that are color-keyed or whose alpha value is zero will let the mouse messages through. However, if the layered window has the WS_EX_TRANSPARENT extended window style, the shape of the layered window will be ignored and the mouse events will be passed to other windows underneath the layered window.    </p>
+<p>A window may be an owned window, foreground window, or background window. A window also has a z-order relative to other windows.    </p>
+<p>The thread that created the window with which the user is currently working is called the foreground thread, and the window is called the foreground window.<br>All other threads are background threads, and the windows created by background threads are called background windows.   </p>
+<p>Beginning with Windows 8, WS_EX_LAYERED can be used with child windows and top-level windows.    </p>
+<p>Only an overlapped or pop-up window can be an owner window; a child window cannot be an owner window. An application creates an owned window by specifying the owner’s window handle as the hwndParent parameter of CreateWindowEx when it creates a window with the WS_OVERLAPPED or WS_POPUP style. The hwndParent parameter must identify an overlapped or pop-up window. If hwndParent identifies a child window, the system assigns ownership to the top-level parent window of the child window. After creating an owned window, an application cannot transfer ownership of the window to another window.   </p>
+<p>A topmost window overlaps all other non-topmost windows, regardless of whether it is the active or foreground window.  </p>
+<p>When an application creates a window, the system puts it at the top of the z-order for windows of the same type. You can use the BringWindowToTop function to bring a window to the top of the z-order for windows of the same type. You can rearrange the z-order by using the SetWindowPos and DeferWindowPos functions.   </p>
+<p>The system positions the active window at the top of the z-order for windows of the same type.    </p>
+<p>When the activation changes from a top-level window of one application to the top-level window of another, the system sends a WM_ACTIVATEAPP message to both applications, notifying them of the change. When the activation changes to a different top-level window in the same application, the system sends both windows a WM_ACTIVATE message.   </p>
+<p>In both cases, the system sends the WM_SHOWWINDOW message to the owned windows before hiding or showing them.   </p>
+<p>If the application has created other top-level windows, the system bases the size of the new window on the size of the application’s most recently created top-level window.   </p>
+<p>An application can emulate the user action by sending a WM_SYSCOMMAND message to the window.    </p>
+<h3 id="Window-Show-State"><a href="#Window-Show-State" class="headerlink" title="Window Show State"></a>Window Show State</h3>
     </div>
 
     <div class="post-footer">
@@ -251,7 +277,7 @@
                     <aside id="article-toc" role="navigation" class="col-md-4">
     <div class="widget">
         <h3 class="title">文章目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Windows-and-Messages"><span class="toc-text">Windows and Messages</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#About-Windows"><span class="toc-text">About Windows</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Windows-and-Messages"><span class="toc-text">Windows and Messages</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#About-Windows"><span class="toc-text">About Windows</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Window-Features"><span class="toc-text">Window Features</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Window-Show-State"><span class="toc-text">Window Show State</span></a></li></ol></li></ol></li></ol>
     </div>
 </aside>
 
